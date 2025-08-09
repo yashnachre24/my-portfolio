@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio | YASH NACHRE</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+
+    header,
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .container {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .btn-category {
+      display: inline-flex;
+      background: black;
+      color: gold;
+      border: 3px solid gold;
+      padding: 40px 0;
+      font-size: 1.4rem;
+      font-weight: 700;
+      border-radius: 20px;
+      text-decoration: none;
+      box-shadow: 0 6px 12px rgba(218, 165, 32, 0.6);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                  box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      user-select: none;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      height: 160px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .btn-category:hover {
+      background: gold;
+      color: black;
+      border-color: black;
+      box-shadow: 0 12px 24px rgba(218, 165, 32, 0.9);
+      transform: scale(1.07);
+    }
+
+    footer {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>YASH NACHRE</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html" class="active">Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Portfolio Categories</h2>
+  <div class="grid">
+    <a href="best-videos.html" class="btn-category">Best Videos</a>
+    <a href="ai-videos.html" class="btn-category">AI-Generated Videos</a>
+    <a href="podcasts.html" class="btn-category">Podcast Trailers</a>
+    <a href="youtube-videos.html" class="btn-category">YouTube Videos</a>
+    <a href="popular.html" class="btn-category">Popular Videos</a>
+    <a href="educational.html" class="btn-category">Educational</a>
+    <a href="real-estate.html" class="btn-category">Real Estate Videos</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 | Designed by Yash Nachre</p>
+</footer>
+
+</body>
+</html>

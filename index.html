@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YASH NACHRE | Video Editing Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+      color: #222;
+      text-align: center;
+    }
+    header, footer {
+      background: #222;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    nav a:hover,
+    nav a.active {
+      color: gold;
+    }
+    .hero {
+      padding: 50px 20px 40px;
+      background: white;
+      max-width: 800px;
+      margin: 30px auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      color: black; /* Changed to black for better visibility */
+    }
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      color: #555;
+    }
+    .button {
+      background: black;
+      color: gold;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      border: 3px solid gold;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    .button:hover {
+      background: gold;
+      color: black;
+      border-color: black;
+    }
+    .highlights {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-top: 40px;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #222;
+    }
+    .highlight-item {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      width: 220px;
+    }
+    .highlight-number {
+      font-size: 3.5rem;
+      color: gold;
+      margin-bottom: 10px;
+    }
+    .highlight-text {
+      font-size: 1.1rem;
+      color: #555;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px 40px;
+    }
+    .container h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .container p {
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+      color: #555;
+    }
+    iframe {
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 700px) {
+      .highlights {
+        flex-direction: column;
+        gap: 25px;
+      }
+      .highlight-item {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>YASH NACHRE</h1>
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Yash Nachre Video Editing Portfolio</h2>
+  <p>Traveler | Video Editor | AI Artist</p>
+  <a class="button" href="portfolio.html">View My Work</a>
+
+  <div class="highlights">
+    <div class="highlight-item">
+      <div id="count-videos" class="highlight-number">0</div>
+      <div class="highlight-text">Videos Edited</div>
+    </div>
+    <div class="highlight-item">
+      <div id="count-ai" class="highlight-number">0</div>
+      <div class="highlight-text">AI Tools Used</div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <h2>Featured Reel</h2>
+  <p>Watch my best highlights in under 90 seconds.</p>
+  <iframe width="100%" height="400" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<footer>
+  <p>© 2025 | Designed by Yash Nachre</p>
+</footer>
+
+<script>
+  // Count up animation that finishes in 5 seconds (5000ms)
+  function animateCount(id, target, duration) {
+    const el = document.getElementById(id);
+    let start = 0;
+    const increment = target / (duration / 20); // update every 20ms
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= target) {
+        el.textContent = target + '+';
+        clearInterval(timer);
+      } else {
+        el.textContent = Math.floor(start) + '+';
+      }
+    }, 20);
+  }
+  window.onload = function () {
+    animateCount('count-videos', 3500, 5000);
+    animateCount('count-ai', 50, 5000);
+  };
+</script>
+
+</body>
+</html>
