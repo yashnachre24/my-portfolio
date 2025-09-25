@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>YASH NACHRE | Video Portfolio</title>
+<title>YASH NACHRE | Video Editing Portfolio</title>
 <link rel="stylesheet" href="style.css" />
 <style>
   body {
@@ -11,31 +11,74 @@
     margin: 0;
     background: #f5f5f5;
     color: #222;
+    text-align: center;
   }
   header, footer {
     background: #222;
     color: white;
-    text-align: center;
     padding: 1rem;
+    text-align: center;
   }
   nav a {
     color: white;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 12px;
     font-weight: 600;
+    font-size: 1rem;
   }
-  nav a.active { color: gold; }
+  nav a:hover, nav a.active { color: gold; }
+
+  .hero {
+    padding: 50px 20px 40px;
+    background: white;
+    max-width: 800px;
+    margin: 30px auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  .hero h2 { font-size: 2.8rem; margin-bottom: 10px; color: black; }
+  .hero p { font-size: 1.3rem; margin-bottom: 30px; color: #555; }
+  .button {
+    background: black;
+    color: gold;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border: 3px solid gold;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+  .button:hover { background: gold; color: black; border-color: black; }
+
+  .highlights {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 40px;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #222;
+  }
+  .highlight-item {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 220px;
+  }
+  .highlight-number { font-size: 3.5rem; color: gold; margin-bottom: 10px; }
+  .highlight-text { font-size: 1.1rem; color: #555; }
 
   .container {
     max-width: 1200px;
     margin: 40px auto;
-    padding: 0 20px;
+    padding: 0 20px 40px;
+    text-align: left;
   }
 
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-  }
+  h2 { font-size: 2rem; margin-bottom: 15px; }
 
   .category-header {
     display: flex;
@@ -54,12 +97,7 @@
     border: 2px solid gold;
     transition: all 0.3s ease;
   }
-
-  .view-all-btn:hover {
-    background: gold;
-    color: black;
-    border-color: black;
-  }
+  .view-all-btn:hover { background: gold; color: black; border-color: black; }
 
   .video-row {
     display: flex;
@@ -69,14 +107,8 @@
     padding-bottom: 15px;
     margin-bottom: 40px;
   }
-
-  .video-row::-webkit-scrollbar {
-    height: 8px;
-  }
-  .video-row::-webkit-scrollbar-thumb {
-    background: gold;
-    border-radius: 4px;
-  }
+  .video-row::-webkit-scrollbar { height: 8px; }
+  .video-row::-webkit-scrollbar-thumb { background: gold; border-radius: 4px; }
 
   .video-card {
     flex: 0 0 auto;
@@ -85,20 +117,18 @@
     overflow: hidden;
     box-shadow: 0 6px 20px rgba(0,0,0,0.1);
   }
-
   .video-card iframe {
     width: 100%;
     height: 200px;
     border: none;
   }
 
-  @media(max-width:900px){
-    .video-card { width: 250px; }
+  @media(max-width:900px){ .video-card{ width:250px; } }
+  @media(max-width:600px){ .video-card{ width:200px; } }
+  @media (max-width:700px) {
+    .highlights { flex-direction: column; gap: 25px; }
+    .highlight-item { width: 100%; }
   }
-  @media(max-width:600px){
-    .video-card { width: 200px; }
-  }
-
 </style>
 </head>
 <body>
@@ -106,12 +136,35 @@
 <header>
   <h1>YASH NACHRE</h1>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="portfolio.html" class="active">Portfolio</a>
+    <a href="index.html" class="active">Home</a>
+    <a href="portfolio.html">Portfolio</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
+
+<section class="hero">
+  <h2>Yash Nachre Video Editing Portfolio</h2>
+  <p>Traveler | Video Editor | AI Artist</p>
+  <a class="button" href="portfolio.html">View My Work</a>
+
+  <div class="highlights">
+    <div class="highlight-item">
+      <div id="count-videos" class="highlight-number">0</div>
+      <div class="highlight-text">Videos Edited</div>
+    </div>
+    <div class="highlight-item">
+      <div id="count-ai" class="highlight-number">0</div>
+      <div class="highlight-text">AI Tools Used</div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <h2>Featured Reel</h2>
+  <p>Watch my best highlights in under 90 seconds.</p>
+  <iframe width="100%" height="400" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+</div>
 
 <div class="container">
   <!-- Best Videos -->
@@ -156,55 +209,60 @@
 </footer>
 
 <script>
-  // Video arrays
-  const bestVideos = [
-    "https://drive.google.com/file/d/1VDo1Zg_m2cnG_gtoc-y1VavjPCH6z2Vw/preview",
-    "https://drive.google.com/file/d/1AXeonbWOZmopnwgLVwwtiDxvIBX3NwZq/preview",
-    "https://drive.google.com/file/d/1eWbgvm37bNtbkue0NwGG9uW1OeLc8spr/preview"
-  ];
-
-  const aiVideos = [
-    "https://drive.google.com/file/d/1f5dgDF1bq-2R2-cSixNAldfKCE-9ws2Y/preview",
-    "https://drive.google.com/file/d/19jJ7YDtiosYjiu6g6j9jJiyU4vgFNxD5/preview",
-    "https://drive.google.com/file/d/1H-L7W_tNSZP0a8FxtxHq3RGRFGhyQLOb/preview",
-    "https://drive.google.com/file/d/1YjQ50-KTPjN1jWjR_onScV64XEoKUbUu/preview",
-    "https://drive.google.com/file/d/1smSvJNY668_dUM7RrK7I0NuW74a_STqv/preview",
-    "https://drive.google.com/file/d/1J8miodTztqMKmnlDPLwEpWSbgWDMz9kT/preview"
-  ];
-
-  const podcastVideos = [
-    "https://drive.google.com/file/d/1LODEa-_a76V1VUH5yZD1I9YH9TXy3S7O/preview",
-    "https://drive.google.com/file/d/1FDY-FfyDRdN1m9wczhNAFGP2cbby42O7/preview",
-    "https://drive.google.com/file/d/1m15qG03bqAMSFUnFvcKbJ_64zMlm4qJG/preview"
-  ];
-
-  const youtubeVideos = [
-    "https://www.youtube.com/embed/tCl4hL-hD9A",
-    "https://www.youtube.com/embed/jMc51iUEqgg",
-    "https://www.youtube.com/embed/jDNpoVnxRcQ",
-    "https://www.youtube.com/embed/Vp-yhZkApqY"
-  ];
-
-  function shuffleArray(array) {
-    return array.sort(() => Math.random() - 0.5);
+  // Count up animation
+  function animateCount(id, target, duration) {
+    const el = document.getElementById(id);
+    let start = 0;
+    const increment = target / (duration / 20);
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= target) { el.textContent = target + '+'; clearInterval(timer); }
+      else { el.textContent = Math.floor(start) + '+'; }
+    }, 20);
   }
 
-  function populateVideos(rowId, videos) {
+  window.onload = function () {
+    animateCount('count-videos', 3500, 5000);
+    animateCount('count-ai', 15, 5000);
+
+    // Populate videos
+    populateVideos("bestVideosRow", [
+      "https://drive.google.com/file/d/1VDo1Zg_m2cnG_gtoc-y1VavjPCH6z2Vw/preview",
+      "https://drive.google.com/file/d/1AXeonbWOZmopnwgLVwwtiDxvIBX3NwZq/preview",
+      "https://drive.google.com/file/d/1eWbgvm37bNtbkue0NwGG9uW1OeLc8spr/preview"
+    ]);
+    populateVideos("aiVideosRow", [
+      "https://drive.google.com/file/d/1f5dgDF1bq-2R2-cSixNAldfKCE-9ws2Y/preview",
+      "https://drive.google.com/file/d/19jJ7YDtiosYjiu6g6j9jJiyU4vgFNxD5/preview",
+      "https://drive.google.com/file/d/1H-L7W_tNSZP0a8FxtxHq3RGRFGhyQLOb/preview",
+      "https://drive.google.com/file/d/1YjQ50-KTPjN1jWjR_onScV64XEoKUbUu/preview",
+      "https://drive.google.com/file/d/1smSvJNY668_dUM7RrK7I0NuW74a_STqv/preview",
+      "https://drive.google.com/file/d/1J8miodTztqMKmnlDPLwEpWSbgWDMz9kT/preview"
+    ]);
+    populateVideos("podcastRow", [
+      "https://drive.google.com/file/d/1LODEa-_a76V1VUH5yZD1I9YH9TXy3S7O/preview",
+      "https://drive.google.com/file/d/1FDY-FfyDRdN1m9wczhNAFGP2cbby42O7/preview",
+      "https://drive.google.com/file/d/1m15qG03bqAMSFUnFvcKbJ_64zMlm4qJG/preview"
+    ]);
+    populateVideos("youtubeRow", [
+      "https://www.youtube.com/embed/tCl4hL-hD9A",
+      "https://www.youtube.com/embed/jMc51iUEqgg",
+      "https://www.youtube.com/embed/jDNpoVnxRcQ",
+      "https://www.youtube.com/embed/Vp-yhZkApqY"
+    ]);
+  };
+
+  function shuffleArray(array){ return array.sort(()=>Math.random()-0.5); }
+
+  function populateVideos(rowId, videos){
     const row = document.getElementById(rowId);
-    const shuffled = shuffleArray(videos);
-    shuffled.forEach(src => {
+    shuffleArray(videos).forEach(src=>{
       const div = document.createElement("div");
-      div.className = "video-card";
-      div.innerHTML = `<iframe src="${src}" allowfullscreen></iframe>`;
+      div.className="video-card";
+      div.innerHTML=`<iframe src="${src}" allowfullscreen></iframe>`;
       row.appendChild(div);
     });
   }
-
-  // Populate all rows
-  populateVideos("bestVideosRow", bestVideos);
-  populateVideos("aiVideosRow", aiVideos);
-  populateVideos("podcastRow", podcastVideos);
-  populateVideos("youtubeRow", youtubeVideos);
 </script>
 
 </body>
