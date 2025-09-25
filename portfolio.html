@@ -33,29 +33,44 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
       gap: 30px;
       margin-top: 30px;
     }
 
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .btn-category {
-      display: inline-flex;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background: black;
       color: gold;
       border: 3px solid gold;
-      padding: 40px 0;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       font-weight: 700;
       border-radius: 20px;
       text-decoration: none;
       box-shadow: 0 6px 12px rgba(218, 165, 32, 0.6);
-      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
-                  box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      user-select: none;
-      width: 100%;
-      justify-content: center;
-      align-items: center;
-      height: 160px;
+      transition: transform 0.35s, box-shadow 0.35s;
+      height: 150px;
       text-align: center;
       cursor: pointer;
     }
@@ -65,7 +80,7 @@
       color: black;
       border-color: black;
       box-shadow: 0 12px 24px rgba(218, 165, 32, 0.9);
-      transform: scale(1.07);
+      transform: scale(1.05);
     }
 
     footer {
@@ -92,7 +107,6 @@
     <a href="ai-videos.html" class="btn-category">AI-Generated Videos</a>
     <a href="podcasts.html" class="btn-category">Podcast Trailers</a>
     <a href="youtube-videos.html" class="btn-category">YouTube Videos</a>
-    <a href="real-estate.html" class="btn-category">Real Estate Videos</a>
   </div>
 </div>
 
