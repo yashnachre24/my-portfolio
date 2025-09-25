@@ -13,12 +13,14 @@
       color: #222;
       text-align: center;
     }
+
     header, footer {
       background: #222;
       color: white;
       padding: 1rem;
       text-align: center;
     }
+
     nav a {
       color: white;
       text-decoration: none;
@@ -26,10 +28,12 @@
       font-weight: 600;
       font-size: 1rem;
     }
+
     nav a:hover,
     nav a.active {
       color: gold;
     }
+
     .hero {
       padding: 50px 20px 40px;
       background: white;
@@ -38,16 +42,19 @@
       border-radius: 12px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     }
+
     .hero h2 {
       font-size: 2.8rem;
       margin-bottom: 10px;
-      color: black; /* Changed to black for better visibility */
+      color: black;
     }
+
     .hero p {
       font-size: 1.3rem;
       margin-bottom: 30px;
       color: #555;
     }
+
     .button {
       background: black;
       color: gold;
@@ -60,11 +67,13 @@
       transition: all 0.3s ease;
       display: inline-block;
     }
+
     .button:hover {
       background: gold;
       color: black;
       border-color: black;
     }
+
     .highlights {
       display: flex;
       justify-content: center;
@@ -74,6 +83,7 @@
       font-size: 2rem;
       color: #222;
     }
+
     .highlight-item {
       background: white;
       padding: 30px 40px;
@@ -81,44 +91,135 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       width: 220px;
     }
+
     .highlight-number {
       font-size: 3.5rem;
       color: gold;
       margin-bottom: 10px;
     }
+
     .highlight-text {
       font-size: 1.1rem;
       color: #555;
     }
+
     .container {
-      max-width: 900px;
+      max-width: 1200px;
       margin: 40px auto;
       padding: 0 20px 40px;
+      text-align: left;
     }
+
     .container h2 {
       font-size: 2rem;
       margin-bottom: 10px;
     }
+
     .container p {
       margin-bottom: 25px;
       font-size: 1.1rem;
       color: #555;
     }
-    iframe {
+
+    /* Portfolio Categories Horizontal Scroll */
+    .categories {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+
+    .categories::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .categories::-webkit-scrollbar-thumb {
+      background: gold;
+      border-radius: 4px;
+    }
+
+    .btn-category {
+      flex: 0 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: black;
+      color: gold;
+      border: 3px solid gold;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-radius: 20px;
+      text-decoration: none;
+      box-shadow: 0 6px 12px rgba(218, 165, 32, 0.6);
+      height: 120px;
+      width: 220px;
+      cursor: pointer;
+      transition: transform 0.35s, box-shadow 0.35s;
+    }
+
+    .btn-category:hover {
+      background: gold;
+      color: black;
+      border-color: black;
+      box-shadow: 0 12px 24px rgba(218, 165, 32, 0.9);
+      transform: scale(1.05);
+    }
+
+    /* Video Grid Horizontal Scroll */
+    .video-row {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .video-row::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .video-row::-webkit-scrollbar-thumb {
+      background: gold;
+      border-radius: 4px;
+    }
+
+    .video-card {
+      flex: 0 0 auto;
+      width: 350px;
       border-radius: 12px;
+      overflow: hidden;
       box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     }
-    footer p {
-      margin: 0;
-      font-size: 0.9rem;
+
+    .video-card iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
     }
-    @media (max-width: 700px) {
-      .highlights {
-        flex-direction: column;
-        gap: 25px;
+
+    footer {
+      margin-top: 40px;
+    }
+
+    @media (max-width: 900px) {
+      .video-card {
+        width: 250px;
       }
-      .highlight-item {
-        width: 100%;
+      .btn-category {
+        width: 180px;
+        height: 100px;
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .video-card {
+        width: 200px;
+      }
+      .btn-category {
+        width: 150px;
+        height: 90px;
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -153,9 +254,45 @@
 </section>
 
 <div class="container">
-  <h2>Featured Reel</h2>
-  <p>Watch my best highlights in under 90 seconds.</p>
-  <iframe width="100%" height="400" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+  <h2>Portfolio Categories</h2>
+  <div class="categories">
+    <a href="#best-videos" class="btn-category">Best Videos</a>
+    <a href="#ai-videos" class="btn-category">AI-Generated Videos</a>
+    <a href="#podcasts" class="btn-category">Podcast Trailers</a>
+    <a href="#youtube-videos" class="btn-category">YouTube Videos</a>
+  </div>
+
+  <!-- Best Videos -->
+  <h3 id="best-videos">Best Videos</h3>
+  <div class="video-row">
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/tCl4hL-hD9A?si=12R_weuJDKRpx1Kk" allowfullscreen></iframe>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/jMc51iUEqgg?si=lSTcOFVALpzWewDV" allowfullscreen></iframe>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/jDNpoVnxRcQ?si=2zUoFyxya1iAEL3N" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- AI Videos -->
+  <h3 id="ai-videos">AI-Generated Videos</h3>
+  <div class="video-row">
+    <!-- Add AI video cards here -->
+  </div>
+
+  <!-- Podcast Trailers -->
+  <h3 id="podcasts">Podcast Trailers</h3>
+  <div class="video-row">
+    <!-- Add Podcast video cards here -->
+  </div>
+
+  <!-- YouTube Videos -->
+  <h3 id="youtube-videos">YouTube Videos</h3>
+  <div class="video-row">
+    <!-- Add YouTube video cards here -->
+  </div>
 </div>
 
 <footer>
@@ -163,11 +300,10 @@
 </footer>
 
 <script>
-  // Count up animation that finishes in 5 seconds (5000ms)
   function animateCount(id, target, duration) {
     const el = document.getElementById(id);
     let start = 0;
-    const increment = target / (duration / 20); // update every 20ms
+    const increment = target / (duration / 20);
     const timer = setInterval(() => {
       start += increment;
       if (start >= target) {
@@ -186,4 +322,3 @@
 
 </body>
 </html>
-
