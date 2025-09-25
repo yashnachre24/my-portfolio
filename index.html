@@ -80,25 +80,6 @@
 
   h2 { font-size: 2rem; margin-bottom: 15px; }
 
-  .category-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-
-  .view-all-btn {
-    background: black;
-    color: gold;
-    padding: 8px 16px;
-    text-decoration: none;
-    font-weight: 700;
-    border-radius: 12px;
-    border: 2px solid gold;
-    transition: all 0.3s ease;
-  }
-  .view-all-btn:hover { background: gold; color: black; border-color: black; }
-
   .video-row {
     display: flex;
     gap: 20px;
@@ -161,47 +142,21 @@
 </section>
 
 <div class="container">
-  <h2>Featured Reel</h2>
-  <p>Watch my best highlights in under 90 seconds.</p>
-  <iframe width="100%" height="400" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-</div>
+  <!-- YouTube Videos -->
+  <h2>YouTube Videos</h2>
+  <div class="video-row" id="youtubeRow"></div>
 
-<div class="container">
   <!-- Best Videos -->
-  <div class="category">
-    <div class="category-header">
-      <h2>Best Videos</h2>
-      <a href="best-videos.html" class="view-all-btn">View All</a>
-    </div>
-    <div class="video-row" id="bestVideosRow"></div>
-  </div>
+  <h2>Best Videos</h2>
+  <div class="video-row" id="bestVideosRow"></div>
 
-  <!-- AI Videos -->
-  <div class="category">
-    <div class="category-header">
-      <h2>AI Generated Videos</h2>
-      <a href="ai-videos.html" class="view-all-btn">View All</a>
-    </div>
-    <div class="video-row" id="aiVideosRow"></div>
-  </div>
+  <!-- AI Generated Videos -->
+  <h2>AI Generated Videos</h2>
+  <div class="video-row" id="aiVideosRow"></div>
 
   <!-- Podcast Trailers -->
-  <div class="category">
-    <div class="category-header">
-      <h2>Podcast Trailers</h2>
-      <a href="podcasts.html" class="view-all-btn">View All</a>
-    </div>
-    <div class="video-row" id="podcastRow"></div>
-  </div>
-
-  <!-- YouTube Videos -->
-  <div class="category">
-    <div class="category-header">
-      <h2>YouTube Videos</h2>
-      <a href="youtube-videos.html" class="view-all-btn">View All</a>
-    </div>
-    <div class="video-row" id="youtubeRow"></div>
-  </div>
+  <h2>Podcast Trailers</h2>
+  <div class="video-row" id="podcastRow"></div>
 </div>
 
 <footer>
@@ -221,37 +176,6 @@
     }, 20);
   }
 
-  window.onload = function () {
-    animateCount('count-videos', 3500, 5000);
-    animateCount('count-ai', 15, 5000);
-
-    // Populate videos
-    populateVideos("bestVideosRow", [
-      "https://drive.google.com/file/d/1VDo1Zg_m2cnG_gtoc-y1VavjPCH6z2Vw/preview",
-      "https://drive.google.com/file/d/1AXeonbWOZmopnwgLVwwtiDxvIBX3NwZq/preview",
-      "https://drive.google.com/file/d/1eWbgvm37bNtbkue0NwGG9uW1OeLc8spr/preview"
-    ]);
-    populateVideos("aiVideosRow", [
-      "https://drive.google.com/file/d/1f5dgDF1bq-2R2-cSixNAldfKCE-9ws2Y/preview",
-      "https://drive.google.com/file/d/19jJ7YDtiosYjiu6g6j9jJiyU4vgFNxD5/preview",
-      "https://drive.google.com/file/d/1H-L7W_tNSZP0a8FxtxHq3RGRFGhyQLOb/preview",
-      "https://drive.google.com/file/d/1YjQ50-KTPjN1jWjR_onScV64XEoKUbUu/preview",
-      "https://drive.google.com/file/d/1smSvJNY668_dUM7RrK7I0NuW74a_STqv/preview",
-      "https://drive.google.com/file/d/1J8miodTztqMKmnlDPLwEpWSbgWDMz9kT/preview"
-    ]);
-    populateVideos("podcastRow", [
-      "https://drive.google.com/file/d/1LODEa-_a76V1VUH5yZD1I9YH9TXy3S7O/preview",
-      "https://drive.google.com/file/d/1FDY-FfyDRdN1m9wczhNAFGP2cbby42O7/preview",
-      "https://drive.google.com/file/d/1m15qG03bqAMSFUnFvcKbJ_64zMlm4qJG/preview"
-    ]);
-    populateVideos("youtubeRow", [
-      "https://www.youtube.com/embed/tCl4hL-hD9A",
-      "https://www.youtube.com/embed/jMc51iUEqgg",
-      "https://www.youtube.com/embed/jDNpoVnxRcQ",
-      "https://www.youtube.com/embed/Vp-yhZkApqY"
-    ]);
-  };
-
   function shuffleArray(array){ return array.sort(()=>Math.random()-0.5); }
 
   function populateVideos(rowId, videos){
@@ -263,6 +187,39 @@
       row.appendChild(div);
     });
   }
+
+  window.onload = function () {
+    animateCount('count-videos', 3500, 5000);
+    animateCount('count-ai', 15, 5000);
+
+    populateVideos("youtubeRow", [
+      "https://www.youtube.com/embed/tCl4hL-hD9A",
+      "https://www.youtube.com/embed/jMc51iUEqgg",
+      "https://www.youtube.com/embed/jDNpoVnxRcQ",
+      "https://www.youtube.com/embed/Vp-yhZkApqY"
+    ]);
+
+    populateVideos("bestVideosRow", [
+      "https://drive.google.com/file/d/1VDo1Zg_m2cnG_gtoc-y1VavjPCH6z2Vw/preview",
+      "https://drive.google.com/file/d/1AXeonbWOZmopnwgLVwwtiDxvIBX3NwZq/preview",
+      "https://drive.google.com/file/d/1eWbgvm37bNtbkue0NwGG9uW1OeLc8spr/preview"
+    ]);
+
+    populateVideos("aiVideosRow", [
+      "https://drive.google.com/file/d/1f5dgDF1bq-2R2-cSixNAldfKCE-9ws2Y/preview",
+      "https://drive.google.com/file/d/19jJ7YDtiosYjiu6g6j9jJiyU4vgFNxD5/preview",
+      "https://drive.google.com/file/d/1H-L7W_tNSZP0a8FxtxHq3RGRFGhyQLOb/preview",
+      "https://drive.google.com/file/d/1YjQ50-KTPjN1jWjR_onScV64XEoKUbUu/preview",
+      "https://drive.google.com/file/d/1smSvJNY668_dUM7RrK7I0NuW74a_STqv/preview",
+      "https://drive.google.com/file/d/1J8miodTztqMKmnlDPLwEpWSbgWDMz9kT/preview"
+    ]);
+
+    populateVideos("podcastRow", [
+      "https://drive.google.com/file/d/1LODEa-_a76V1VUH5yZD1I9YH9TXy3S7O/preview",
+      "https://drive.google.com/file/d/1FDY-FfyDRdN1m9wczhNAFGP2cbby42O7/preview",
+      "https://drive.google.com/file/d/1m15qG03bqAMSFUnFvcKbJ_64zMlm4qJG/preview"
+    ]);
+  };
 </script>
 
 </body>
