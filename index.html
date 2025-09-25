@@ -1,164 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>YASH NACHRE | Video Editing Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f5f5f5;
-      color: #222;
-      text-align: center;
-    }
-    header, footer {
-      background: #222;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 12px;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-    nav a:hover, nav a.active {
-      color: gold;
-    }
-    .hero {
-      padding: 50px 20px 40px;
-      background: white;
-      max-width: 800px;
-      margin: 30px auto;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    }
-    .hero h2 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-      color: black;
-    }
-    .hero p {
-      font-size: 1.3rem;
-      margin-bottom: 30px;
-      color: #555;
-    }
-    .button {
-      background: black;
-      color: gold;
-      padding: 15px 40px;
-      font-size: 1.2rem;
-      border: 3px solid gold;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: all 0.3s ease;
-      display: inline-block;
-    }
-    .button:hover {
-      background: gold;
-      color: black;
-      border-color: black;
-    }
-    .highlights {
-      display: flex;
-      justify-content: center;
-      gap: 60px;
-      margin-top: 40px;
-      font-weight: 700;
-      font-size: 2rem;
-      color: #222;
-    }
-    .highlight-item {
-      background: white;
-      padding: 30px 40px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      width: 220px;
-    }
-    .highlight-number {
-      font-size: 3.5rem;
-      color: gold;
-      margin-bottom: 10px;
-    }
-    .highlight-text {
-      font-size: 1.1rem;
-      color: #555;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px 40px;
-      text-align: left;
-    }
-    .container h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-    .video-row {
-      display: flex;
-      gap: 20px;
-      overflow-x: auto;
-      padding-bottom: 10px;
-    }
-    .video-row::-webkit-scrollbar {
-      height: 8px;
-    }
-    .video-row::-webkit-scrollbar-thumb {
-      background: gold;
-      border-radius: 4px;
-    }
-    .video-card {
-      flex: 0 0 auto;
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    }
-    /* Vertical 9:16 for Best & AI */
-    .video-card.vertical {
-      width: 220px;
-      padding-top: calc(220px * 16 / 9);
-    }
-    .video-card.vertical iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    /* Horizontal 16:9 for YouTube & Podcast */
-    .video-card.horizontal {
-      width: 400px;
-      padding-top: 56.25%; /* 16:9 */
-    }
-    .video-card.horizontal iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    footer p {
-      margin: 0;
-      font-size: 0.9rem;
-    }
-    @media (max-width: 700px) {
-      .highlights {
-        flex-direction: column;
-        gap: 25px;
-      }
-      .highlight-item {
-        width: 100%;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>YASH NACHRE | Video Editing Portfolio</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f5f5f5;
+    color: #222;
+    text-align: center;
+  }
+  header, footer {
+    background: #222;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  nav a:hover, nav a.active { color: gold; }
+
+  .hero {
+    padding: 50px 20px 40px;
+    background: white;
+    max-width: 800px;
+    margin: 30px auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  .hero h2 { font-size: 2.8rem; margin-bottom: 10px; color: black; }
+  .hero p { font-size: 1.3rem; margin-bottom: 30px; color: #555; }
+  .button {
+    background: black;
+    color: gold;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border: 3px solid gold;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+  .button:hover { background: gold; color: black; border-color: black; }
+
+  .highlights {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 40px;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #222;
+  }
+  .highlight-item {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 220px;
+  }
+  .highlight-number { font-size: 3.5rem; color: gold; margin-bottom: 10px; }
+  .highlight-text { font-size: 1.1rem; color: #555; }
+
+  .container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px 40px;
+    text-align: left;
+  }
+
+  h2 { font-size: 2rem; margin-bottom: 15px; }
+
+  .video-row {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+  }
+  .video-row::-webkit-scrollbar { height: 8px; }
+  .video-row::-webkit-scrollbar-thumb { background: gold; border-radius: 4px; }
+
+  .video-card {
+    flex: 0 0 auto;
+    width: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  .video-card iframe {
+    width: 100%;
+    height: 200px;
+    border: none;
+  }
+
+  @media(max-width:900px){ .video-card{ width:250px; } }
+  @media(max-width:600px){ .video-card{ width:200px; } }
+  @media (max-width:700px) {
+    .highlights { flex-direction: column; gap: 25px; }
+    .highlight-item { width: 100%; }
+  }
+</style>
 </head>
 <body>
 
@@ -189,80 +141,22 @@
   </div>
 </section>
 
-<!-- YouTube Videos 16:9 -->
 <div class="container">
+  <!-- YouTube Videos -->
   <h2>YouTube Videos</h2>
-  <div class="video-row">
-    <div class="video-card horizontal">
-      <iframe src="https://www.youtube.com/embed/tCl4hL-hD9A" allowfullscreen></iframe>
-    </div>
-    <div class="video-card horizontal">
-      <iframe src="https://www.youtube.com/embed/jMc51iUEqgg" allowfullscreen></iframe>
-    </div>
-    <div class="video-card horizontal">
-      <iframe src="https://www.youtube.com/embed/jDNpoVnxRcQ" allowfullscreen></iframe>
-    </div>
-    <div class="video-card horizontal">
-      <iframe src="https://www.youtube.com/embed/Vp-yhZkApqY" allowfullscreen></iframe>
-    </div>
-  </div>
-</div>
+  <div class="video-row" id="youtubeRow"></div>
 
-<!-- Best Videos 9:16 -->
-<div class="container">
+  <!-- Best Videos -->
   <h2>Best Videos</h2>
-  <div class="video-row">
-    <div class="video-card vertical">
-      <iframe src="https://drive.google.com/file/d/1VDo1Zg_m2cnG_gtoc-y1VavjPCH6z2Vw/preview" allow="autoplay"></iframe>
-    </div>
-    <div class="video-card vertical">
-      <iframe src="https://drive.google.com/file/d/1AXeonbWOZmopnwgLVwwtiDxvIBX3NwZq/preview" allow="autoplay"></iframe>
-    </div>
-    <div class="video-card vertical">
-      <iframe src="https://drive.google.com/file/d/1eWbgvm37bNtbkue0NwGG9uW1OeLc8spr/preview" allow="autoplay"></iframe>
-    </div>
-  </div>
-</div>
+  <div class="video-row" id="bestVideosRow"></div>
 
-<!-- AI Videos 9:16 -->
-<div class="container">
+  <!-- AI Generated Videos -->
   <h2>AI Generated Videos</h2>
-  <div class="video-row">
-    <div class="video-card vertical">
-      <iframe src="https://drive.google.com/file/d/1f5dgDF1bq-2R2-cSixNAldfKCE-9ws2Y/preview" allow="autoplay"></iframe>
-    </div>
-    <div class="video-card vertical">
-      <iframe src="https://drive.google.com/file/d/19jJ7YDtiosYjiu6g6j9jJiyU4vgFNxD5/preview" allow="autoplay"></iframe>
-    </div>
-    <div class="video-card vertical">
-      <iframe src="https://drive.google.com/file/d/1H-L7W_tNSZP0a8FxtxHq3RGRFGhyQLOb/preview" allow="autoplay"></iframe>
-    </div>
-    <div class="video-card vertical">
-      <iframe src="https://drive.google.com/file/d/1YjQ50-KTPjN1jWjR_onScV64XEoKUbUu/preview" allow="autoplay"></iframe>
-    </div>
-    <div class="video-card vertical">
-      <iframe src="https://drive.google.com/file/d/1smSvJNY668_dUM7RrK7I0NuW74a_STqv/preview" allow="autoplay"></iframe>
-    </div>
-    <div class="video-card vertical">
-      <iframe src="https://drive.google.com/file/d/1J8miodTztqMKmnlDPLwEpWSbgWDMz9kT/preview" allow="autoplay"></iframe>
-    </div>
-  </div>
-</div>
+  <div class="video-row" id="aiVideosRow"></div>
 
-<!-- Podcast Trailers 16:9 -->
-<div class="container">
+  <!-- Podcast Trailers -->
   <h2>Podcast Trailers</h2>
-  <div class="video-row">
-    <div class="video-card horizontal">
-      <iframe src="https://drive.google.com/file/d/1LODEa-_a76V1VUH5yZD1I9YH9TXy3S7O/preview" allow="autoplay"></iframe>
-    </div>
-    <div class="video-card horizontal">
-      <iframe src="https://drive.google.com/file/d/1FDY-FfyDRdN1m9wczhNAFGP2cbby42O7/preview" allow="autoplay"></iframe>
-    </div>
-    <div class="video-card horizontal">
-      <iframe src="https://drive.google.com/file/d/1m15qG03bqAMSFUnFvcKbJ_64zMlm4qJG/preview" allow="autoplay"></iframe>
-    </div>
-  </div>
+  <div class="video-row" id="podcastRow"></div>
 </div>
 
 <footer>
@@ -276,17 +170,54 @@
     const increment = target / (duration / 20);
     const timer = setInterval(() => {
       start += increment;
-      if (start >= target) {
-        el.textContent = target + '+';
-        clearInterval(timer);
-      } else {
-        el.textContent = Math.floor(start) + '+';
-      }
+      if (start >= target) { el.textContent = target + '+'; clearInterval(timer); }
+      else { el.textContent = Math.floor(start) + '+'; }
     }, 20);
   }
+
+  function shuffleArray(array){ return array.sort(()=>Math.random()-0.5); }
+
+  function populateVideos(rowId, videos){
+    const row = document.getElementById(rowId);
+    shuffleArray(videos).forEach(src=>{
+      const div = document.createElement("div");
+      div.className="video-card";
+      div.innerHTML=`<iframe src="${src}" allowfullscreen></iframe>`;
+      row.appendChild(div);
+    });
+  }
+
   window.onload = function () {
     animateCount('count-videos', 3500, 5000);
     animateCount('count-ai', 15, 5000);
+
+    populateVideos("youtubeRow", [
+      "https://www.youtube.com/embed/tCl4hL-hD9A",
+      "https://www.youtube.com/embed/jMc51iUEqgg",
+      "https://www.youtube.com/embed/jDNpoVnxRcQ",
+      "https://www.youtube.com/embed/Vp-yhZkApqY"
+    ]);
+
+    populateVideos("bestVideosRow", [
+      "https://drive.google.com/file/d/1VDo1Zg_m2cnG_gtoc-y1VavjPCH6z2Vw/preview",
+      "https://drive.google.com/file/d/1AXeonbWOZmopnwgLVwwtiDxvIBX3NwZq/preview",
+      "https://drive.google.com/file/d/1eWbgvm37bNtbkue0NwGG9uW1OeLc8spr/preview"
+    ]);
+
+    populateVideos("aiVideosRow", [
+      "https://drive.google.com/file/d/1f5dgDF1bq-2R2-cSixNAldfKCE-9ws2Y/preview",
+      "https://drive.google.com/file/d/19jJ7YDtiosYjiu6g6j9jJiyU4vgFNxD5/preview",
+      "https://drive.google.com/file/d/1H-L7W_tNSZP0a8FxtxHq3RGRFGhyQLOb/preview",
+      "https://drive.google.com/file/d/1YjQ50-KTPjN1jWjR_onScV64XEoKUbUu/preview",
+      "https://drive.google.com/file/d/1smSvJNY668_dUM7RrK7I0NuW74a_STqv/preview",
+      "https://drive.google.com/file/d/1J8miodTztqMKmnlDPLwEpWSbgWDMz9kT/preview"
+    ]);
+
+    populateVideos("podcastRow", [
+      "https://drive.google.com/file/d/1LODEa-_a76V1VUH5yZD1I9YH9TXy3S7O/preview",
+      "https://drive.google.com/file/d/1FDY-FfyDRdN1m9wczhNAFGP2cbby42O7/preview",
+      "https://drive.google.com/file/d/1m15qG03bqAMSFUnFvcKbJ_64zMlm4qJG/preview"
+    ]);
   };
 </script>
 
