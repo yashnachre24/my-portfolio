@@ -1,297 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>YASH NACHRE | Video Editing Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f5f5f5;
-      color: #222;
-      text-align: center;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>YASH NACHRE | Video Portfolio</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f5f5f5;
+    color: #222;
+  }
+  header, footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 600;
+  }
+  nav a.active { color: gold; }
 
-    header, footer {
-      background: #222;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
+  .container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 12px;
-      font-weight: 600;
-      font-size: 1rem;
-    }
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
 
-    nav a:hover,
-    nav a.active {
-      color: gold;
-    }
+  .category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
 
-    .hero {
-      padding: 50px 20px 40px;
-      background: white;
-      max-width: 800px;
-      margin: 30px auto;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    }
+  .view-all-btn {
+    background: black;
+    color: gold;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 12px;
+    border: 2px solid gold;
+    transition: all 0.3s ease;
+  }
 
-    .hero h2 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-      color: black;
-    }
+  .view-all-btn:hover {
+    background: gold;
+    color: black;
+    border-color: black;
+  }
 
-    .hero p {
-      font-size: 1.3rem;
-      margin-bottom: 30px;
-      color: #555;
-    }
+  .video-row {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+  }
 
-    .button {
-      background: black;
-      color: gold;
-      padding: 15px 40px;
-      font-size: 1.2rem;
-      border: 3px solid gold;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: all 0.3s ease;
-      display: inline-block;
-    }
+  .video-row::-webkit-scrollbar {
+    height: 8px;
+  }
+  .video-row::-webkit-scrollbar-thumb {
+    background: gold;
+    border-radius: 4px;
+  }
 
-    .button:hover {
-      background: gold;
-      color: black;
-      border-color: black;
-    }
+  .video-card {
+    flex: 0 0 auto;
+    width: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
 
-    .highlights {
-      display: flex;
-      justify-content: center;
-      gap: 60px;
-      margin-top: 40px;
-      font-weight: 700;
-      font-size: 2rem;
-      color: #222;
-    }
+  .video-card iframe {
+    width: 100%;
+    height: 200px;
+    border: none;
+  }
 
-    .highlight-item {
-      background: white;
-      padding: 30px 40px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      width: 220px;
-    }
+  @media(max-width:900px){
+    .video-card { width: 250px; }
+  }
+  @media(max-width:600px){
+    .video-card { width: 200px; }
+  }
 
-    .highlight-number {
-      font-size: 3.5rem;
-      color: gold;
-      margin-bottom: 10px;
-    }
-
-    .highlight-text {
-      font-size: 1.1rem;
-      color: #555;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px 40px;
-      text-align: left;
-    }
-
-    .container h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .container p {
-      margin-bottom: 25px;
-      font-size: 1.1rem;
-      color: #555;
-    }
-
-    /* Portfolio Categories Horizontal Scroll */
-    .categories {
-      display: flex;
-      gap: 20px;
-      overflow-x: auto;
-      padding-bottom: 10px;
-      margin-bottom: 30px;
-    }
-
-    .categories::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    .categories::-webkit-scrollbar-thumb {
-      background: gold;
-      border-radius: 4px;
-    }
-
-    .btn-category {
-      flex: 0 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: black;
-      color: gold;
-      border: 3px solid gold;
-      font-size: 1.2rem;
-      font-weight: 700;
-      border-radius: 20px;
-      text-decoration: none;
-      box-shadow: 0 6px 12px rgba(218, 165, 32, 0.6);
-      height: 120px;
-      width: 220px;
-      cursor: pointer;
-      transition: transform 0.35s, box-shadow 0.35s;
-    }
-
-    .btn-category:hover {
-      background: gold;
-      color: black;
-      border-color: black;
-      box-shadow: 0 12px 24px rgba(218, 165, 32, 0.9);
-      transform: scale(1.05);
-    }
-
-    /* Video Grid Horizontal Scroll */
-    .video-row {
-      display: flex;
-      gap: 20px;
-      overflow-x: auto;
-      padding-bottom: 10px;
-    }
-
-    .video-row::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    .video-row::-webkit-scrollbar-thumb {
-      background: gold;
-      border-radius: 4px;
-    }
-
-    .video-card {
-      flex: 0 0 auto;
-      width: 350px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    }
-
-    .video-card iframe {
-      width: 100%;
-      height: 200px;
-      border: none;
-    }
-
-    footer {
-      margin-top: 40px;
-    }
-
-    @media (max-width: 900px) {
-      .video-card {
-        width: 250px;
-      }
-      .btn-category {
-        width: 180px;
-        height: 100px;
-        font-size: 1rem;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .video-card {
-        width: 200px;
-      }
-      .btn-category {
-        width: 150px;
-        height: 90px;
-        font-size: 0.9rem;
-      }
-    }
-  </style>
+</style>
 </head>
 <body>
 
 <header>
   <h1>YASH NACHRE</h1>
   <nav>
-    <a href="index.html" class="active">Home</a>
-    <a href="portfolio.html">Portfolio</a>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html" class="active">Portfolio</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-<section class="hero">
-  <h2>Yash Nachre Video Editing Portfolio</h2>
-  <p>Traveler | Video Editor | AI Artist</p>
-  <a class="button" href="portfolio.html">View My Work</a>
-
-  <div class="highlights">
-    <div class="highlight-item">
-      <div id="count-videos" class="highlight-number">0</div>
-      <div class="highlight-text">Videos Edited</div>
-    </div>
-    <div class="highlight-item">
-      <div id="count-ai" class="highlight-number">0</div>
-      <div class="highlight-text">AI Tools Used</div>
-    </div>
-  </div>
-</section>
-
 <div class="container">
-  <h2>Portfolio Categories</h2>
-  <div class="categories">
-    <a href="#best-videos" class="btn-category">Best Videos</a>
-    <a href="#ai-videos" class="btn-category">AI-Generated Videos</a>
-    <a href="#podcasts" class="btn-category">Podcast Trailers</a>
-    <a href="#youtube-videos" class="btn-category">YouTube Videos</a>
-  </div>
-
   <!-- Best Videos -->
-  <h3 id="best-videos">Best Videos</h3>
-  <div class="video-row">
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/tCl4hL-hD9A?si=12R_weuJDKRpx1Kk" allowfullscreen></iframe>
+  <div class="category">
+    <div class="category-header">
+      <h2>Best Videos</h2>
+      <a href="best-videos.html" class="view-all-btn">View All</a>
     </div>
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/jMc51iUEqgg?si=lSTcOFVALpzWewDV" allowfullscreen></iframe>
-    </div>
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/jDNpoVnxRcQ?si=2zUoFyxya1iAEL3N" allowfullscreen></iframe>
-    </div>
+    <div class="video-row" id="bestVideosRow"></div>
   </div>
 
   <!-- AI Videos -->
-  <h3 id="ai-videos">AI-Generated Videos</h3>
-  <div class="video-row">
-    <!-- Add AI video cards here -->
+  <div class="category">
+    <div class="category-header">
+      <h2>AI Generated Videos</h2>
+      <a href="ai-videos.html" class="view-all-btn">View All</a>
+    </div>
+    <div class="video-row" id="aiVideosRow"></div>
   </div>
 
   <!-- Podcast Trailers -->
-  <h3 id="podcasts">Podcast Trailers</h3>
-  <div class="video-row">
-    <!-- Add Podcast video cards here -->
+  <div class="category">
+    <div class="category-header">
+      <h2>Podcast Trailers</h2>
+      <a href="podcasts.html" class="view-all-btn">View All</a>
+    </div>
+    <div class="video-row" id="podcastRow"></div>
   </div>
 
   <!-- YouTube Videos -->
-  <h3 id="youtube-videos">YouTube Videos</h3>
-  <div class="video-row">
-    <!-- Add YouTube video cards here -->
+  <div class="category">
+    <div class="category-header">
+      <h2>YouTube Videos</h2>
+      <a href="youtube-videos.html" class="view-all-btn">View All</a>
+    </div>
+    <div class="video-row" id="youtubeRow"></div>
   </div>
 </div>
 
@@ -300,24 +156,55 @@
 </footer>
 
 <script>
-  function animateCount(id, target, duration) {
-    const el = document.getElementById(id);
-    let start = 0;
-    const increment = target / (duration / 20);
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= target) {
-        el.textContent = target + '+';
-        clearInterval(timer);
-      } else {
-        el.textContent = Math.floor(start) + '+';
-      }
-    }, 20);
+  // Video arrays
+  const bestVideos = [
+    "https://drive.google.com/file/d/1VDo1Zg_m2cnG_gtoc-y1VavjPCH6z2Vw/preview",
+    "https://drive.google.com/file/d/1AXeonbWOZmopnwgLVwwtiDxvIBX3NwZq/preview",
+    "https://drive.google.com/file/d/1eWbgvm37bNtbkue0NwGG9uW1OeLc8spr/preview"
+  ];
+
+  const aiVideos = [
+    "https://drive.google.com/file/d/1f5dgDF1bq-2R2-cSixNAldfKCE-9ws2Y/preview",
+    "https://drive.google.com/file/d/19jJ7YDtiosYjiu6g6j9jJiyU4vgFNxD5/preview",
+    "https://drive.google.com/file/d/1H-L7W_tNSZP0a8FxtxHq3RGRFGhyQLOb/preview",
+    "https://drive.google.com/file/d/1YjQ50-KTPjN1jWjR_onScV64XEoKUbUu/preview",
+    "https://drive.google.com/file/d/1smSvJNY668_dUM7RrK7I0NuW74a_STqv/preview",
+    "https://drive.google.com/file/d/1J8miodTztqMKmnlDPLwEpWSbgWDMz9kT/preview"
+  ];
+
+  const podcastVideos = [
+    "https://drive.google.com/file/d/1LODEa-_a76V1VUH5yZD1I9YH9TXy3S7O/preview",
+    "https://drive.google.com/file/d/1FDY-FfyDRdN1m9wczhNAFGP2cbby42O7/preview",
+    "https://drive.google.com/file/d/1m15qG03bqAMSFUnFvcKbJ_64zMlm4qJG/preview"
+  ];
+
+  const youtubeVideos = [
+    "https://www.youtube.com/embed/tCl4hL-hD9A",
+    "https://www.youtube.com/embed/jMc51iUEqgg",
+    "https://www.youtube.com/embed/jDNpoVnxRcQ",
+    "https://www.youtube.com/embed/Vp-yhZkApqY"
+  ];
+
+  function shuffleArray(array) {
+    return array.sort(() => Math.random() - 0.5);
   }
-  window.onload = function () {
-    animateCount('count-videos', 3500, 5000);
-    animateCount('count-ai', 15, 5000);
-  };
+
+  function populateVideos(rowId, videos) {
+    const row = document.getElementById(rowId);
+    const shuffled = shuffleArray(videos);
+    shuffled.forEach(src => {
+      const div = document.createElement("div");
+      div.className = "video-card";
+      div.innerHTML = `<iframe src="${src}" allowfullscreen></iframe>`;
+      row.appendChild(div);
+    });
+  }
+
+  // Populate all rows
+  populateVideos("bestVideosRow", bestVideos);
+  populateVideos("aiVideosRow", aiVideos);
+  populateVideos("podcastRow", podcastVideos);
+  populateVideos("youtubeRow", youtubeVideos);
 </script>
 
 </body>
