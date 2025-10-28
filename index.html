@@ -93,19 +93,37 @@
 
   .video-card {
     flex: 0 0 auto;
-    width: 350px;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    background: white;
   }
-  .video-card iframe {
+
+  /* 🎬 9:16 Videos */
+  .vertical .video-card {
+    width: 270px;
+    aspect-ratio: 9 / 16;
+  }
+  /* ▶️ 16:9 Videos */
+  .horizontal .video-card {
+    width: 350px;
+    aspect-ratio: 16 / 9;
+  }
+
+  iframe {
     width: 100%;
-    height: 200px;
+    height: 100%;
     border: none;
   }
 
-  @media(max-width:900px){ .video-card{ width:250px; } }
-  @media(max-width:600px){ .video-card{ width:200px; } }
+  @media(max-width:900px){ 
+    .horizontal .video-card{ width: 280px; } 
+    .vertical .video-card{ width: 200px; }
+  }
+  @media(max-width:600px){ 
+    .horizontal .video-card{ width: 220px; } 
+    .vertical .video-card{ width: 160px; }
+  }
   @media (max-width:700px) {
     .highlights { flex-direction: column; gap: 25px; }
     .highlight-item { width: 100%; }
@@ -145,19 +163,19 @@
 
   <!-- Best Videos -->
   <h2>Best Videos</h2>
-  <div class="video-row" id="bestVideosRow"></div>
+  <div class="video-row vertical" id="bestVideosRow"></div>
 
   <!-- AI Generated Videos -->
   <h2>AI Generated Videos</h2>
-  <div class="video-row" id="aiVideosRow"></div>
+  <div class="video-row vertical" id="aiVideosRow"></div>
   
   <!-- YouTube Videos -->
   <h2>YouTube Videos</h2>
-  <div class="video-row" id="youtubeRow"></div>
+  <div class="video-row horizontal" id="youtubeRow"></div>
 
   <!-- Podcast Trailers -->
   <h2>Podcast Trailers</h2>
-  <div class="video-row" id="podcastRow"></div>
+  <div class="video-row horizontal" id="podcastRow"></div>
 </div>
 
 <footer>
@@ -183,7 +201,7 @@
     shuffleArray(videos).forEach(src=>{
       const div = document.createElement("div");
       div.className="video-card";
-      div.innerHTML=`<iframe src="${src}" allowfullscreen></iframe>`;
+      div.innerHTML=`<iframe src="${src}" allow="autoplay; fullscreen"></iframe>`;
       row.appendChild(div);
     });
   }
@@ -203,7 +221,7 @@
     populateVideos("bestVideosRow", [
       "https://drive.google.com/file/d/1LeutulTK1oGlWqUb4FzKVfYId9YGI3ZN/preview",
       "https://drive.google.com/file/d/1Dnol3hGSOOlMjlEIJQLoQKxmrX2xmypp/preview",
-      "https://drive.google.com/file/d/1HHa20YCMHXWCv9MANtMFhhWOcy0ALPkx/preview"
+      "https://drive.google.com/file/d/1HHa20YCMHXWCv9MANtMFhhWOcy0ALPkx/preview",
       "https://drive.google.com/file/d/1HWI0tvsfS4HIo68gwojNcAVlE-Ki5T1g/preview"
     ]);
 
@@ -219,7 +237,7 @@
     populateVideos("podcastRow", [
       "https://drive.google.com/file/d/1LODEa-_a76V1VUH5yZD1I9YH9TXy3S7O/preview",
       "https://drive.google.com/file/d/1FDY-FfyDRdN1m9wczhNAFGP2cbby42O7/preview",
-      "https://drive.google.com/file/d/1m15qG03bqAMSFUnFvcKbJ_64zMlm4qJG/preview"
+      "https://drive.google.com/file/d/1m15qG03bqAMSFUnFvcKbJ_64zMlm4qJG/preview",
       "https://drive.google.com/file/d/1g9D9aZDyvBweSxmpoI5wmEBnLUIOb2EC/preview"
     ]);
   };
@@ -227,6 +245,3 @@
 
 </body>
 </html>
-
-
-
