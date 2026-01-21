@@ -3,303 +3,293 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>YASH NACHRE | Video Editing Portfolio</title>
+<title>Yash Nachre | Premium Video Editor</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-  /* RESET */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+:root{
+  --gold:#f5c842;
+  --gray:#bdbdbd;
+  --dark:#0b0b0b;
+}
 
-  body {
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    color: #222;
-    line-height: 1.5;
-    text-align: center;
-  }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-  /* HEADER */
-  header {
-    background: #222;
-    color: #fff;
-    padding: 1rem;
-  }
-  nav {
-    margin-top: 10px;
-  }
-  nav a {
-    color: white;
-    margin: 0 12px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-  }
-  nav a:hover,
-  nav a.active {
-    color: gold;
-  }
+body{
+  font-family:'Poppins',sans-serif;
+  background:radial-gradient(1200px 600px at 50% -200px,#1e1e1e,#000);
+  color:#fff;
+}
 
-  /* HERO SECTION */
-  .hero {
-    padding: 60px 18px;
-    background: white;
-    max-width: 900px;
-    margin: 30px auto;
-    border-radius: 14px;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.12);
-  }
-  .hero h2 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    margin-bottom: 10px;
-  }
-  .hero p {
-    font-size: clamp(1.1rem, 3vw, 1.4rem);
-    color: #555;
-    margin-bottom: 25px;
-  }
+/* HEADER */
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(0,0,0,0.65);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+.header-wrap{
+  max-width:1300px;margin:auto;
+  padding:18px 24px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+nav a{
+  margin-left:22px;
+  color:var(--gray);
+  text-decoration:none;
+  font-weight:500;
+}
+nav a:hover{color:#fff;}
 
-  /* BUTTON */
-  .button {
-    background: black;
-    color: gold;
-    padding: 15px 40px;
-    border: 3px solid gold;
-    border-radius: 30px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 700;
-    transition: 0.3s ease;
-    display: inline-block;
-  }
-  .button:hover {
-    background: gold;
-    color: black;
-    border-color: black;
-  }
+/* HERO */
+.hero{
+  max-width:1300px;
+  margin:auto;
+  padding:90px 24px 60px;
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+  gap:40px;
+}
+.hero-left h2{
+  font-size:clamp(2.5rem,5vw,4rem);
+  line-height:1.1;
+}
+.hero-left span{color:var(--gold);}
+.hero-left p{
+  margin:20px 0 30px;
+  color:var(--gray);
+  max-width:520px;
+}
+.cta{
+  display:inline-block;
+  padding:15px 42px;
+  border-radius:40px;
+  background:var(--gold);
+  color:#000;
+  font-weight:600;
+  text-decoration:none;
+}
 
-  /* HIGHLIGHTS */
-  .highlights {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-  }
-  .highlight-item {
-    background: white;
-    padding: 25px 35px;
-    border-radius: 14px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    flex: 1;
-    min-width: 160px;
-    max-width: 240px;
-  }
-  .highlight-number {
-    font-size: 3rem;
-    color: gold;
-    font-weight: bold;
-    margin-bottom: 8px;
-  }
-  .highlight-text {
-    color: #555;
-    font-size: 1rem;
-  }
+/* 🔥 BIG HIGHLIGHTED STATS */
+.hero-right{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:32px;
+}
+.stat{
+  background:linear-gradient(160deg,#111,#050505);
+  border:1px solid rgba(245,200,66,0.35);
+  border-radius:28px;
+  padding:48px 34px;
+  text-align:center;
+  box-shadow:0 30px 80px rgba(245,200,66,0.18);
+  position:relative;
+  overflow:hidden;
+}
+.stat::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at top,
+    rgba(245,200,66,0.35),
+    transparent 65%);
+}
+.stat h3{
+  position:relative;
+  font-size:3.8rem;
+  font-weight:700;
+  color:var(--gold);
+}
+.stat p{
+  position:relative;
+  margin-top:14px;
+  font-size:1.05rem;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
+  color:var(--gray);
+}
 
-  /* MAIN CONTAINER */
-  .container {
-    max-width: 1300px;
-    margin: 40px auto;
-    padding: 0 20px 50px;
-  }
+/* SECTIONS */
+.section{
+  max-width:1300px;
+  margin:70px auto;
+  padding:0 24px;
+}
+.section-title{
+  font-size:1.6rem;
+  margin-bottom:18px;
+}
 
-  h2 {
-    font-size: 1.8rem;
-    text-align: left;
-    margin: 20px 0;
-  }
+/* VIDEO ROWS */
+.video-row{
+  display:flex;
+  gap:22px;
+  overflow-x:auto;
+  padding-bottom:12px;
+}
+.video-card{
+  position:relative;
+  flex:0 0 auto;
+  background:#000;
+  border-radius:18px;
+  overflow:hidden;
+}
+.video-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,0.6),transparent 40%);
+  pointer-events:none; /* ✅ play button fix */
+}
+.vertical .video-card{width:260px;aspect-ratio:9/16;}
+.horizontal .video-card{width:380px;aspect-ratio:16/9;}
+.video-card iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  object-fit:contain; /* ✅ no cutting, centered */
+}
 
-  /* VIDEO ROWS */
-  .video-row {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding-bottom: 15px;
-  }
-  .video-row::-webkit-scrollbar {
-    height: 8px;
-  }
-  .video-row::-webkit-scrollbar-thumb {
-    background: gold;
-    border-radius: 4px;
-  }
+/* FOOTER */
+footer{
+  margin-top:80px;
+  padding:30px 20px;
+  background:#050505;
+  border-top:1px solid rgba(255,255,255,0.05);
+  text-align:center;
+  color:var(--gray);
+}
 
-  .video-card {
-    flex: 0 0 auto;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    background: #000;
-    position: relative;
-  }
-
-  /* Vertical Reels */
-  .vertical .video-card {
-    width: 260px;
-    aspect-ratio: 9/16;
-  }
-
-  /* Horizontal YouTube */
-  .horizontal .video-card {
-    width: 360px;
-    aspect-ratio: 16/9;
-  }
-
-  /* Responsive Iframes */
-  .video-card iframe {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-
-  /* RESPONSIVE FIXES */
-  @media (max-width: 900px) {
-    .horizontal .video-card { width: 280px; }
-    .vertical .video-card { width: 200px; }
-  }
-
-  @media (max-width: 600px) {
-    .horizontal .video-card { width: 220px; }
-    .vertical .video-card { width: 150px; }
-  }
-
-  footer {
-    padding: 20px;
-    background: #222;
-    color: #fff;
-  }
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;}
+  .horizontal .video-card{width:300px;}
+}
+@media(max-width:600px){
+  .hero-right{grid-template-columns:1fr;}
+  .vertical .video-card{width:200px;}
+  .horizontal .video-card{width:240px;}
+}
 </style>
 </head>
+
 <body>
 
 <header>
-  <h1>YASH NACHRE</h1>
-  <nav>
-    <a href="index.html" class="active">Home</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <div class="header-wrap">
+    <h1>YASH NACHRE</h1>
+     <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <section class="hero">
-  <h2>Yash Nachre Video Editing Portfolio</h2>
-  <p>Traveler | Video Editor | AI Artist</p>
-  <a class="button" href="portfolio.html">View My Work</a>
+  <div class="hero-left">
+    <h2>Crafting <span>Cinematic Stories</span><br>Through Editing</h2>
+    <p>Executive Video Editor • Travel Storyteller • AI Visual Artist</p>
+    <!-- Updated Button to Redirect to Portfolio Page -->
+    <a class="cta" href="portfolio.html">View Portfolio</a>
+  </div>
 
-  <div class="highlights">
-    <div class="highlight-item">
-      <div id="count-videos" class="highlight-number">0</div>
-      <div class="highlight-text">Videos Edited</div>
+  <div class="hero-right">
+    <div class="stat">
+      <h3 id="count-videos">0</h3>
+      <p>Videos Edited</p>
     </div>
-    <div class="highlight-item">
-      <div id="count-ai" class="highlight-number">0</div>
-      <div class="highlight-text">AI Tools Used</div>
+    <div class="stat">
+      <h3 id="count-tools">0</h3>
+      <p>Tools & Skills Used</p>
     </div>
   </div>
 </section>
 
-<div class="container">
-
-  <h2>Short-form Videos</h2>
+<section class="section">
+  <h3 class="section-title">Short-form Videos</h3>
   <div class="video-row vertical" id="bestVideosRow"></div>
+</section>
 
-  <h2>AI Generated Videos</h2>
+<section class="section">
+  <h3 class="section-title">AI Generated Videos</h3>
   <div class="video-row vertical" id="aiVideosRow"></div>
-  
-  <h2>Long-form Videos</h2>
+</section>
+
+<section class="section">
+  <h3 class="section-title">Long-form Videos</h3>
   <div class="video-row horizontal" id="youtubeRow"></div>
+</section>
 
-  <h2>Podcast Trailers</h2>
+<section class="section">
+  <h3 class="section-title">Podcast Trailers</h3>
   <div class="video-row horizontal" id="podcastRow"></div>
+</section>
 
-</div>
-
-<footer>
-  <p>© 2025 | Designed by Yash Nachre</p>
-</footer>
+<footer>© 2025 Yash Nachre</footer>
 
 <script>
-  function animateCount(id, target, duration) {
-    const el = document.getElementById(id);
-    let start = 0;
-    const increment = target / (duration / 20);
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= target) {
-        el.textContent = target + '+';
-        clearInterval(timer);
-      } else {
-        el.textContent = Math.floor(start) + '+';
-      }
-    }, 20);
-  }
+function animateCount(id,target,duration){
+  const el=document.getElementById(id);
+  let start=0;
+  const step=target/(duration/20);
+  const timer=setInterval(()=>{
+    start+=step;
+    if(start>=target){
+      el.textContent=target+'+';
+      clearInterval(timer);
+    } else {
+      el.textContent=Math.floor(start)+'+';
+    }
+  },20);
+}
 
-  function shuffleArray(arr) {
-    return arr.sort(() => Math.random() - 0.5);
-  }
+function populate(id,videos){
+  const row=document.getElementById(id);
+  videos.forEach(v=>{
+    const card=document.createElement('div');
+    card.className='video-card';
+    card.innerHTML=`<iframe src="${v}" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+    row.appendChild(card);
+  });
+}
 
-  function populateVideos(rowId, videos) {
-    const row = document.getElementById(rowId);
-    shuffleArray(videos).forEach(src => {
-      const div = document.createElement("div");
-      div.className = "video-card";
-      div.innerHTML = `<iframe src="${src}" allow="autoplay; fullscreen"></iframe>`;
-      row.appendChild(div);
-    });
-  }
+window.onload=()=>{
+  animateCount('count-videos',3500,4000);
+  animateCount('count-tools',18,4000);
 
-  window.onload = function () {
-    animateCount('count-videos', 3500, 5000);
-    animateCount('count-ai', 15, 5000);
+  populate('youtubeRow',[
+    'https://drive.google.com/file/d/1_O-qRV7EJavNut2qp_IbZIk0zefRsfQU/preview',
+    'https://drive.google.com/file/d/1cFYV-Kz0Uo9P5sTN-DOTcQlu4e2uU-iA/preview',
+    'https://drive.google.com/file/d/1LwTelo4FoueL5l10lzLcTyaitEOTBEuk/preview',
+    'https://drive.google.com/file/d/1dX106dK5VvrpVLnIV-Mx_Me8oAU6s97H/preview'
+  ]);
 
-    populateVideos("youtubeRow", [
-      "https://www.youtube.com/embed/jMc51iUEqgg",
-      "https://drive.google.com/file/d/1dX106dK5VvrpVLnIV-Mx_Me8oAU6s97H/preview",
-      "https://drive.google.com/file/d/1LwTelo4FoueL5l10lzLcTyaitEOTBEuk/preview",
-      "https://www.youtube.com/embed/GurRy5hI36s",
-      "https://www.youtube.com/embed/AYfEQ2fKTPo"
-    ]);
+  populate('bestVideosRow',[
+    'https://drive.google.com/file/d/1UX30dKO8I-ISGdiOVTL6134iL6M8aYZd/preview',
+    'https://drive.google.com/file/d/1LeutulTK1oGlWqUb4FzKVfYId9YGI3ZN/preview',
+    'https://drive.google.com/file/d/1HHa20YCMHXWCv9MANtMFhhWOcy0ALPkx/preview'
+  ]);
 
-    populateVideos("bestVideosRow", [
-      "https://drive.google.com/file/d/1UX30dKO8I-ISGdiOVTL6134iL6M8aYZd/preview",
-      "https://drive.google.com/file/d/1LeutulTK1oGlWqUb4FzKVfYId9YGI3ZN/preview",
-      "https://drive.google.com/file/d/1Dnol3hGSOOlMjlEIJQLoQKxmrX2xmypp/preview",
-      "https://drive.google.com/file/d/1HHa20YCMHXWCv9MANtMFhhWOcy0ALPkx/preview",
-      "https://drive.google.com/file/d/1HWI0tvsfS4HIo68gwojNcAVlE-Ki5T1g/preview"
-    ]);
+  populate('aiVideosRow',[
+    'https://drive.google.com/file/d/1MMME0P5T2hgxYnnAs2hjR4BjAht7Y6rM/preview',
+    'https://drive.google.com/file/d/1YjQ50-KTPjN1jWjR_onScV64XEoKUbUu/preview',
+    'https://drive.google.com/file/d/1dPFmBndSoycXUGU0Ij1B6Csap7dPzjE7/preview',
+    'https://drive.google.com/file/d/1f5dgDF1bq-2R2-cSixNAldfKCE-9ws2Y/preview',
+    'https://drive.google.com/file/d/1Kx9v5jQJAJCOd99eSb9XQDxeOL-odPXe/preview'
+  ]);
 
-    populateVideos("aiVideosRow", [
-      "https://drive.google.com/file/d/1f5dgDF1bq-2R2-cSixNAldfKCE-9ws2Y/preview",
-      "https://drive.google.com/file/d/19jJ7YDtiosYjiu6g6j9jJiyU4vgFNxD5/preview",
-      "https://drive.google.com/file/d/1H-L7W_tNSZP0a8FxtxHq3RGRFGhyQLOb/preview",
-      "https://drive.google.com/file/d/1YjQ50-KTPjN1jWjR_onScV64XEoKUbUu/preview",
-      "https://drive.google.com/file/d/1smSvJNY668_dUM7RrK7I0NuW74a_STqv/preview",
-      "https://drive.google.com/file/d/1J8miodTztqMKmnlDPLwEpWSbgWDMz9kT/preview"
-    ]);
-
-    populateVideos("podcastRow", [
-      "https://drive.google.com/file/d/1FDY-FfyDRdN1m9wczhNAFGP2cbby42O7/preview",
-      "https://drive.google.com/file/d/1VAKDUwUZvY76Tk7xNEomgj0bm5KQcCYn/preview",
-      "https://drive.google.com/file/d/1g9D9aZDyvBweSxmpoI5wmEBnLUIOb2EC/preview",
-      "https://drive.google.com/file/d/1LODEa-_a76V1VUH5yZD1I9YH9TXy3S7O/preview"
-    ]);
-  };
+  populate('podcastRow',[
+    'https://drive.google.com/file/d/1LODEa-_a76V1VUH5yZD1I9YH9TXy3S7O/preview',
+    'https://drive.google.com/file/d/1g9D9aZDyvBweSxmpoI5wmEBnLUIOb2EC/preview',
+    'https://drive.google.com/file/d/1FDY-FfyDRdN1m9wczhNAFGP2cbby42O7/preview',
+    'https://drive.google.com/file/d/1VAKDUwUZvY76Tk7xNEomgj0bm5KQcCYn/preview'
+  ]);
+};
 </script>
 
 </body>
