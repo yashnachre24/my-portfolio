@@ -1,92 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Popular Videos | YASH NACHRE</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            margin: 0;
-            background: #f5f5f5;
-            font-family: Arial, sans-serif;
-        }
-        header, footer {
-            background: #222;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        .container {
-            flex: 1;
-            padding: 20px;
-            text-align: center;
-        }
-        .grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .video-wrapper {
-            aspect-ratio: 9 / 16;
-            width: 350px;
-            background: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        @media (max-width: 500px) {
-            .video-wrapper {
-                width: 100%;
-            }
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portfolio | YASH NACHRE</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --gold:#f5c842;
+  --gray:#bdbdbd;
+  --dark:#0b0b0b;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:radial-gradient(1200px 600px at 50% -200px,#1e1e1e,#000);
+  color:#fff;
+}
+
+/* HEADER */
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(0,0,0,0.65);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+header h1{margin:0;font-size:1.8rem;}
+nav a{
+  margin-left:22px;
+  color:var(--gray);
+  text-decoration:none;
+  font-weight:500;
+}
+nav a.active, nav a:hover{color:#fff;}
+
+/* CONTAINER */
+.container{
+  max-width:1300px;
+  margin:70px auto;
+  padding:0 24px;
+  text-align:center;
+}
+.container h2{
+  font-size:2.2rem;
+  margin-bottom:40px;
+  color:var(--gold);
+}
+
+/* GRID BUTTONS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:30px;
+}
+.btn-category{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(160deg,#111,#050505);
+  color:var(--gold);
+  border:3px solid var(--gold);
+  font-size:1.4rem;
+  font-weight:700;
+  border-radius:20px;
+  text-decoration:none;
+  box-shadow:0 6px 12px rgba(245,200,66,0.6);
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), 
+              box-shadow 0.35s cubic-bezier(0.4,0,0.2,1);
+  height:160px;
+  cursor:pointer;
+}
+.btn-category:hover{
+  background:var(--gold);
+  color:#000;
+  border-color:#000;
+  box-shadow:0 12px 24px rgba(245,200,66,0.9);
+  transform:scale(1.07);
+}
+
+/* FOOTER */
+footer{
+  margin-top:80px;
+  padding:30px 20px;
+  background:#050505;
+  border-top:1px solid rgba(255,255,255,0.05);
+  text-align:center;
+  color:var(--gray);
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .btn-category{height:140px;font-size:1.2rem;}
+}
+</style>
 </head>
+
 <body>
 
 <header>
+  <div class="header-wrap" style="max-width:1300px;margin:auto;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;">
     <h1>YASH NACHRE</h1>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
+  </div>
 </header>
 
 <div class="container">
-    <h2>Popular Videos</h2>
-    <div class="grid">
-        <div class="video-wrapper">
-            <iframe src="https://drive.google.com/file/d/1tzx4dkdMBQ1aBZJeyoUKFihAwZPcQi9P/preview" allow="autoplay"></iframe>
-        </div>
-        <div class="video-wrapper">
-            <iframe src="https://drive.google.com/file/d/1uwmZ9SHyseUcTutFexQjF2K18ziwem0_/preview" allow="autoplay"></iframe>
-        </div>
-        <div class="video-wrapper">
-            <iframe src="https://drive.google.com/file/d/1wLR2tSScFE-nbmLss8_sVB5Sz7xdOfEA/preview" allow="autoplay"></iframe>
-        </div>
-    </div>
+  <h2>Portfolio Categories</h2>
+  <div class="grid">
+    <a href="best-videos.html" class="btn-category">Short-form Videos</a>
+    <a href="ai-videos.html" class="btn-category">AI-Generated Videos</a>
+    <a href="podcasts.html" class="btn-category">Podcast Trailers</a>
+    <a href="youtube-videos.html" class="btn-category">Long-form Videos</a>
+  </div>
 </div>
 
 <footer>
-    <p>© 2025 | Designed by Yash Nachre</p>
+  <p>© 2025 Yash Nachre</p>
 </footer>
 
 </body>
