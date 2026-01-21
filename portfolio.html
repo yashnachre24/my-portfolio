@@ -1,103 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio | YASH NACHRE</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f5f5f5;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portfolio | YASH NACHRE</title>
 
-    header,
-    footer {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 10px;
-    }
+<style>
+:root{
+  --gold:#f5c842;
+  --gray:#bdbdbd;
+  --dark:#0b0b0b;
+}
 
-    .container {
-      padding: 20px;
-      text-align: center;
-    }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
-      gap: 30px;
-      margin-top: 30px;
-    }
+body{
+  font-family:'Poppins',sans-serif;
+  background:radial-gradient(1200px 600px at 50% -200px,#1e1e1e,#000);
+  color:#fff;
+}
 
-    /* Responsive adjustments */
-    @media (max-width: 1200px) {
-      .grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
+/* HEADER */
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(0,0,0,0.65);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+header h1{margin:0;font-size:1.8rem;}
+nav a{
+  margin-left:22px;
+  color:var(--gray);
+  text-decoration:none;
+  font-weight:500;
+}
+nav a.active, nav a:hover{color:#fff;}
 
-    @media (max-width: 900px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
+/* CONTAINER */
+.container{
+  max-width:1300px;
+  margin:70px auto;
+  padding:0 24px;
+  text-align:center;
+}
+.container h2{
+  font-size:2.2rem;
+  margin-bottom:40px;
+  color:var(--gold);
+}
 
-    @media (max-width: 600px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
+/* GRID BUTTONS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:30px;
+}
+.btn-category{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(160deg,#111,#050505);
+  color:var(--gold);
+  border:3px solid var(--gold);
+  font-size:1.4rem;
+  font-weight:700;
+  border-radius:20px;
+  text-decoration:none;
+  box-shadow:0 6px 12px rgba(245,200,66,0.6);
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), 
+              box-shadow 0.35s cubic-bezier(0.4,0,0.2,1);
+  height:160px;
+  cursor:pointer;
+}
+.btn-category:hover{
+  background:var(--gold);
+  color:#000;
+  border-color:#000;
+  box-shadow:0 12px 24px rgba(245,200,66,0.9);
+  transform:scale(1.07);
+}
 
-    .btn-category {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: black;
-      color: gold;
-      border: 3px solid gold;
-      font-size: 1.2rem;
-      font-weight: 700;
-      border-radius: 20px;
-      text-decoration: none;
-      box-shadow: 0 6px 12px rgba(218, 165, 32, 0.6);
-      transition: transform 0.35s, box-shadow 0.35s;
-      height: 150px;
-      text-align: center;
-      cursor: pointer;
-    }
+/* FOOTER */
+footer{
+  margin-top:80px;
+  padding:30px 20px;
+  background:#050505;
+  border-top:1px solid rgba(255,255,255,0.05);
+  text-align:center;
+  color:var(--gray);
+}
 
-    .btn-category:hover {
-      background: gold;
-      color: black;
-      border-color: black;
-      box-shadow: 0 12px 24px rgba(218, 165, 32, 0.9);
-      transform: scale(1.05);
-    }
-
-    footer {
-      margin-top: 40px;
-    }
-  </style>
+/* RESPONSIVE */
+@media(max-width:600px){
+  .btn-category{height:140px;font-size:1.2rem;}
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <h1>YASH NACHRE</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="portfolio.html" class="active">Portfolio</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <div class="header-wrap" style="max-width:1300px;margin:auto;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;">
+    <h1>YASH NACHRE</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <div class="container">
@@ -111,10 +124,8 @@
 </div>
 
 <footer>
-  <p>© 2025 | Designed by Yash Nachre</p>
+  <p>© 2025 Yash Nachre</p>
 </footer>
 
 </body>
 </html>
-
-
