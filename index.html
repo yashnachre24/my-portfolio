@@ -156,8 +156,12 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
 .orbit{position:absolute;inset:8px;border:1px solid rgba(255,255,255,.18);border-radius:50%;}
 .orbit.o2{inset:78px;}
 .orbit.o3{inset:148px;}
-.avatar-card{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%) rotate(-5deg);width:min(280px,74%);aspect-ratio:1;background:linear-gradient(145deg,#fff,rgba(255,255,255,.7));border:1px solid rgba(255,255,255,.78);border-radius:38px;display:grid;place-items:center;box-shadow:0 30px 80px rgba(0,0,0,.20);}
-.avatar-card::after{content:'YN';width:116px;height:116px;border-radius:32px;background:linear-gradient(145deg,var(--blue),#002bff);display:grid;place-items:center;color:white;font-family:var(--f-display);font-size:3.2rem;font-weight:700;letter-spacing:-.08em;box-shadow:inset 0 -18px 40px rgba(255,255,255,.13),0 20px 45px rgba(0,63,220,.28);}
+.avatar-card{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%) rotate(-5deg);width:min(280px,74%);aspect-ratio:1;background:linear-gradient(145deg,#fff,rgba(255,255,255,.7));border:1px solid rgba(255,255,255,.78);border-radius:38px;display:grid;place-items:center;box-shadow:0 30px 80px rgba(0,0,0,.20);padding:14px;}
+.avatar-img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:28px;box-shadow:0 14px 40px rgba(0,26,90,.22);filter:saturate(1.05);}
+.avatar-mono{display:none;width:116px;height:116px;border-radius:32px;background:linear-gradient(145deg,var(--blue),#002bff);place-items:center;color:white;font-family:var(--f-display);font-size:3.2rem;font-weight:700;letter-spacing:-.08em;box-shadow:inset 0 -18px 40px rgba(255,255,255,.13),0 20px 45px rgba(0,63,220,.28);}
+.yn-chip{position:absolute;right:-14px;bottom:-14px;width:60px;height:60px;border-radius:19px;background:linear-gradient(145deg,var(--blue),#002bff);display:grid;place-items:center;color:white;font-family:var(--f-display);font-size:1.4rem;font-weight:700;letter-spacing:-.06em;transform:rotate(8deg);border:3px solid rgba(255,255,255,.85);box-shadow:0 16px 35px rgba(0,43,150,.35);}
+.avatar-card.noimg .avatar-img,.avatar-card.noimg .yn-chip{display:none;}
+.avatar-card.noimg .avatar-mono{display:grid;}
 .float-pill{position:absolute;z-index:3;background:rgba(255,255,255,.86);color:var(--deep);border:1px solid rgba(255,255,255,.8);box-shadow:0 20px 55px rgba(0,33,96,.18);backdrop-filter:blur(14px);border-radius:22px;padding:14px 16px;font-weight:800;font-size:.86rem;line-height:1.15;}
 .float-pill small{display:block;font-family:var(--f-mono);font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-top:5px;}
 .fp1{left:4%;top:18%;transform:rotate(-7deg);}
@@ -443,7 +447,11 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
         </div>
         <div class="hero-panel">
           <span class="orbit o1"></span><span class="orbit o2"></span><span class="orbit o3"></span>
-          <div class="avatar-card"></div>
+          <div class="avatar-card" id="avatarCard">
+            <img class="avatar-img" id="avatarImg" alt="Yash Nachre — video editor and AI filmmaker" />
+            <div class="avatar-mono" aria-hidden="true">YN</div>
+            <span class="yn-chip" aria-hidden="true">YN</span>
+          </div>
           <div class="float-pill fp1">Podcasts + YouTube<small>SkillHouse Media</small></div>
           <div class="float-pill fp2">AI Filmmaking<small>Concept to screen</small></div>
           <div class="float-pill fp3">Travel documentaries<small>Can Yoou Travel</small></div>
@@ -765,6 +773,21 @@ addEventListener('scroll',()=>{
   SHELVES.forEach(s=>{const el=document.getElementById('shelf-'+s.key);if(el&&scrollY>=el.offsetTop-260)curShelf=s.key;});
   document.querySelectorAll('#jump a').forEach(a=>a.classList.toggle('active',a.dataset.key===curShelf));
 },{passive:true});
+
+/* ============ Hero photo (repo file first, Drive as fallback, monogram last) ============ */
+(function(){
+  const card=document.getElementById('avatarCard');
+  const img=document.getElementById('avatarImg');
+  const DRIVE_ID='1dtwhJF_Fm0ioR5bAkZLMIaJbrOi0Y3dQ';
+  const sources=[
+    'assets/yash.jpg',                                        /* preferred: file committed to the repo */
+    `https://lh3.googleusercontent.com/d/${DRIVE_ID}=w800`,   /* Google Drive direct render */
+    `https://drive.google.com/uc?export=view&id=${DRIVE_ID}`  /* Drive legacy direct link */
+  ];
+  let i=0;
+  img.addEventListener('error',()=>{ i++; if(i<sources.length){ img.src=sources[i]; } else { card.classList.add('noimg'); } });
+  img.src=sources[0];
+})();
 
 /* ============ Marquee band ============ */
 (function(){
