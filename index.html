@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Yash Nachre — Video Editor & Storyteller</title>
-<meta name="description" content="Yash Nachre is a Mumbai-based video editor and storyteller crafting cinematic, scroll-stopping edits for India's top creators and brands." />
+<title>Yash Nachre — Video Editor · AI Filmmaker · Creative Mentor</title>
+<meta name="description" content="Yash Nachre is a Mumbai-based video editor, AI filmmaker and creative mentor crafting cinematic stories across podcasts, YouTube, travel documentaries and AI-generated films." />
 
-<!-- Fonts: rounded modern display + clean body + mono labels -->
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -17,28 +17,26 @@
 
 <style>
 /* ============================================================
-   THEME REDESIGN
-   Direction: clean SaaS / SocialFi / portfolio board
-   Visual language: electric blue, lime marker strokes, soft cards,
-   floating pills, thin orbital lines, big bold typography, grid backdrop.
+   YASH NACHRE — PORTFOLIO v3
+   Identity: electric blue + lime marker strokes, glassy cards,
+   floating pills, orbital lines, big bold typography.
+   New: category shelves (one clean row per format) and a
+   draggable editor-timeline of the career journey.
 ============================================================ */
 :root{
   --bg:#f4f8ff;
   --paper:#ffffff;
-  --paper-2:#f7fbff;
   --blue:#0b66ff;
   --blue-2:#0047d9;
   --blue-soft:#dcecff;
   --deep:#051a52;
+  --panel:#060f2e;
   --ink:#111827;
   --muted:#687385;
   --faint:#9ba7b7;
   --lime:#9cff00;
   --lime-2:#c8ff24;
-  --orange:#ff7a1a;
-  --pink:#ff6bd6;
   --line:rgba(5,26,82,.10);
-  --line-strong:rgba(5,26,82,.18);
   --shadow:0 28px 90px rgba(13,65,160,.15);
   --shadow-2:0 18px 55px rgba(0,72,190,.16);
 
@@ -85,7 +83,6 @@ a,button,[role="button"]{cursor:pointer;}
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E");
 }
 
-
 /* Loader */
 #loader{
   position:fixed;inset:0;z-index:9990;background:var(--blue);color:white;
@@ -121,9 +118,9 @@ a,button,[role="button"]{cursor:pointer;}
 .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
 .burger.open span:nth-child(2){opacity:0;}
 .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.nav-mob{display:none;position:fixed;inset:0;z-index:850;background:rgba(244,248,255,.96);backdrop-filter:blur(18px);align-items:center;justify-content:center;flex-direction:column;gap:18px;}
+.nav-mob{display:none;position:fixed;inset:0;z-index:850;background:rgba(244,248,255,.96);backdrop-filter:blur(18px);align-items:center;justify-content:center;flex-direction:column;gap:16px;}
 .nav-mob.open{display:flex;}
-.nav-mob a{font-family:var(--f-display);font-size:clamp(2rem,8vw,4rem);font-weight:700;letter-spacing:-.06em;color:var(--deep);}
+.nav-mob a{font-family:var(--f-display);font-size:clamp(1.8rem,7vw,3.6rem);font-weight:700;letter-spacing:-.06em;color:var(--deep);}
 .nav-mob a:hover{color:var(--blue);}
 
 /* Layout helpers */
@@ -134,9 +131,6 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
 .title{font-family:var(--f-display);font-weight:700;font-size:clamp(2.5rem,6.5vw,5.7rem);line-height:.88;letter-spacing:-.075em;color:var(--deep);}
 .lead{font-size:clamp(1rem,1.35vw,1.16rem);line-height:1.7;color:var(--muted);max-width:58ch;font-weight:500;}
 .reveal{opacity:0;transform:translateY(28px);}
-
-/* Universal card style */
-.soft-card{background:rgba(255,255,255,.76);border:1px solid rgba(255,255,255,.84);box-shadow:var(--shadow);border-radius:var(--radius);}
 
 /* Hero */
 #hero{min-height:100svh;display:flex;align-items:center;padding-top:130px;padding-bottom:64px;overflow:hidden;}
@@ -183,6 +177,15 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
 .scroll-hint{display:flex;align-items:center;justify-content:center;gap:8px;margin:26px auto 0;width:fit-content;font-family:var(--f-mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.16em;color:rgba(255,255,255,.72);opacity:0;}
 .scroll-hint i{width:36px;height:1px;background:var(--lime);display:block;}
 
+/* Marquee statement band */
+#band{padding:0;overflow:hidden;}
+.band-strip{position:relative;background:var(--deep);color:white;transform:rotate(-1.2deg);margin:26px calc(var(--pad) * -1);padding:22px 0;box-shadow:0 24px 60px rgba(5,26,82,.22);}
+.band-track{display:flex;gap:0;width:max-content;animation:bandmove 26s linear infinite;}
+.band-track span{display:inline-flex;align-items:center;gap:26px;padding-right:26px;font-family:var(--f-display);font-weight:700;font-size:clamp(1.5rem,3.4vw,2.8rem);letter-spacing:-.05em;text-transform:uppercase;white-space:nowrap;}
+.band-track .hollow{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.65);}
+.band-track .star{color:var(--lime);font-size:.7em;-webkit-text-stroke:0;}
+@keyframes bandmove{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
 /* Services */
 #services{padding-top:90px;}
 .section-head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:38px;}
@@ -190,50 +193,109 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
 .svc{position:relative;overflow:hidden;background:white;border:1px solid rgba(255,255,255,.8);box-shadow:0 20px 50px rgba(13,65,160,.09);border-radius:30px;padding:28px;min-height:268px;transition:transform .25s,box-shadow .25s;}
 .svc:hover{transform:translateY(-6px);box-shadow:var(--shadow-2);}
 .svc::before{content:'';position:absolute;width:170px;height:170px;border-radius:50%;right:-60px;top:-70px;background:linear-gradient(135deg,var(--blue-soft),rgba(156,255,0,.26));}
-.svc .sn{position:relative;z-index:1;display:inline-flex;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);background:#eef6ff;border:1px solid var(--line);border-radius:999px;padding:7px 10px;font-weight:700;}
-.svc h3{position:relative;z-index:1;font-family:var(--f-display);font-weight:700;font-size:1.55rem;line-height:1;letter-spacing:-.04em;color:var(--deep);margin:22px 0 12px;}
+.svc h3{position:relative;z-index:1;font-family:var(--f-display);font-weight:700;font-size:1.55rem;line-height:1;letter-spacing:-.04em;color:var(--deep);margin:8px 0 12px;}
 .svc p{position:relative;z-index:1;color:var(--muted);font-weight:500;font-size:.96rem;}
 .svc ul{position:relative;z-index:1;list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;}
 .svc li{font-size:.75rem;font-weight:800;color:#0b3d8f;background:#eef6ff;border:1px solid var(--line);padding:7px 11px;border-radius:999px;}
 
-/* Work */
+/* ============ WORK — CATEGORY SHELVES ============ */
 #work{background:linear-gradient(180deg,transparent,#eaf4ff 40%,transparent);}
-.filters{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 28px;}
-.filter{border:1px solid var(--line);background:rgba(255,255,255,.72);color:#34445d;border-radius:999px;padding:11px 16px;font-weight:900;font-size:.82rem;transition:background .25s,color .25s,transform .2s;}
-.filter{cursor:pointer;}
-.filter:hover{transform:translateY(-2px);background:white;}
-.filter.active{background:var(--blue);color:white;border-color:var(--blue);box-shadow:0 16px 30px rgba(11,102,255,.22);}
-.work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
-.clip{position:relative;overflow:hidden;border-radius:28px;background:white;border:8px solid white;box-shadow:0 16px 45px rgba(13,65,160,.11);transition:transform .25s,box-shadow .25s;}
-.clip{cursor:pointer;}
-.clip.feat{grid-column:span 2;grid-row:span 2;}
-.clip:hover{transform:translateY(-6px) rotate(-.6deg);box-shadow:0 28px 75px rgba(13,65,160,.18);}
-.clip:focus-visible{outline:3px solid var(--blue);outline-offset:4px;}
-.clip .thumb{width:100%;aspect-ratio:16/11;object-fit:cover;filter:saturate(1.08);transition:transform .5s;}
-.clip.feat .thumb{height:100%;aspect-ratio:16/9;}
-.clip:hover .thumb{transform:scale(1.055);}
-.clip-top{position:absolute;top:14px;left:14px;right:14px;z-index:4;display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:var(--f-mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.08em;}
-.clip-id,.clip-tag{background:rgba(255,255,255,.86);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.7);border-radius:999px;padding:7px 10px;color:var(--deep);font-weight:700;}
-.clip-tag{background:var(--lime);}
-.clip-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,15,62,.82),transparent 62%);opacity:0;z-index:2;transition:opacity .25s;}
-.clip:hover .clip-grad{opacity:1;}
-.clip-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.74);z-index:4;width:60px;height:60px;border:0;border-radius:50%;display:grid;place-items:center;background:var(--lime);opacity:0;transition:opacity .25s,transform .25s;box-shadow:0 18px 44px rgba(0,0,0,.18);}
-.clip:hover .clip-play{opacity:1;transform:translate(-50%,-50%) scale(1);}
-.clip-play svg{width:17px;height:17px;fill:#07111f;margin-left:2px;}
-.clip-foot{position:absolute;z-index:3;left:18px;right:18px;bottom:18px;color:white;opacity:0;transform:translateY(8px);transition:opacity .25s,transform .25s;}
-.clip:hover .clip-foot{opacity:1;transform:none;}
-.clip-foot .ti{font-family:var(--f-display);font-size:1.15rem;font-weight:700;letter-spacing:-.04em;}
-.clip-foot .me{font-family:var(--f-mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.72);}
+.jump{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 14px;position:sticky;top:92px;z-index:120;padding:10px;border-radius:24px;background:rgba(255,255,255,.66);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.85);box-shadow:0 14px 40px rgba(13,65,160,.10);}
+.jump a{border:1px solid var(--line);background:rgba(255,255,255,.72);color:#34445d;border-radius:999px;padding:10px 15px;font-weight:900;font-size:.8rem;transition:background .25s,color .25s,transform .2s;}
+.jump a:hover{transform:translateY(-2px);background:white;}
+.jump a.active{background:var(--blue);color:white;border-color:var(--blue);box-shadow:0 14px 28px rgba(11,102,255,.22);}
+.jump a .ct{font-family:var(--f-mono);font-size:.58rem;font-weight:400;opacity:.65;margin-left:5px;}
 
-/* Process */
-.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px;}
-.step{position:relative;overflow:hidden;background:#fff;border:1px solid rgba(255,255,255,.82);border-radius:30px;box-shadow:0 18px 50px rgba(13,65,160,.08);padding:28px;}
-.step::before{content:'';position:absolute;left:26px;right:26px;top:86px;height:1px;background:var(--line);}
-.step .num{width:58px;height:58px;display:grid;place-items:center;border-radius:18px;background:var(--blue);color:white;font-family:var(--f-display);font-weight:700;font-size:1.2rem;letter-spacing:-.05em;box-shadow:0 14px 30px rgba(11,102,255,.22);}
-.step h4{font-family:var(--f-display);font-weight:700;color:var(--deep);font-size:1.35rem;line-height:1;letter-spacing:-.04em;margin:28px 0 12px;}
-.step p{color:var(--muted);font-weight:500;font-size:.94rem;}
-.step .bar{height:9px;border-radius:999px;background:#e8f1ff;margin-top:24px;overflow:hidden;}
-.step .bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--lime),var(--blue));border-radius:999px;}
+.shelf{margin-top:46px;scroll-margin-top:190px;}
+.shelf-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:16px;}
+.shelf-head .lft{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
+.shelf-head .idx{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);background:white;border:1px solid var(--line);border-radius:999px;padding:7px 11px;font-weight:700;}
+.shelf-head h3{font-family:var(--f-display);font-weight:700;font-size:clamp(1.5rem,3.2vw,2.4rem);letter-spacing:-.05em;line-height:1;color:var(--deep);}
+.shelf-head .cnt{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);}
+.shelf-arrows{display:flex;gap:8px;}
+.sarr{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:white;color:var(--deep);display:grid;place-items:center;font-weight:900;transition:background .25s,color .25s,transform .2s;box-shadow:0 10px 26px rgba(13,65,160,.10);}
+.sarr:hover{background:var(--blue);color:white;transform:translateY(-2px);}
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:8px 4px 22px;scrollbar-width:thin;scrollbar-color:rgba(11,102,255,.35) transparent;}
+.rail::-webkit-scrollbar{height:6px;}
+.rail::-webkit-scrollbar-thumb{background:rgba(11,102,255,.30);border-radius:99px;}
+.rail::-webkit-scrollbar-track{background:rgba(5,26,82,.05);border-radius:99px;}
+
+.clip{position:relative;overflow:hidden;flex:0 0 320px;scroll-snap-align:start;border-radius:26px;background:white;border:7px solid white;box-shadow:0 16px 45px rgba(13,65,160,.11);transition:transform .25s,box-shadow .25s;cursor:pointer;}
+.clip:hover{transform:translateY(-6px) rotate(-.5deg);box-shadow:0 28px 75px rgba(13,65,160,.18);}
+.clip:focus-visible{outline:3px solid var(--blue);outline-offset:4px;}
+.clip .thumb{width:100%;aspect-ratio:16/10;object-fit:cover;filter:saturate(1.08);transition:transform .5s;background:#e8f1ff;}
+.clip:hover .thumb{transform:scale(1.055);}
+.clip.v{flex:0 0 212px;}
+.clip.v .thumb{aspect-ratio:9/14;}
+.clip-top{position:absolute;top:12px;left:12px;right:12px;z-index:4;display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.56rem;text-transform:uppercase;letter-spacing:.08em;}
+.clip-tag{background:var(--lime);border:1px solid rgba(255,255,255,.7);border-radius:999px;padding:6px 9px;color:#07111f;font-weight:700;}
+.clip-yr{background:rgba(255,255,255,.86);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.7);border-radius:999px;padding:6px 9px;color:var(--deep);font-weight:700;}
+.clip-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,15,62,.88),transparent 52%);opacity:0;z-index:2;transition:opacity .25s;}
+.clip:hover .clip-grad,.clip:focus-visible .clip-grad{opacity:1;}
+.clip-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.74);z-index:4;width:56px;height:56px;border:0;border-radius:50%;display:grid;place-items:center;background:var(--lime);opacity:0;transition:opacity .25s,transform .25s;box-shadow:0 18px 44px rgba(0,0,0,.18);}
+.clip:hover .clip-play{opacity:1;transform:translate(-50%,-50%) scale(1);}
+.clip-play svg{width:16px;height:16px;fill:#07111f;margin-left:2px;}
+.clip-foot{position:absolute;z-index:3;left:15px;right:15px;bottom:13px;color:white;opacity:0;transform:translateY(8px);transition:opacity .25s,transform .25s;}
+.clip:hover .clip-foot,.clip:focus-visible .clip-foot{opacity:1;transform:none;}
+.clip-foot .ti{font-family:var(--f-display);font-size:1rem;line-height:1.12;font-weight:700;letter-spacing:-.03em;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.clip-foot .me{font-family:var(--f-mono);font-size:.56rem;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.72);margin-top:6px;}
+.clip-foot .me b{color:var(--lime);font-weight:400;}
+
+/* ============ JOURNEY — EDITOR TIMELINE ============ */
+#experience{padding-top:90px;}
+.tl{position:relative;overflow:hidden;border-radius:34px;background:linear-gradient(180deg,#08133a 0%,var(--panel) 100%);border:1px solid rgba(255,255,255,.06);box-shadow:0 40px 110px rgba(5,15,46,.45);color:#dbe6ff;padding:clamp(20px,3.4vw,40px);margin-bottom:56px;user-select:none;-webkit-user-select:none;}
+.tl::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;}
+.tl-bar{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:20px;flex-wrap:wrap;}
+.tl-bar .file{display:flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:#8fa3d9;}
+.tl-bar .dots{display:flex;gap:6px;}
+.tl-bar .dots i{width:11px;height:11px;border-radius:50%;background:#22315f;}
+.tl-bar .dots i:nth-child(1){background:#ff5f57;}
+.tl-bar .dots i:nth-child(2){background:#febc2e;}
+.tl-bar .dots i:nth-child(3){background:var(--lime);}
+.tl-bar .hint{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#67d;color:#6f83bb;border:1px dashed rgba(156,255,0,.35);border-radius:999px;padding:8px 13px;}
+.tl-bar .hint b{color:var(--lime);font-weight:400;}
+.tl-cap{position:relative;z-index:2;min-height:86px;display:flex;align-items:center;gap:16px;margin-bottom:8px;}
+.tl-cap .yrbig{font-family:var(--f-display);font-weight:700;font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.06em;color:var(--lime);line-height:1;text-shadow:0 10px 35px rgba(156,255,0,.25);min-width:3.4ch;}
+.tl-cap .msg{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);border-radius:18px;padding:14px 20px;font-family:var(--f-display);font-weight:700;font-size:clamp(1.05rem,2.2vw,1.6rem);letter-spacing:-.03em;line-height:1.2;color:#f2f6ff;box-shadow:0 18px 45px rgba(0,0,0,.28);}
+.tl-cap .msg small{display:block;font-family:var(--f-mono);font-weight:400;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#8fa3d9;margin-top:7px;}
+
+.tl-stage{position:relative;z-index:2;touch-action:pan-y;cursor:ew-resize;}
+.tl-ruler{position:relative;height:44px;border-bottom:1px solid rgba(255,255,255,.14);}
+.tl-tick{position:absolute;bottom:0;width:1px;height:9px;background:rgba(255,255,255,.22);}
+.tl-tick.major{height:16px;background:rgba(255,255,255,.45);}
+.tl-tick .yl{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-family:var(--f-mono);font-size:.6rem;letter-spacing:.08em;color:#8fa3d9;white-space:nowrap;}
+.tl-progress{position:absolute;left:0;bottom:-2px;height:3px;background:linear-gradient(90deg,rgba(156,255,0,.35),var(--lime));border-radius:99px;box-shadow:0 0 14px rgba(156,255,0,.5);width:0;z-index:3;}
+.tl-tracks{position:relative;padding-top:14px;}
+.tl-row{position:relative;height:46px;margin-bottom:9px;display:flex;align-items:center;}
+.tl-meta{flex:0 0 108px;display:flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.6rem;color:#6f83bb;letter-spacing:.06em;}
+.tl-meta .k{width:22px;height:22px;border-radius:6px;background:#131f47;border:1px solid rgba(255,255,255,.08);display:grid;place-items:center;font-size:.56rem;}
+.tl-meta .k.on{color:var(--lime);border-color:rgba(156,255,0,.35);}
+.tl-lane{position:relative;flex:1;height:100%;background:rgba(255,255,255,.03);border-radius:12px;border:1px solid rgba(255,255,255,.05);}
+.tl-clipblk{position:absolute;top:5px;bottom:5px;border-radius:9px;display:flex;align-items:center;overflow:hidden;padding:0 12px;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.05em;white-space:nowrap;color:#04122e;font-weight:700;background:linear-gradient(180deg,#bfd7ff,#8db8ff);border:1px solid rgba(255,255,255,.5);box-shadow:0 8px 22px rgba(0,0,0,.25);opacity:.55;transition:opacity .25s,box-shadow .25s;}
+.tl-clipblk::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:rgba(4,18,46,.25);}
+.tl-clipblk::after{content:'';position:absolute;right:0;top:0;bottom:0;width:5px;background:rgba(4,18,46,.25);}
+.tl-clipblk.lm{background:linear-gradient(180deg,var(--lime-2),var(--lime));}
+.tl-clipblk.bl{background:linear-gradient(180deg,#4d90ff,#0b66ff);color:#eaf2ff;}
+.tl-clipblk.live{opacity:1;box-shadow:0 10px 30px rgba(156,255,0,.22),0 8px 22px rgba(0,0,0,.3);}
+.tl-head{position:absolute;top:0;bottom:0;left:0;width:0;z-index:6;pointer-events:none;}
+.tl-line{position:absolute;top:26px;bottom:0;left:-1px;width:2px;background:var(--lime);box-shadow:0 0 16px rgba(156,255,0,.65);}
+.tl-grab{position:absolute;top:8px;left:-13px;width:26px;height:26px;border-radius:8px 8px 12px 12px;background:var(--lime);box-shadow:0 8px 22px rgba(156,255,0,.4);pointer-events:auto;cursor:grab;display:grid;place-items:center;}
+.tl-grab:active{cursor:grabbing;}
+.tl-grab::before{content:'';width:2px;height:10px;background:#04122e;box-shadow:5px 0 0 #04122e,-5px 0 0 #04122e;}
+.tl-grab:focus-visible{outline:3px solid white;outline-offset:2px;}
+
+/* Experience cards */
+.xp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.xp{position:relative;overflow:hidden;background:white;border:1px solid rgba(255,255,255,.82);border-radius:30px;box-shadow:0 18px 50px rgba(13,65,160,.08);padding:26px 28px;transition:transform .25s,box-shadow .25s;}
+.xp:hover{transform:translateY(-5px);box-shadow:var(--shadow-2);}
+.xp::before{content:'';position:absolute;left:0;top:24px;bottom:24px;width:5px;border-radius:0 10px 10px 0;background:linear-gradient(180deg,var(--blue),var(--lime));}
+.xp-head{display:flex;justify-content:space-between;align-items:start;gap:14px;}
+.xp h3{font-family:var(--f-display);font-weight:700;font-size:1.3rem;line-height:1.05;letter-spacing:-.04em;color:var(--deep);}
+.xp .co{font-weight:800;color:var(--blue);font-size:.92rem;margin-top:6px;}
+.xp .type{flex-shrink:0;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;background:#eef6ff;border:1px solid var(--line);color:#0b3d8f;border-radius:999px;padding:7px 10px;font-weight:700;white-space:nowrap;}
+.xp .type.now{background:var(--lime);color:#07111f;border-color:rgba(7,17,31,.1);}
+.xp .dates{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-top:12px;}
+.xp p{color:var(--muted);font-weight:500;font-size:.92rem;margin-top:12px;}
 
 /* About */
 #about{overflow:hidden;}
@@ -246,16 +308,12 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
 .badge .ic{font-size:1.25rem;}
 .badge .tx{font-size:.9rem;}
 
-/* Voices */
-#voices{background:linear-gradient(180deg,transparent,#fff 50%,transparent);}
-.vc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px;}
-.vc{position:relative;background:white;border:1px solid rgba(255,255,255,.84);border-radius:30px;box-shadow:0 18px 50px rgba(13,65,160,.08);padding:28px;display:flex;flex-direction:column;gap:24px;min-height:260px;}
-.vc::before{content:'“';position:absolute;right:22px;top:0;font-family:var(--f-display);font-size:6rem;line-height:1;color:rgba(11,102,255,.10);font-weight:700;}
-.vc .q{position:relative;z-index:1;color:var(--deep);font-weight:700;font-size:1.05rem;line-height:1.56;}
-.vc .who{display:flex;align-items:center;gap:12px;margin-top:auto;}
-.vc .av{width:44px;height:44px;border-radius:15px;background:linear-gradient(145deg,var(--blue),#002bff);display:grid;place-items:center;color:white;font-family:var(--f-display);font-weight:700;}
-.vc .nm{font-weight:900;color:var(--deep);}
-.vc .rl{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);}
+/* Open to */
+#open{background:linear-gradient(180deg,transparent,#fff 50%,transparent);}
+.open-cloud{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px;max-width:920px;}
+.opp{display:inline-flex;align-items:center;gap:10px;background:white;border:1px solid var(--line);border-radius:999px;padding:14px 20px;font-weight:800;font-size:.92rem;color:var(--deep);box-shadow:0 14px 35px rgba(13,65,160,.08);transition:transform .2s,background .25s,color .25s;}
+.opp::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(156,255,0,.25);}
+.opp:hover{transform:translateY(-3px);background:var(--blue);color:white;}
 
 /* Contact */
 #contact{text-align:center;padding-bottom:52px;}
@@ -276,18 +334,20 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
 #modal{display:none;position:fixed;inset:0;z-index:9000;background:rgba(3,13,36,.88);backdrop-filter:blur(16px);align-items:center;justify-content:center;padding:20px;}
 #modal.open{display:flex;}
 .modal-in{position:relative;width:min(980px,94vw);background:white;border-radius:30px;padding:12px;box-shadow:0 35px 100px rgba(0,0,0,.28);}
-.modal-x{position:absolute;right:18px;top:18px;z-index:3;border:0;width:42px;height:42px;border-radius:50%;background:var(--lime);color:#07111f;font-weight:900;box-shadow:0 10px 24px rgba(0,0,0,.16);}
-.modal-x{cursor:pointer;}
+.modal-in.vert{width:min(430px,92vw);}
+.modal-x{position:absolute;right:18px;top:18px;z-index:3;border:0;width:42px;height:42px;border-radius:50%;background:var(--lime);color:#07111f;font-weight:900;box-shadow:0 10px 24px rgba(0,0,0,.16);cursor:pointer;}
 #modal-if{width:100%;aspect-ratio:16/9;border:0;border-radius:22px;display:block;background:#000;}
+.modal-in.vert #modal-if{aspect-ratio:9/16;max-height:74vh;}
+.modal-cap{padding:14px 10px 6px;text-align:left;}
+.modal-cap .t{font-family:var(--f-display);font-weight:700;color:var(--deep);font-size:1.1rem;letter-spacing:-.03em;line-height:1.15;}
+.modal-cap .r{color:var(--muted);font-size:.84rem;font-weight:600;margin-top:5px;}
 
 /* Responsive */
 @media(max-width:1120px){
   .hero-content{grid-template-columns:1fr;}
   .hero-panel{min-height:380px;}
-  .hero-bottom,.proc-grid{grid-template-columns:repeat(2,1fr);}
+  .hero-bottom{grid-template-columns:repeat(2,1fr);}
   .svc-grid{grid-template-columns:repeat(2,1fr);}
-  .work-grid{grid-template-columns:repeat(3,1fr);}
-  .vc-grid{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:860px){
   #nav{top:12px;left:14px;right:14px;height:60px;}
@@ -298,6 +358,11 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
   .hero-panel{min-height:330px;}
   .float-pill{font-size:.75rem;padding:11px 13px;}
   .hero-bottom{grid-template-columns:1fr 1fr;}
+  .xp-grid{grid-template-columns:1fr;}
+  .jump{top:80px;}
+  .tl-meta{flex-basis:64px;}
+  .tl-meta .lbl2{display:none;}
+  .tl-cap .msg{font-size:1rem;}
 }
 @media(max-width:620px){
   section{padding-left:16px;padding-right:16px;}
@@ -307,16 +372,20 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
   .hero-panel{min-height:270px;}
   .fp2{right:-8px;top:16%;}.fp3{bottom:6%;}.fp4{display:none;}
   .marker.m1,.marker.m2,.marker.m3{opacity:.55;transform:scale(.72) rotate(-16deg);}
-  .hero-bottom,.svc-grid,.proc-grid,.vc-grid{grid-template-columns:1fr;}
-  .work-grid{grid-template-columns:1fr 1fr;gap:10px;}
-  .clip.feat{grid-column:span 2;grid-row:auto;}
-  .clip{border-width:6px;border-radius:22px;}
+  .hero-bottom,.svc-grid{grid-template-columns:1fr;}
+  .clip{flex-basis:262px;border-width:6px;border-radius:22px;}
+  .clip.v{flex-basis:186px;}
+  .jump{position:static;}
+  .shelf{scroll-margin-top:96px;}
+  .tl{border-radius:26px;}
+  .tl-cap{flex-direction:column;align-items:flex-start;gap:10px;min-height:120px;}
   .contact-card{border-radius:30px;}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}
   .reveal,.hero-eyebrow,.hero-copy,.hero-cta-row,.hero-panel,.scroll-hint{opacity:1!important;transform:none!important;}
   .hero-h1 .ln i{transform:none!important;}
+  .band-track{animation:none!important;}
 }
 </style>
 </head>
@@ -337,8 +406,9 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#work">Work</a></li>
-    <li><a href="#process">Process</a></li>
+    <li><a href="#experience">Journey</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#open">Open to</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Start a project</a>
   <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMob"><span></span><span></span><span></span></button>
@@ -346,8 +416,9 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
 <div class="nav-mob" id="navMob" aria-hidden="true">
   <a href="#services">Services</a>
   <a href="#work">Work</a>
-  <a href="#process">Process</a>
+  <a href="#experience">Journey</a>
   <a href="#about">About</a>
+  <a href="#open">Open to</a>
   <a href="#contact">Contact</a>
 </div>
 
@@ -358,13 +429,13 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
       <span class="marker m1"></span><span class="marker m2"></span><span class="marker m3"></span>
       <div class="hero-content">
         <div>
-          <p class="hero-eyebrow"><span class="dot"></span> Video Editor & Storyteller · Mumbai, India</p>
+          <p class="hero-eyebrow"><span class="dot"></span> Video Editor · AI Filmmaker · Creative Mentor — Mumbai</p>
           <h1 class="hero-h1">
             <span class="ln"><i>STORIES</i></span>
             <span class="ln"><i class="lime">THAT HOLD</i></span>
             <span class="ln"><i>ATTENTION.</i></span>
           </h1>
-          <p class="hero-copy">I turn raw footage into <b>cinematic, scroll-stopping edits</b> — built on pacing, sound and emotion — for India's top creators and brands.</p>
+          <p class="hero-copy">Crafting <b>cinematic stories</b> through editing, travel and AI-powered filmmaking — from podcasts and YouTube to travel documentaries and fully AI-generated films.</p>
           <div class="hero-cta-row">
             <a href="#work" class="btn btn-fill">View the work</a>
             <a href="#contact" class="btn btn-line">Start a project</a>
@@ -373,72 +444,90 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
         <div class="hero-panel">
           <span class="orbit o1"></span><span class="orbit o2"></span><span class="orbit o3"></span>
           <div class="avatar-card"></div>
-          <div class="float-pill fp1">Short-form hooks<small>Retention first</small></div>
-          <div class="float-pill fp2">YouTube stories<small>Long-form pacing</small></div>
-          <div class="float-pill fp3">AI video workflows<small>Concept to screen</small></div>
-          <div class="float-pill fp4">3500+ cuts<small>Creators + brands</small></div>
+          <div class="float-pill fp1">Podcasts + YouTube<small>SkillHouse Media</small></div>
+          <div class="float-pill fp2">AI Filmmaking<small>Concept to screen</small></div>
+          <div class="float-pill fp3">Travel documentaries<small>Can Yoou Travel</small></div>
+          <div class="float-pill fp4">3500+ cuts<small>Since 2019</small></div>
         </div>
       </div>
       <div class="hero-bottom">
         <div class="metric"><div class="n"><span class="counter" data-target="3500">0</span><b>+</b></div><div class="l">Videos edited</div></div>
-        <div class="metric"><div class="n"><span class="counter" data-target="5">0</span><b>+</b></div><div class="l">Years editing</div></div>
+        <div class="metric"><div class="n"><span class="counter" data-target="6">0</span><b>+</b></div><div class="l">Years of experience</div></div>
+        <div class="metric"><div class="n"><span class="counter" data-target="28">0</span></div><div class="l">Featured projects</div></div>
         <div class="metric"><div class="n"><span class="counter" data-target="10">0</span><b>+</b></div><div class="l">Brands & creators</div></div>
-        <div class="metric"><div class="n"><span class="counter" data-target="15">0</span><b>+</b></div><div class="l">AI tools in kit</div></div>
       </div>
       <div class="scroll-hint"><i></i> Scroll to explore <i></i></div>
     </div>
   </div>
 </section>
 
+<!-- MARQUEE STATEMENT BAND -->
+<div id="band" aria-hidden="true">
+  <div class="band-strip">
+    <div class="band-track" id="bandTrack">
+      <span>Podcasts <i class="star">✦</i> <i class="hollow">YouTube</i> <i class="star">✦</i> AI Films <i class="star">✦</i> <i class="hollow">Travel Docs</i> <i class="star">✦</i> Reels <i class="star">✦</i> <i class="hollow">Motion Graphics</i> <i class="star">✦</i> AI Ads <i class="star">✦</i> <i class="hollow">Mentorship</i> <i class="star">✦</i> </span>
+    </div>
+  </div>
+</div>
+
 <!-- SERVICES -->
 <section id="services">
   <div class="wrap">
     <div class="section-head">
       <div class="reveal"><span class="eyebrow">What I do</span><h2 class="title">Edits, end to end.</h2></div>
-      <p class="lead reveal">From a folder of rushes to a finished, color-graded, sound-designed cut — I handle the whole post-production pipeline so you can stay in front of the camera.</p>
+      <p class="lead reveal">From a folder of rushes — or a blank AI prompt — to a finished, color-graded, sound-designed cut. I handle the full post-production pipeline so you can stay in front of the camera.</p>
     </div>
     <div class="svc-grid">
+      <div class="svc reveal"><h3>Podcast & YouTube</h3><p>Full episodes, trailers and long-form edits with multicam cutting, structure, b-roll and pacing that hold viewers to the end screen.</p><ul><li>Multicam</li><li>Trailers</li><li>B-roll</li><li>Pacing</li></ul></div>
       <div class="svc reveal"><h3>Short-form & Reels</h3><p>Punchy vertical edits engineered for retention — hooks in the first second, captions, sound design and rhythm.</p><ul><li>Reels</li><li>Shorts</li><li>Hooks</li><li>Captions</li></ul></div>
-      <div class="svc reveal"><h3>Long-form & YouTube</h3><p>Story-led long-form edits with structure, b-roll, motion graphics and pacing that hold viewers to the end screen.</p><ul><li>YouTube</li><li>B-roll</li><li>Graphics</li><li>Pacing</li></ul></div>
-      <div class="svc reveal"><h3>Podcast editing</h3><p>Multicam podcast cuts plus magnetic short clips and trailers carved from the full conversation.</p><ul><li>Multicam</li><li>Clips</li><li>Trailers</li></ul></div>
-      <div class="svc reveal"><h3>AI-generated video</h3><p>Concept-to-screen AI workflows — generative visuals, voice and motion blended into a polished edit.</p><ul><li>Generative</li><li>VO</li><li>Motion</li></ul></div>
-      <div class="svc reveal"><h3>Story & narrative</h3><p>Shaping footage into a narrative with emotion, tension and payoff — not just a sequence of clips.</p><ul><li>Structure</li><li>Emotion</li><li>Sound</li></ul></div>
-      <div class="svc reveal"><h3>Brand campaigns</h3><p>Premium brand films and ad creatives built to convert, delivered in every aspect ratio you need.</p><ul><li>Ads</li><li>Brand films</li><li>Delivery</li></ul></div>
+      <div class="svc reveal"><h3>AI films & ads</h3><p>Concept-to-screen AI workflows — generative visuals, voice and motion blended into polished films and advertisements.</p><ul><li>Higgsfield</li><li>Midjourney</li><li>Gen video</li></ul></div>
+      <div class="svc reveal"><h3>Travel documentaries</h3><p>Cinematic films documenting India's culture, spirituality and hidden stories — researched, shot, edited and graded end to end.</p><ul><li>Directing</li><li>Cinematography</li><li>Grading</li></ul></div>
+      <div class="svc reveal"><h3>Motion graphics</h3><p>Custom typography, animated titles and explainer graphics in After Effects that make information land and hold attention.</p><ul><li>After Effects</li><li>Typography</li><li>Explainers</li></ul></div>
+      <div class="svc reveal"><h3>Mentorship & workshops</h3><p>Training aspiring editors in Premiere Pro, DaVinci Resolve and AI-powered workflows through Edit School and Can Yoou Edit.</p><ul><li>Premiere Pro</li><li>Resolve</li><li>AI workflows</li></ul></div>
     </div>
   </div>
 </section>
 
-<!-- WORK -->
+<!-- WORK — CATEGORY SHELVES -->
 <section id="work">
   <div class="wrap">
     <div class="section-head">
       <div class="reveal"><span class="eyebrow">Selected work</span><h2 class="title">The work board.</h2></div>
-      <p class="lead reveal">A bright card-based reel inspired by the references — tap any tile to play.</p>
+      <p class="lead reveal">Every format has its own shelf — podcasts with podcasts, travel with travel. Jump to a category, scroll the row, tap any tile to play.</p>
     </div>
-    <div class="filters reveal" id="filters">
-      <button class="filter active" data-cat="all">All</button>
-      <button class="filter" data-cat="best">Best edits</button>
-      <button class="filter" data-cat="ai">AI generated</button>
-      <button class="filter" data-cat="long">Long form</button>
-      <button class="filter" data-cat="podcast">Podcast</button>
-    </div>
-    <div class="work-grid" id="workGrid"></div>
+    <div class="jump reveal" id="jump"></div>
+    <div id="shelves"></div>
   </div>
 </section>
 
-<!-- PROCESS -->
-<section id="process">
+<!-- JOURNEY — EDITOR TIMELINE + EXPERIENCE -->
+<section id="experience">
   <div class="wrap">
     <div class="section-head">
-      <div class="reveal"><span class="eyebrow">How it works</span><h2 class="title">From brief to final cut.</h2></div>
-      <p class="lead reveal">A simple, predictable workflow — so you always know where your edit stands.</p>
+      <div class="reveal"><span class="eyebrow">The journey</span><h2 class="title">Scrub my timeline.</h2></div>
+      <p class="lead reveal">Seven years of edits, laid out the only way an editor knows how — on a timeline. Drag the playhead to travel from 2019 to today.</p>
     </div>
-    <div class="proc-grid">
-      <div class="step reveal"><div class="num">01</div><h4>Brief & rushes</h4><p>You share footage, references and the vibe. We lock the goal, length and platform first.</p><div class="bar"><span></span></div></div>
-      <div class="step reveal"><div class="num">02</div><h4>First cut</h4><p>Story structure, pacing, music and sound design come together into a strong first edit.</p><div class="bar"><span></span></div></div>
-      <div class="step reveal"><div class="num">03</div><h4>Revisions</h4><p>Your notes, my refinements — color, graphics and timing dialed in across focused rounds.</p><div class="bar"><span></span></div></div>
-      <div class="step reveal"><div class="num">04</div><h4>Final delivery</h4><p>Exported in every ratio and format you need, ready to publish — files available on request.</p><div class="bar"><span></span></div></div>
+
+    <div class="tl reveal" id="tl">
+      <div class="tl-bar">
+        <div class="file"><span class="dots"><i></i><i></i><i></i></span> yash_nachre_journey.prproj</div>
+        <div class="hint"><b>◂ ▸</b>&nbsp; drag the playhead</div>
+      </div>
+      <div class="tl-cap">
+        <div class="yrbig" id="tlYear">2026</div>
+        <div class="msg"><span id="tlMsg">Mentoring at Edit School · the AI films era.</span><small id="tlSub">Executive Video Editor · BeerBiceps SkillHouse</small></div>
+      </div>
+      <div class="tl-stage" id="tlStage">
+        <div class="tl-ruler" id="tlRuler"></div>
+        <div class="tl-tracks" id="tlTracks"></div>
+        <div class="tl-head" id="tlHead">
+          <div class="tl-line"></div>
+          <div class="tl-grab" id="tlGrab" role="slider" tabindex="0" aria-label="Career timeline playhead" aria-valuemin="2019" aria-valuemax="2026" aria-valuenow="2026" aria-valuetext="2026"></div>
+        </div>
+      </div>
     </div>
+
+    <div class="xp-grid" id="xpGrid"></div>
   </div>
 </section>
 
@@ -448,11 +537,31 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
     <div class="about-grid">
       <div class="about-text">
         <div class="reveal"><span class="eyebrow">The story</span><h2 class="title">About me</h2></div>
-        <p class="reveal">Editing taught me that <b>storytelling isn't about cutting clips</b> — it's about creating emotion, rhythm and connection. Through pacing, visuals and sound design, I turn simple footage into stories that hold attention and make audiences <em>feel</em> something.</p>
-        <p class="reveal">Working with creators like <b>Ranveer Allahbadia</b> showed me how powerful great storytelling and high-quality production can be. Collaborating with top creators in India taught me professional workflows, audience psychology, and how impactful content is made at scale.</p>
-        <p class="reveal">I competed in <b>Mumbai's first AI Hackathon</b>, organised by Ishan Sharma and Nandini Agrawal — and finished in the <b>Top 2</b>, a single step from the win.</p>
+        <p class="reveal">I'm Yash Nachre, a <b>Video Editor, Travel Storyteller and AI Filmmaker</b> with 6+ years of experience blending storytelling, technology and creativity. My journey began in 2019 editing videos on a mobile phone — and has grown into <em>3,500+ videos</em> across YouTube, podcasts, branded content, short-form and AI-generated films.</p>
+        <p class="reveal">Today I work as an <b>Executive Video Editor at BeerBiceps SkillHouse</b> while building my travel brand, <em>CAN YOOU TRAVEL</em>, creating cinematic documentaries that showcase India's culture, people and hidden stories. Beyond editing, I mentor aspiring creators through <b>Edit School</b> and experiment constantly with AI filmmaking.</p>
+        <p class="reveal">What makes me different? I combine professional editing, cinematic storytelling, travel filmmaking and <b>AI-powered workflows</b> into one creative process. My goal isn't just to edit videos — it's to craft <em>stories that people remember</em>.</p>
         <div class="badge reveal"><span class="ic">🏆</span><span class="tx">Top 2 · Mumbai AI Hackathon</span></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN TO -->
+<section id="open">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="reveal"><span class="eyebrow">Open to</span><h2 class="title">Let's build something.</h2></div>
+      <p class="lead reveal">The kinds of projects and collaborations I'm currently taking on.</p>
+    </div>
+    <div class="open-cloud reveal">
+      <span class="opp">Freelance video editing</span>
+      <span class="opp">YouTube & podcast editing</span>
+      <span class="opp">Travel documentary projects</span>
+      <span class="opp">AI filmmaking & creative AI projects</span>
+      <span class="opp">Brand campaigns & commercial films</span>
+      <span class="opp">Creative collaborations</span>
+      <span class="opp">Speaking engagements & workshops</span>
+      <span class="opp">Editing mentorship & training</span>
     </div>
   </div>
 </section>
@@ -467,8 +576,10 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
         <p class="contact-sub reveal">Tell me about the project — footage, deadline and where it's going. I'll take it from there.</p>
         <div class="contact-links reveal">
           <a href="mailto:yashnachre24@gmail.com" class="clink">✉ Email</a>
-          <a href="https://www.youtube.com/channel/UCHK2kSP-Mted9QAeNQ1BovA" target="_blank" rel="noopener" class="clink">▶ YouTube</a>
-          <a href="https://www.instagram.com/_canyooutravel_?igsh=cWkxcHh6cXhsYjF4&utm_source=qr" target="_blank" rel="noopener" class="clink">◎ Instagram</a>
+          <a href="https://youtube.com/@canyooutravel" target="_blank" rel="noopener" class="clink">▶ Can Yoou Travel</a>
+          <a href="https://youtube.com/@canyooutravelshorts" target="_blank" rel="noopener" class="clink">▶ Travel Shorts</a>
+          <a href="https://www.instagram.com/canyoou.edit/" target="_blank" rel="noopener" class="clink">◎ Can Yoou Edit</a>
+          <a href="https://www.instagram.com/canyoou.travel/" target="_blank" rel="noopener" class="clink">◎ Can Yoou Travel</a>
           <a href="https://www.linkedin.com/in/yash-nachre" target="_blank" rel="noopener" class="clink">in LinkedIn</a>
           <a href="https://www.facebook.com/canyooutravel" target="_blank" rel="noopener" class="clink">f Facebook</a>
         </div>
@@ -480,9 +591,10 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
 
 <!-- MODAL -->
 <div id="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Video player">
-  <div class="modal-in" tabindex="-1">
+  <div class="modal-in" id="modalIn" tabindex="-1">
     <button class="modal-x" id="modalX" type="button" aria-label="Close video">✕</button>
     <iframe id="modal-if" title="Video player" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="modal-cap"><div class="t" id="modalT"></div><div class="r" id="modalR"></div></div>
   </div>
 </div>
 
@@ -491,22 +603,125 @@ const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const HAS_GSAP = typeof window.gsap !== 'undefined';
 const HAS_SCROLL_TRIGGER = typeof window.ScrollTrigger !== 'undefined';
 
-const AI_VIDS   = ['tPzkCj7ZtyM','B66ZYUx1Kkk','T5NoWKB19UE','Yl8PiKLxH-E'];
-const BEST_VIDS = ['zjFSmpTBchg','GCNSlrnuBeU','RPdAJH4jI9M','gqlj5M_UOQQ'];
-const LONG_VIDS = ['QVHxK29_858','mSFQMOmJGOc','lUmhUbCN7BI'];
-const POD_VIDS  = ['fzH0j6WYQQg','1qK4MFwmDOQ','hL31zuM777s','6Bf7fR4KCSE'];
-const CAT = {best:'Best edit',ai:'AI generated',long:'Long form',podcast:'Podcast'};
-const VIDEO_TITLES = {
-  zjFSmpTBchg:'Featured Best Edit 01',
-  GCNSlrnuBeU:'Featured Best Edit 02'
-};
-const CLIPS = [];
-BEST_VIDS.forEach((id,i)=>CLIPS.push({id,cat:'best',feat:i===0}));
-AI_VIDS.forEach(id=>CLIPS.push({id,cat:'ai'}));
-LONG_VIDS.forEach(id=>CLIPS.push({id,cat:'long'}));
-POD_VIDS.forEach(id=>CLIPS.push({id,cat:'podcast'}));
+/* ============ PROJECT DATA (from content sheet) ============ */
+/* vert:true → 9:16 card (Shorts/Reels). id = YouTube ID · url = external link */
+const SHELVES = [
+  {key:'pod', label:'Podcasts', blurb:'Full episodes & trailers'},
+  {key:'yt', label:'YouTube', blurb:'Long-form & documentary'},
+  {key:'travel', label:'Travel Films', blurb:'Can Yoou Travel'},
+  {key:'aifilm', label:'AI Films', blurb:'Generative cinema'},
+  {key:'aiad', label:'AI Ads', blurb:'Concept-to-screen'},
+  {key:'short', label:'Short-form', blurb:'Reels & Shorts'},
+  {key:'mg', label:'Motion Graphics', blurb:'After Effects'},
+  {key:'re', label:'Real Estate', blurb:'Property films'}
+];
+const CAT = Object.fromEntries(SHELVES.map(s=>[s.key,s.label]));
+const PROJECTS = [
+  {id:'dLY502Ls1eo', cat:'pod', client:'Soul Talk with Bhaavin', yr:2026,
+   t:"Dhurandhar Ka Asli Sach — Inside India's Secret Intelligence Wars", role:'Lead Video Editor — full episode, trailer, sound design, grading'},
+  {id:'IXshCNguDiQ', cat:'pod', client:'Soul Talk with Bhaavin', yr:2026,
+   t:'Is Bollywood Really About Talent? ft. Souvik Nandi', role:'Lead Video Editor — multicam edit, trailer, motion graphics'},
+  {id:'ZBtphyjz4dw', cat:'pod', client:'Soul Talk with Bhaavin', yr:2025,
+   t:'2026 Warning For All Zodiac Signs', role:'Lead Video Editor — complete edit, trailer, mastering'},
+  {id:'eSI19Q_KWww', cat:'pod', client:'BeerBiceps SkillHouse', yr:2025,
+   t:'The Fastest Way to Learn AI in 2025', role:'Lead Video Editor — episode, trailer, graphics, grading'},
+  {id:'gcJyEPA3ePo', cat:'yt', client:'BeerBiceps SkillHouse', yr:2025,
+   t:"Stop Doing This at Work — Why You're Not Getting Promoted", role:'YouTube Video Editor — long-form edit, b-roll, subtitles'},
+  {id:'o4OieBT_IRU', cat:'yt', client:'BeerBiceps SkillHouse', yr:2025,
+   t:'A Day in the Life of Two Video Editors — Corporate vs Freelance', role:'Documentary Video Editor — narrative pacing, cinematic transitions'},
+  {id:'GurRy5hI36s', cat:'yt', client:'BeerBiceps SkillHouse', yr:2025,
+   t:"AI Replaced My Job — Here's What I Did Next", role:'YouTube Video Editor — storytelling, graphics, sound design'},
+  {id:'e-4ERiEDBGc', cat:'yt', client:'finforindia', yr:2026,
+   t:'Timeless Guide to Buying a Home in India (2026)', role:'Lead Video Editor — motion graphics, b-roll, grading'},
+  {id:'jMc51iUEqgg', cat:'mg', client:'BeerBiceps SkillHouse', yr:2025,
+   t:'Govt Job or Private Job? The Shocking Answer', role:'Editor & Motion Graphics Designer — custom animated graphics'},
+  {id:'f0yfAflORD4', cat:'mg', client:'Ranveer Allahbadia', yr:2026,
+   t:'How to Make 1 Lakh Followers?', role:'Motion Graphics Designer — animated visual elements'},
+  {url:'https://www.instagram.com/reel/DY9UXKdtjk1/', cat:'mg', client:'Can Yoou Edit', yr:2026, vert:true,
+   t:'Name Animations', role:'Motion Graphics Designer — custom typography in After Effects'},
+  {id:'1lEqFkaiuxM', cat:'aiad', client:'AI Mumbai Hackathon', yr:2025,
+   t:'Nike Shoes Ad — Made Entirely With AI', role:'AI Creative Director — Midjourney visuals, AI video, final edit'},
+  {id:'CDQCn2xja5U', cat:'aiad', client:'BeerBiceps SkillHouse', yr:2026, vert:true,
+   t:'Lexi Pen — AI Ad, Version 01', role:'AI Video Creator — concept, generative visuals, post-production'},
+  {id:'o9AFUvbpK3I', cat:'aiad', client:'BeerBiceps SkillHouse', yr:2026, vert:true,
+   t:'Lexi Pen — AI Ad, Version 02', role:'AI Video Creator — generative workflows, motion graphics'},
+  {id:'CnsXZeF3X5Q', cat:'aifilm', client:'BeerBiceps SkillHouse', yr:2026, vert:true,
+   t:'FIFA World Cup — AI Film', role:'AI Filmmaker — generated visuals, creative direction, edit'},
+  {id:'Yl8PiKLxH-E', cat:'aifilm', client:'BeerBiceps SkillHouse', yr:2026,
+   t:'Ranveer Movie — AI Film', role:'AI Filmmaker — cinematic sequences with Higgsfield AI'},
+  {id:'T5NoWKB19UE', cat:'aifilm', client:'BeerBiceps SkillHouse', yr:2026,
+   t:'Ranveer Samurai — AI Film', role:'AI Filmmaker — AI-generated cinematic visuals, final edit'},
+  {id:'GCNSlrnuBeU', cat:'short', client:'dhaanessh.ai', yr:2026, vert:true,
+   t:'AI Dog Collar', role:'Short-form Editor — Premiere Pro + AE + AI-assisted workflow'},
+  {id:'zjFSmpTBchg', cat:'short', client:'dhaanessh.ai', yr:2026, vert:true,
+   t:'Levels of ChatGPT', role:'Short-form Editor — dynamic editing, AI assets, sound design'},
+  {id:'G3OpGwxhNq8', cat:'short', client:'BeerBiceps SkillHouse', yr:2026, vert:true,
+   t:'Better Software ≠ Better Income', role:'Short-form Editor — motion graphics, retention pacing'},
+  {id:'P7GCXb8QIU0', cat:'short', client:'BeerBiceps SkillHouse', yr:2026, vert:true,
+   t:'BeerBiceps Edited Over 7000+ Videos', role:'Short-form Editor — dynamic pacing, AI-assisted editing'},
+  {id:'9edNwKM6_ds', cat:'travel', client:'Can Yoou Travel', yr:2026,
+   t:"PANDHARPUR — The Story Behind Maharashtra's Biggest Spiritual Journey", role:'Director, Cinematographer & Editor — complete documentary'},
+  {id:'Hp1OPoJ97EY', cat:'travel', client:'Can Yoou Travel', yr:2026,
+   t:"Tulja Bhavani Temple — Maharashtra's Most Powerful Shakti Peeth", role:'Director, Cinematographer & Editor — full production workflow'},
+  {id:'vu5x3qT_N58', cat:'travel', client:'Can Yoou Travel', yr:2026,
+   t:"I Did THIS for My Mom's 50th Birthday", role:'Director, Cinematographer & Editor — cinematic travel film'},
+  {id:'yELgDD7uZYY', cat:'travel', client:'Can Yoou Travel', yr:2025,
+   t:'Ujjain Mahakal Lok — Complete Travel Guide', role:'Director, Cinematographer & Editor — research to final grade'},
+  {id:'jF6LPvouW3M', cat:'re', client:'PropBook', yr:2025, vert:true,
+   t:'Lonavala Property Showcase', role:'Real Estate Editor — promotional reel, text animation'},
+  {id:'Iv7l997yAHI', cat:'re', client:'PropBook', yr:2025, vert:true,
+   t:'Thane Property Showcase', role:'Real Estate Editor — short-form ad, motion graphics'},
+  {id:'yOY58L0gGd0', cat:'re', client:'PropBook', yr:2025, vert:true,
+   t:'Mulund Property Showcase', role:'Real Estate Editor — edit, pacing, grading'}
+];
 
-/* Loader */
+/* ============ EXPERIENCE DATA ============ */
+const XP = [
+  {role:'Executive Video Editor', co:'BeerBiceps SkillHouse', dates:'Nov 2024 — Present', type:'Full-time', now:true,
+   d:'Leading post-production for YouTube, podcasts, educational content, social campaigns and AI-assisted projects across the BeerBiceps ecosystem.'},
+  {role:'Video Editing Mentor', co:'Edit School (SkillHouse)', dates:'2026 — Present', type:'Part-time', now:true,
+   d:'Mentoring aspiring editors in Premiere Pro, DaVinci Resolve and AI-powered workflows through workshops and training sessions.'},
+  {role:'Founder · Travel Storyteller', co:'Can Yoou Travel', dates:'Dec 2022 — Present', type:'Personal brand', now:true,
+   d:"Cinematic documentaries on India's culture, spirituality and hidden destinations — from research and scripting to shooting, grading and growth."},
+  {role:'Editing Educator · Creator', co:'Can Yoou Edit', dates:'2026 — Present', type:'Personal brand', now:true,
+   d:'Educational content on Premiere Pro, DaVinci Resolve, AI editing workflows, storytelling and career growth for aspiring editors.'},
+  {role:'Short-form Video Editor', co:'Dhanesh.AI', dates:'2026 — Present', type:'Part-time', now:true,
+   d:'High-performing Instagram Reels — hook creation, retention pacing, captions, motion graphics and sound design.'},
+  {role:'Podcast Video Editor', co:'Soul Talk with Bhaavin', dates:'Oct 2025 — Jul 2026', type:'Freelance',
+   d:'Episodes, trailers, Shorts and Reels — storytelling, retention, captions, motion graphics and promotional edits.'},
+  {role:'Senior Video Editor', co:'Infiniqe Group', dates:'Oct 2023 — Feb 2025', type:'Full-time',
+   d:'Podcast episodes, trailers, teasers, Shorts and Reels focused on audience retention and reach across platforms.'},
+  {role:'Social Media Manager & Editor', co:'Exttenderz Preschool', dates:'Apr 2023 — Feb 2025', type:'Full-time',
+   d:'Ran the complete digital presence across YouTube, Instagram and Facebook — planning, filming, editing and analytics.'},
+  {role:'Senior Editor & Videographer', co:'PropBook', dates:'Jun 2024 — Jan 2025', type:'Part-time',
+   d:'Cinematic promotional films for luxury apartments, penthouses and premium real estate projects.'},
+  {role:'Content Creator', co:'Assembly', dates:'May 2023', type:'Contract',
+   d:'Branded Instagram campaign after winning the AssemblyTravel.com anniversary contest — creative product storytelling.'}
+];
+
+/* ============ TIMELINE DATA (career milestones) ============ */
+const TL_START=2019, TL_END=2026.6;
+const MILESTONES = [
+  {from:2019, msg:'Started editing — on a mobile phone.', sub:'The first cuts · Mumbai'},
+  {from:2020.5, msg:'Learning the craft, one cut at a time.', sub:'YouTube · social · everything'},
+  {from:2022.9, msg:'Founded CAN YOOU TRAVEL.', sub:"Cinematic documentaries on India's hidden stories"},
+  {from:2023.3, msg:'First studio years — Infiniqe & Exttenderz.', sub:'Podcasts · social campaigns · production'},
+  {from:2024.8, msg:'Executive Video Editor at BeerBiceps SkillHouse.', sub:'Leading post-production at scale'},
+  {from:2025.5, msg:"Top 2 at Mumbai's first AI Hackathon.", sub:'AI films · generative advertising'},
+  {from:2026.2, msg:'Mentoring at Edit School · the AI films era.', sub:'Edit School · Can Yoou Edit · Dhanesh.AI'}
+];
+const TL_CLIPS = [
+  {track:0, from:2024.8, to:TL_END, label:'BeerBiceps SkillHouse', cls:'lm'},
+  {track:0, from:2023.75, to:2025.1, label:'Infiniqe Group', cls:'bl'},
+  {track:0, from:2019, to:2022.5, label:'Phone edits · freelance', cls:''},
+  {track:1, from:2022.9, to:TL_END, label:'Can Yoou Travel', cls:'bl'},
+  {track:1, from:2025.75, to:2026.5, label:'Soul Talk', cls:''},
+  {track:2, from:2026.3, to:TL_END, label:'Edit School · Mentor', cls:'lm'},
+  {track:2, from:2023.25, to:2025.1, label:'Exttenderz', cls:''},
+  {track:2, from:2024.4, to:2025.05, label:'PropBook', cls:'bl'}
+];
+
+/* ============ Loader ============ */
 (function(){
   const loader=document.getElementById('loader');
   const bar=document.getElementById('ld-bar');
@@ -525,7 +740,7 @@ POD_VIDS.forEach(id=>CLIPS.push({id,cat:'podcast'}));
   },28);
 })();
 
-/* Nav */
+/* ============ Nav ============ */
 const nav=document.getElementById('nav');
 const burger=document.getElementById('burger');
 const navMob=document.getElementById('navMob');
@@ -536,58 +751,229 @@ const setMenu=(open)=>{
   burger.setAttribute('aria-label',open?'Close menu':'Open menu');
   navMob.setAttribute('aria-hidden',String(!open));
 };
-addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30),{passive:true});
 burger.addEventListener('click',()=>setMenu(!navMob.classList.contains('open')));
 document.querySelectorAll('.nav-mob a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
 document.getElementById('currentYear').textContent=new Date().getFullYear();
-const SECT=['services','work','process','about','contact'];
-addEventListener('scroll',()=>{let cur='';SECT.forEach(id=>{const el=document.getElementById(id);if(el&&scrollY>=el.offsetTop-220)cur=id;});document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));});
+const SECT=['services','work','experience','about','open','contact'];
+addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',scrollY>30);
+  let cur='';
+  SECT.forEach(id=>{const el=document.getElementById(id);if(el&&scrollY>=el.offsetTop-220)cur=id;});
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+  /* jump-nav active state */
+  let curShelf='';
+  SHELVES.forEach(s=>{const el=document.getElementById('shelf-'+s.key);if(el&&scrollY>=el.offsetTop-260)curShelf=s.key;});
+  document.querySelectorAll('#jump a').forEach(a=>a.classList.toggle('active',a.dataset.key===curShelf));
+},{passive:true});
 
+/* ============ Marquee band ============ */
+(function(){
+  const track=document.getElementById('bandTrack');
+  track.innerHTML=track.innerHTML+track.innerHTML;
+})();
 
-/* Work Grid */
-const grid=document.getElementById('workGrid');
-function render(cat){
-  grid.innerHTML='';
-  const list=CLIPS.filter(c=>cat==='all'||c.cat===cat);
-  list.forEach((c,i)=>{
-    const title=VIDEO_TITLES[c.id]||`${CAT[c.cat]} ${String(i+1).padStart(2,'0')}`;
-    const card=document.createElement('article');
-    card.className='clip'+((cat==='all'&&c.feat)?' feat':'');
-    card.setAttribute('role','button');
-    card.setAttribute('tabindex','0');
-    card.setAttribute('aria-label',`Play ${title}`);
-    card.innerHTML=`
-      <div class="clip-top"><span class="clip-tag">${CAT[c.cat]}</span></div>
-      <img class="thumb" src="https://i.ytimg.com/vi/${c.id}/maxresdefault.jpg" data-fallback="https://i.ytimg.com/vi/${c.id}/hqdefault.jpg" alt="Thumbnail for ${title}" loading="lazy"/>
-      <div class="clip-grad"></div>
-      <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></span>
-      <div class="clip-foot"><div class="ti">${title}</div><div class="me">▶ Click to play · YouTube</div></div>`;
-    const thumb=card.querySelector('.thumb');
-    thumb.addEventListener('error',()=>{const fallback=thumb.dataset.fallback;if(fallback&&thumb.src!==fallback)thumb.src=fallback;});
-    card.addEventListener('click',()=>openModal(c.id));
-    card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openModal(c.id);}});
-    grid.appendChild(card);
-  });
-  if(HAS_SCROLL_TRIGGER)ScrollTrigger.refresh();
+/* ============ WORK SHELVES ============ */
+const jumpEl=document.getElementById('jump');
+const shelvesEl=document.getElementById('shelves');
+function thumbSrc(p){
+  if(!p.id){
+    return{src:'data:image/svg+xml,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 560"><rect width="360" height="560" fill="#0b66ff"/><text x="50%" y="48%" fill="#9cff00" font-family="monospace" font-size="26" text-anchor="middle">◎ INSTAGRAM</text><text x="50%" y="56%" fill="#ffffff" font-family="monospace" font-size="15" text-anchor="middle" opacity=".7">tap to open reel</text></svg>`),fb:''};
+  }
+  /* vertical Shorts get the vertical thumbnail; fall back to hqdefault */
+  if(p.vert)return{src:`https://i.ytimg.com/vi/${p.id}/oar2.jpg`,fb:`https://i.ytimg.com/vi/${p.id}/hqdefault.jpg`};
+  return{src:`https://i.ytimg.com/vi/${p.id}/maxresdefault.jpg`,fb:`https://i.ytimg.com/vi/${p.id}/hqdefault.jpg`};
 }
-render('all');
-document.getElementById('filters').addEventListener('click',e=>{
-  const b=e.target.closest('.filter');if(!b)return;
-  document.querySelectorAll('.filter').forEach(f=>f.classList.remove('active'));b.classList.add('active');
-  const cards=[...grid.children];
-  if(REDUCE||!HAS_GSAP){render(b.dataset.cat);return;}
-  gsap.to(cards,{opacity:0,y:14,duration:.18,stagger:.01,onComplete:()=>{render(b.dataset.cat);gsap.fromTo(grid.children,{opacity:0,y:18},{opacity:1,y:0,duration:.4,stagger:.03,ease:'power2.out'});}});
+function makeCard(p){
+  const th=thumbSrc(p);
+  const card=document.createElement('article');
+  card.className='clip'+(p.vert?' v':'');
+  card.setAttribute('role','button');
+  card.setAttribute('tabindex','0');
+  card.setAttribute('aria-label',`Play ${p.t}`);
+  card.innerHTML=`
+    <div class="clip-top"><span class="clip-tag">${CAT[p.cat]}</span><span class="clip-yr">${p.yr}</span></div>
+    <img class="thumb" src="${th.src}" ${th.fb?`data-fallback="${th.fb}"`:''} alt="Thumbnail for ${p.t.replace(/"/g,'&quot;')}" loading="lazy"/>
+    <div class="clip-grad"></div>
+    <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></span>
+    <div class="clip-foot"><div class="ti">${p.t}</div><div class="me"><b>${p.client}</b> · ${p.id?'Click to play':'Opens on Instagram'}</div></div>`;
+  const thumb=card.querySelector('.thumb');
+  thumb.addEventListener('error',()=>{const fallback=thumb.dataset.fallback;if(fallback&&thumb.src!==fallback)thumb.src=fallback;});
+  const activate=()=>{ if(p.id){openModal(p);} else if(p.url){window.open(p.url,'_blank','noopener');} };
+  card.addEventListener('click',activate);
+  card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activate();}});
+  return card;
+}
+SHELVES.forEach((s,i)=>{
+  const items=PROJECTS.filter(p=>p.cat===s.key);
+  if(!items.length)return;
+  /* jump pill */
+  const a=document.createElement('a');
+  a.href='#shelf-'+s.key;
+  a.dataset.key=s.key;
+  a.innerHTML=`${s.label}<span class="ct">${items.length}</span>`;
+  jumpEl.appendChild(a);
+  /* shelf */
+  const shelf=document.createElement('div');
+  shelf.className='shelf reveal';
+  shelf.id='shelf-'+s.key;
+  shelf.innerHTML=`
+    <div class="shelf-head">
+      <div class="lft">
+        <span class="idx">${String(i+1).padStart(2,'0')} / ${s.blurb}</span>
+        <h3>${s.label}</h3>
+        <span class="cnt">${items.length} ${items.length===1?'project':'projects'}</span>
+      </div>
+      <div class="shelf-arrows">
+        <button class="sarr" type="button" data-dir="-1" aria-label="Scroll ${s.label} left">←</button>
+        <button class="sarr" type="button" data-dir="1" aria-label="Scroll ${s.label} right">→</button>
+      </div>
+    </div>
+    <div class="rail" aria-label="${s.label} projects"></div>`;
+  const rail=shelf.querySelector('.rail');
+  items.forEach(p=>rail.appendChild(makeCard(p)));
+  shelf.querySelectorAll('.sarr').forEach(b=>b.addEventListener('click',()=>{
+    rail.scrollBy({left:(+b.dataset.dir)*(rail.clientWidth*.8),behavior:REDUCE?'auto':'smooth'});
+  }));
+  shelvesEl.appendChild(shelf);
 });
 
-/* Modal */
+/* ============ EXPERIENCE CARDS ============ */
+const xpGrid=document.getElementById('xpGrid');
+XP.forEach(x=>{
+  const el=document.createElement('div');
+  el.className='xp reveal';
+  el.innerHTML=`
+    <div class="xp-head">
+      <div><h3>${x.role}</h3><div class="co">${x.co}</div></div>
+      <span class="type${x.now?' now':''}">${x.now?'● ':''}${x.type}</span>
+    </div>
+    <div class="dates">${x.dates}</div>
+    <p>${x.d}</p>`;
+  xpGrid.appendChild(el);
+});
+
+/* ============ EDITOR TIMELINE ============ */
+(function(){
+  const stage=document.getElementById('tlStage');
+  const ruler=document.getElementById('tlRuler');
+  const tracks=document.getElementById('tlTracks');
+  const head=document.getElementById('tlHead');
+  const grab=document.getElementById('tlGrab');
+  const progress=document.createElement('div');
+  progress.className='tl-progress';
+  ruler.appendChild(progress);
+  const yearEl=document.getElementById('tlYear');
+  const msgEl=document.getElementById('tlMsg');
+  const subEl=document.getElementById('tlSub');
+  const SPAN=TL_END-TL_START;
+  const LANE_OFFSET=108; /* matches .tl-meta width; recalculated on layout */
+
+  /* Ruler ticks: major per year, minor per quarter */
+  for(let y=TL_START;y<=Math.floor(TL_END);y++){
+    for(let q=0;q<4;q++){
+      const v=y+q*0.25;
+      if(v>TL_END)break;
+      const t=document.createElement('div');
+      t.className='tl-tick'+(q===0?' major':'');
+      t.style.left=((v-TL_START)/SPAN*100)+'%';
+      if(q===0)t.innerHTML=`<span class="yl">${y}</span>`;
+      ruler.appendChild(t);
+    }
+  }
+
+  /* Tracks + clips */
+  const trackMeta=[['V1','🔒','👁'],['V2','🔒','👁'],['V3','🔒','👁']];
+  const lanes=[];
+  trackMeta.forEach((m,ti)=>{
+    const row=document.createElement('div');
+    row.className='tl-row';
+    row.innerHTML=`<div class="tl-meta"><span class="k on">${m[0]}</span><span class="k">M</span><span class="k lbl2">S</span></div><div class="tl-lane"></div>`;
+    tracks.appendChild(row);
+    lanes.push(row.querySelector('.tl-lane'));
+  });
+  const blocks=[];
+  TL_CLIPS.forEach(c=>{
+    const b=document.createElement('div');
+    b.className='tl-clipblk '+c.cls;
+    b.style.left=((c.from-TL_START)/SPAN*100)+'%';
+    b.style.width=((c.to-c.from)/SPAN*100)+'%';
+    b.textContent=c.label;
+    b.title=c.label;
+    lanes[c.track].appendChild(b);
+    blocks.push({el:b,from:c.from,to:c.to});
+  });
+
+  let pct=0, target=null;
+  function laneLeft(){ return lanes[0].getBoundingClientRect().left - stage.getBoundingClientRect().left; }
+  function laneWidth(){ return lanes[0].getBoundingClientRect().width; }
+  function setPct(v,announce=true){
+    pct=Math.max(0,Math.min(100,v));
+    const yearVal=TL_START+(pct/100)*SPAN;
+    const x=laneLeft()+ (pct/100)*laneWidth();
+    head.style.transform=`translateX(${x}px)`;
+    progress.style.left=laneLeft()+'px';
+    progress.style.width=((pct/100)*laneWidth())+'px';
+    const yr=Math.min(2026,Math.floor(yearVal));
+    yearEl.textContent=yr;
+    let mi=MILESTONES[0];
+    MILESTONES.forEach(m=>{if(yearVal>=m.from)mi=m;});
+    if(msgEl.textContent!==mi.msg){
+      msgEl.textContent=mi.msg;
+      subEl.textContent=mi.sub;
+      if(HAS_GSAP&&!REDUCE)gsap.fromTo('.tl-cap .msg',{opacity:.35,y:6},{opacity:1,y:0,duration:.35,ease:'power2.out'});
+    }
+    blocks.forEach(b=>b.el.classList.toggle('live',yearVal>=b.from&&yearVal<=b.to));
+    if(announce){
+      grab.setAttribute('aria-valuenow',String(yr));
+      grab.setAttribute('aria-valuetext',String(yr));
+    }
+  }
+  function pctFromEvent(e){
+    const r=lanes[0].getBoundingClientRect();
+    return ((e.clientX-r.left)/r.width)*100;
+  }
+  let dragging=false;
+  stage.addEventListener('pointerdown',e=>{
+    dragging=true;
+    stage.setPointerCapture(e.pointerId);
+    setPct(pctFromEvent(e));
+  });
+  stage.addEventListener('pointermove',e=>{if(dragging)setPct(pctFromEvent(e));});
+  addEventListener('pointerup',()=>dragging=false);
+  grab.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='ArrowUp'){e.preventDefault();setPct(pct+3);}
+    if(e.key==='ArrowLeft'||e.key==='ArrowDown'){e.preventDefault();setPct(pct-3);}
+    if(e.key==='Home'){e.preventDefault();setPct(0);}
+    if(e.key==='End'){e.preventDefault();setPct(100);}
+  });
+  addEventListener('resize',()=>setPct(pct,false));
+
+  /* Intro scrub: play the career from 2019 → today when the timeline scrolls in */
+  const START_AT=96;
+  if(REDUCE||!HAS_GSAP||!HAS_SCROLL_TRIGGER){setPct(START_AT);}
+  else{
+    setPct(0,false);
+    const scrubIn=()=>{ gsap.to({v:0},{v:START_AT,duration:2.6,ease:'power2.inOut',onUpdate:function(){setPct(this.targets()[0].v,false);},onComplete:()=>setPct(START_AT)}); };
+    /* ScrollTrigger registered in initAnim; create after load */
+    window.__tlScrubIn=scrubIn;
+  }
+  window.__tlSetPct=setPct;
+})();
+
+/* ============ Modal ============ */
 const modal=document.getElementById('modal');
-const modalIn=modal.querySelector('.modal-in');
+const modalIn=document.getElementById('modalIn');
 const mif=document.getElementById('modal-if');
+const modalT=document.getElementById('modalT');
+const modalR=document.getElementById('modalR');
 let lastFocused=null;
-function openModal(id){
-  if(!id)return;
+function openModal(p){
+  if(!p||!p.id)return;
   lastFocused=document.activeElement;
-  mif.src=`https://www.youtube.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+  modalIn.classList.toggle('vert',!!p.vert);
+  mif.src=`https://www.youtube.com/embed/${encodeURIComponent(p.id)}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+  modalT.textContent=p.t;
+  modalR.textContent=`${p.client} · ${p.yr} · ${p.role}`;
   modal.classList.add('open');
   modal.setAttribute('aria-hidden','false');
   document.body.style.overflow='hidden';
@@ -604,9 +990,9 @@ document.getElementById('modalX').addEventListener('click',closeModal);
 modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
 addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeModal();});
 
-/* Animations */
+/* ============ Animations ============ */
 function initAnim(){
-  if(REDUCE||!HAS_GSAP||!HAS_SCROLL_TRIGGER){document.querySelectorAll('.reveal,.hero-eyebrow,.hero-copy,.hero-cta-row,.hero-panel,.scroll-hint').forEach(el=>{el.style.opacity=1;el.style.transform='none';});document.querySelectorAll('.hero-h1 .ln i').forEach(el=>el.style.transform='none');document.querySelectorAll('.counter').forEach(el=>el.textContent=el.dataset.target);document.querySelectorAll('.step .bar span').forEach(el=>el.style.width='100%');return;}
+  if(REDUCE||!HAS_GSAP||!HAS_SCROLL_TRIGGER){document.querySelectorAll('.reveal,.hero-eyebrow,.hero-copy,.hero-cta-row,.hero-panel,.scroll-hint').forEach(el=>{el.style.opacity=1;el.style.transform='none';});document.querySelectorAll('.hero-h1 .ln i').forEach(el=>el.style.transform='none');document.querySelectorAll('.counter').forEach(el=>el.textContent=el.dataset.target);return;}
   gsap.registerPlugin(ScrollTrigger);
   const tl=gsap.timeline();
   tl.to('.hero-eyebrow',{opacity:1,y:0,duration:.55,ease:'power3.out'})
@@ -619,7 +1005,7 @@ function initAnim(){
 
   gsap.utils.toArray('.reveal').forEach(el=>{gsap.to(el,{scrollTrigger:{trigger:el,start:'top 88%'},opacity:1,y:0,duration:.75,ease:'power3.out'});});
   document.querySelectorAll('.counter').forEach(el=>{const t=+el.dataset.target;ScrollTrigger.create({trigger:el,start:'top 92%',once:true,onEnter:()=>{gsap.to({v:0},{v:t,duration:1.8,ease:'power2.out',onUpdate:function(){el.textContent=Math.round(this.targets()[0].v);}});}});});
-  gsap.utils.toArray('.step .bar span').forEach(span=>{gsap.to(span,{scrollTrigger:{trigger:span,start:'top 92%',once:true},width:'100%',duration:1,ease:'power2.out'});});
+  if(window.__tlScrubIn){ScrollTrigger.create({trigger:'#tl',start:'top 75%',once:true,onEnter:window.__tlScrubIn});}
   gsap.to('.avatar-card',{y:-16,rotation:4,duration:3.2,repeat:-1,yoyo:true,ease:'sine.inOut'});
   gsap.to('.fp1',{y:-10,rotation:-3,duration:2.8,repeat:-1,yoyo:true,ease:'sine.inOut'});
   gsap.to('.fp2',{y:12,rotation:10,duration:3.4,repeat:-1,yoyo:true,ease:'sine.inOut'});
@@ -627,8 +1013,13 @@ function initAnim(){
   gsap.to('.fp4',{y:10,rotation:-12,duration:2.7,repeat:-1,yoyo:true,ease:'sine.inOut'});
 }
 
-/* Smooth anchors */
+/* ============ Smooth anchors ============ */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:REDUCE?'auto':'smooth'});}});});
+document.getElementById('jump').addEventListener('click',e=>{
+  const a=e.target.closest('a');if(!a)return;
+  const t=document.querySelector(a.getAttribute('href'));
+  if(t){e.preventDefault();t.scrollIntoView({behavior:REDUCE?'auto':'smooth'});}
+});
 </script>
 </body>
 </html>
