@@ -501,7 +501,7 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
   <div class="wrap">
     <div class="section-head">
       <div class="reveal"><span class="eyebrow">Selected work</span><h2 class="title">The work board.</h2></div>
-      <p class="lead reveal">Every format has its own shelf — podcasts with podcasts, travel with travel. Jump to a category, scroll the row, tap any tile to play.</p>
+      <p class="lead reveal">Every format has its own shelf — from motion graphics and long-form YouTube to AI films, AI ads, short-form content and podcasts. Jump to a category, scroll the row, tap any tile to play.</p>
     </div>
     <div class="jump reveal" id="jump"></div>
     <div id="shelves"></div>
@@ -614,25 +614,24 @@ const HAS_SCROLL_TRIGGER = typeof window.ScrollTrigger !== 'undefined';
 /* ============ PROJECT DATA (from content sheet) ============ */
 /* vert:true → 9:16 card (Shorts/Reels). id = YouTube ID · url = external link */
 const SHELVES = [
-  {key:'pod', label:'Podcasts', blurb:'Full episodes & trailers'},
-  {key:'yt', label:'YouTube', blurb:'Long-form & documentary'},
-  {key:'travel', label:'Travel Films', blurb:'Can Yoou Travel'},
+  {key:'mg', label:'Motion Graphics', blurb:'After Effects'},
+  {key:'yt', label:'YouTube Long Form Video', blurb:'Long-form edits'},
   {key:'aifilm', label:'AI Films', blurb:'Generative cinema'},
   {key:'aiad', label:'AI Ads', blurb:'Concept-to-screen'},
-  {key:'short', label:'Short-form', blurb:'Reels & Shorts'},
-  {key:'mg', label:'Motion Graphics', blurb:'After Effects'},
-  {key:'re', label:'Real Estate', blurb:'Property films'}
+  {key:'short', label:'Short Form Content', blurb:'Reels & Shorts'},
+  {key:'pod', label:'Podcast', blurb:'Full episodes & trailers'}
 ];
 const CAT = Object.fromEntries(SHELVES.map(s=>[s.key,s.label]));
 const PROJECTS = [
-  {id:'dLY502Ls1eo', cat:'pod', client:'Soul Talk with Bhaavin', yr:2026,
-   t:"Dhurandhar Ka Asli Sach — Inside India's Secret Intelligence Wars", role:'Lead Video Editor — full episode, trailer, sound design, grading'},
-  {id:'IXshCNguDiQ', cat:'pod', client:'Soul Talk with Bhaavin', yr:2026,
-   t:'Is Bollywood Really About Talent? ft. Souvik Nandi', role:'Lead Video Editor — multicam edit, trailer, motion graphics'},
-  {id:'ZBtphyjz4dw', cat:'pod', client:'Soul Talk with Bhaavin', yr:2025,
-   t:'2026 Warning For All Zodiac Signs', role:'Lead Video Editor — complete edit, trailer, mastering'},
-  {id:'eSI19Q_KWww', cat:'pod', client:'BeerBiceps SkillHouse', yr:2025,
-   t:'The Fastest Way to Learn AI in 2025', role:'Lead Video Editor — episode, trailer, graphics, grading'},
+  /* 01 — Motion Graphics */
+  {id:'IBwnU-Aky-8', cat:'mg', client:'Motion Graphics', yr:2026,
+   t:'Motion Graphics Project 01', role:'Motion Graphics Designer — animation, typography and visual storytelling'},
+  {id:'JRxoZutBYFY', cat:'mg', client:'Motion Graphics', yr:2026,
+   t:'Motion Graphics Project 02', role:'Motion Graphics Designer — animation, typography and visual storytelling'},
+  {id:'TU001AXFTaM', cat:'mg', client:'Motion Graphics', yr:2026,
+   t:'Motion Graphics Project 03', role:'Motion Graphics Designer — animation, typography and visual storytelling'},
+
+  /* 02 — YouTube Long Form Video */
   {id:'gcJyEPA3ePo', cat:'yt', client:'BeerBiceps SkillHouse', yr:2025,
    t:"Stop Doing This at Work — Why You're Not Getting Promoted", role:'YouTube Video Editor — long-form edit, b-roll, subtitles'},
   {id:'o4OieBT_IRU', cat:'yt', client:'BeerBiceps SkillHouse', yr:2025,
@@ -641,24 +640,24 @@ const PROJECTS = [
    t:"AI Replaced My Job — Here's What I Did Next", role:'YouTube Video Editor — storytelling, graphics, sound design'},
   {id:'e-4ERiEDBGc', cat:'yt', client:'finforindia', yr:2026,
    t:'Timeless Guide to Buying a Home in India (2026)', role:'Lead Video Editor — motion graphics, b-roll, grading'},
-  {id:'jMc51iUEqgg', cat:'mg', client:'BeerBiceps SkillHouse', yr:2025,
-   t:'Govt Job or Private Job? The Shocking Answer', role:'Editor & Motion Graphics Designer — custom animated graphics'},
-  {id:'f0yfAflORD4', cat:'mg', client:'Ranveer Allahbadia', yr:2026,
-   t:'How to Make 1 Lakh Followers?', role:'Motion Graphics Designer — animated visual elements'},
-  {url:'https://www.instagram.com/reel/DY9UXKdtjk1/', cat:'mg', client:'Can Yoou Edit', yr:2026, vert:true,
-   t:'Name Animations', role:'Motion Graphics Designer — custom typography in After Effects'},
-  {id:'1lEqFkaiuxM', cat:'aiad', client:'AI Mumbai Hackathon', yr:2025,
-   t:'Nike Shoes Ad — Made Entirely With AI', role:'AI Creative Director — Midjourney visuals, AI video, final edit'},
-  {id:'CDQCn2xja5U', cat:'aiad', client:'BeerBiceps SkillHouse', yr:2026, vert:true,
-   t:'Lexi Pen — AI Ad, Version 01', role:'AI Video Creator — concept, generative visuals, post-production'},
-  {id:'o9AFUvbpK3I', cat:'aiad', client:'BeerBiceps SkillHouse', yr:2026, vert:true,
-   t:'Lexi Pen — AI Ad, Version 02', role:'AI Video Creator — generative workflows, motion graphics'},
-  {id:'CnsXZeF3X5Q', cat:'aifilm', client:'BeerBiceps SkillHouse', yr:2026, vert:true,
-   t:'FIFA World Cup — AI Film', role:'AI Filmmaker — generated visuals, creative direction, edit'},
+
+  /* 03 — AI Films */
+  {id:'JLEOQ1gKR5A', cat:'aifilm', client:'AI Film', yr:2026,
+   t:'AI Film Project 01', role:'AI Filmmaker — generative visuals, creative direction and final edit'},
   {id:'Yl8PiKLxH-E', cat:'aifilm', client:'BeerBiceps SkillHouse', yr:2026,
    t:'Ranveer Movie — AI Film', role:'AI Filmmaker — cinematic sequences with Higgsfield AI'},
   {id:'T5NoWKB19UE', cat:'aifilm', client:'BeerBiceps SkillHouse', yr:2026,
    t:'Ranveer Samurai — AI Film', role:'AI Filmmaker — AI-generated cinematic visuals, final edit'},
+
+  /* 04 — AI Ads */
+  {id:'CnsXZeF3X5Q', cat:'aiad', client:'AI Ad', yr:2026, vert:true,
+   t:'AI Ad Project 01', role:'AI Creative Director — concept, generative visuals and post-production'},
+  {id:'o9AFUvbpK3I', cat:'aiad', client:'BeerBiceps SkillHouse', yr:2026, vert:true,
+   t:'AI Ad Project 02', role:'AI Video Creator — generative workflows, motion graphics and final edit'},
+  {id:'CDQCn2xja5U', cat:'aiad', client:'BeerBiceps SkillHouse', yr:2026, vert:true,
+   t:'AI Ad Project 03', role:'AI Video Creator — concept, generative visuals and post-production'},
+
+  /* 05 — Short Form Content */
   {id:'GCNSlrnuBeU', cat:'short', client:'dhaanessh.ai', yr:2026, vert:true,
    t:'AI Dog Collar', role:'Short-form Editor — Premiere Pro + AE + AI-assisted workflow'},
   {id:'zjFSmpTBchg', cat:'short', client:'dhaanessh.ai', yr:2026, vert:true,
@@ -667,20 +666,16 @@ const PROJECTS = [
    t:'Better Software ≠ Better Income', role:'Short-form Editor — motion graphics, retention pacing'},
   {id:'P7GCXb8QIU0', cat:'short', client:'BeerBiceps SkillHouse', yr:2026, vert:true,
    t:'BeerBiceps Edited Over 7000+ Videos', role:'Short-form Editor — dynamic pacing, AI-assisted editing'},
-  {id:'9edNwKM6_ds', cat:'travel', client:'Can Yoou Travel', yr:2026,
-   t:"PANDHARPUR — The Story Behind Maharashtra's Biggest Spiritual Journey", role:'Director, Cinematographer & Editor — complete documentary'},
-  {id:'Hp1OPoJ97EY', cat:'travel', client:'Can Yoou Travel', yr:2026,
-   t:"Tulja Bhavani Temple — Maharashtra's Most Powerful Shakti Peeth", role:'Director, Cinematographer & Editor — full production workflow'},
-  {id:'vu5x3qT_N58', cat:'travel', client:'Can Yoou Travel', yr:2026,
-   t:"I Did THIS for My Mom's 50th Birthday", role:'Director, Cinematographer & Editor — cinematic travel film'},
-  {id:'yELgDD7uZYY', cat:'travel', client:'Can Yoou Travel', yr:2025,
-   t:'Ujjain Mahakal Lok — Complete Travel Guide', role:'Director, Cinematographer & Editor — research to final grade'},
-  {id:'jF6LPvouW3M', cat:'re', client:'PropBook', yr:2025, vert:true,
-   t:'Lonavala Property Showcase', role:'Real Estate Editor — promotional reel, text animation'},
-  {id:'Iv7l997yAHI', cat:'re', client:'PropBook', yr:2025, vert:true,
-   t:'Thane Property Showcase', role:'Real Estate Editor — short-form ad, motion graphics'},
-  {id:'yOY58L0gGd0', cat:'re', client:'PropBook', yr:2025, vert:true,
-   t:'Mulund Property Showcase', role:'Real Estate Editor — edit, pacing, grading'}
+
+  /* 06 — Podcast */
+  {id:'dLY502Ls1eo', cat:'pod', client:'Soul Talk with Bhaavin', yr:2026,
+   t:"Dhurandhar Ka Asli Sach — Inside India's Secret Intelligence Wars", role:'Lead Video Editor — full episode, trailer, sound design, grading'},
+  {id:'IXshCNguDiQ', cat:'pod', client:'Soul Talk with Bhaavin', yr:2026,
+   t:'Is Bollywood Really About Talent? ft. Souvik Nandi', role:'Lead Video Editor — multicam edit, trailer, motion graphics'},
+  {id:'ZBtphyjz4dw', cat:'pod', client:'Soul Talk with Bhaavin', yr:2025,
+   t:'2026 Warning For All Zodiac Signs', role:'Lead Video Editor — complete edit, trailer, mastering'},
+  {id:'eSI19Q_KWww', cat:'pod', client:'BeerBiceps SkillHouse', yr:2025,
+   t:'The Fastest Way to Learn AI in 2025', role:'Lead Video Editor — episode, trailer, graphics, grading'}
 ];
 
 /* ============ EXPERIENCE DATA ============ */
