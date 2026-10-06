@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Yash Nachre â€” Video Editor Â· AI Filmmaker Â· Creative Mentor</title>
+<title>Yash Nachre — Video Editor · AI Filmmaker · Creative Mentor</title>
 <meta name="description" content="Yash Nachre is a Mumbai-based video editor, AI filmmaker and creative mentor crafting cinematic stories across podcasts, YouTube, travel documentaries and AI-generated films." />
 
 <!-- Fonts -->
@@ -17,7 +17,7 @@
 
 <style>
 /* ============================================================
-   YASH NACHRE â€” PORTFOLIO v3
+   YASH NACHRE — PORTFOLIO v3
    Identity: electric blue + lime marker strokes, glassy cards,
    floating pills, orbital lines, big bold typography.
    New: category shelves (one clean row per format) and a
@@ -171,7 +171,7 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
 .marker{position:absolute;z-index:1;pointer-events:none;}
 .marker.m1{width:240px;height:130px;left:9%;top:16%;border:18px solid var(--lime);border-right-color:transparent;border-radius:52% 48% 44% 56%;transform:rotate(-18deg);opacity:.92;}
 .marker.m2{width:220px;height:80px;right:6%;top:21%;border-top:18px solid var(--lime);border-radius:50%;transform:rotate(28deg);}
-.marker.m2::after{content:'âžœ';position:absolute;right:-18px;top:-34px;color:var(--lime);font-size:5rem;font-weight:900;}
+.marker.m2::after{content:'➜';position:absolute;right:-18px;top:-34px;color:var(--lime);font-size:5rem;font-weight:900;}
 .marker.m3{width:210px;height:90px;left:28%;bottom:18%;border-bottom:18px solid var(--lime);border-radius:50%;transform:rotate(-28deg);}
 .hero-bottom{position:relative;z-index:2;margin-top:34px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
 .metric{background:rgba(255,255,255,.92);color:var(--deep);border-radius:24px;padding:18px;border:1px solid rgba(255,255,255,.86);box-shadow:0 16px 40px rgba(0,38,120,.12);}
@@ -180,6 +180,19 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
 .metric .l{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:8px;}
 .scroll-hint{display:flex;align-items:center;justify-content:center;gap:8px;margin:26px auto 0;width:fit-content;font-family:var(--f-mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.16em;color:rgba(255,255,255,.72);opacity:0;}
 .scroll-hint i{width:36px;height:1px;background:var(--lime);display:block;}
+
+/* Showreel */
+#showreel{padding-top:34px;padding-bottom:44px;}
+.showreel-card{position:relative;overflow:hidden;border-radius:36px;background:linear-gradient(180deg,#07194f 0%,#04133d 100%);box-shadow:0 34px 90px rgba(5,26,82,.24);padding:clamp(18px,3vw,30px);border:1px solid rgba(255,255,255,.55);}
+.showreel-card::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:58px 58px;pointer-events:none;}
+.showreel-head{position:relative;z-index:2;display:flex;align-items:end;justify-content:space-between;gap:22px;flex-wrap:wrap;margin-bottom:18px;}
+.showreel-kicker{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:8px;}
+.showreel-title{font-family:var(--f-display);font-weight:700;font-size:clamp(2rem,5vw,4.8rem);line-height:.9;letter-spacing:-.065em;color:white;}
+.showreel-note{max-width:43ch;color:rgba(255,255,255,.66);font-weight:500;font-size:.95rem;line-height:1.6;}
+.showreel-frame{position:relative;z-index:2;overflow:hidden;border-radius:26px;border:1px solid rgba(255,255,255,.16);background:#000;box-shadow:0 24px 60px rgba(0,0,0,.28);}
+.showreel-frame::after{content:'SHOWREEL · 2026';position:absolute;left:16px;top:16px;z-index:3;font-family:var(--f-mono);font-size:.56rem;letter-spacing:.12em;color:#07111f;background:var(--lime);padding:7px 10px;border-radius:999px;font-weight:700;pointer-events:none;}
+.showreel-frame iframe{display:block;width:100%;aspect-ratio:16/9;border:0;background:#000;}
+@media(max-width:620px){#showreel{padding-top:20px;padding-bottom:30px}.showreel-card{border-radius:28px;padding:14px}.showreel-frame{border-radius:20px}.showreel-note{font-size:.88rem}}
 
 /* Marquee statement band */
 #band{padding:0;overflow:hidden;}
@@ -202,7 +215,7 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
 .svc ul{position:relative;z-index:1;list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;}
 .svc li{font-size:.75rem;font-weight:800;color:#0b3d8f;background:#eef6ff;border:1px solid var(--line);padding:7px 11px;border-radius:999px;}
 
-/* ============ WORK â€” CATEGORY SHELVES ============ */
+/* ============ WORK — CATEGORY SHELVES ============ */
 #work{background:linear-gradient(180deg,transparent,#eaf4ff 40%,transparent);}
 .jump{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 14px;position:sticky;top:92px;z-index:120;padding:10px;border-radius:24px;background:rgba(255,255,255,.66);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.85);box-shadow:0 14px 40px rgba(13,65,160,.10);}
 .jump a{border:1px solid var(--line);background:rgba(255,255,255,.72);color:#34445d;border-radius:999px;padding:10px 15px;font-weight:900;font-size:.8rem;transition:background .25s,color .25s,transform .2s;}
@@ -245,7 +258,7 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
 .clip-foot .me{font-family:var(--f-mono);font-size:.56rem;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.72);margin-top:6px;}
 .clip-foot .me b{color:var(--lime);font-weight:400;}
 
-/* ============ JOURNEY â€” EDITOR TIMELINE ============ */
+/* ============ JOURNEY — EDITOR TIMELINE ============ */
 #experience{padding-top:90px;}
 .tl{position:relative;overflow:hidden;border-radius:34px;background:linear-gradient(180deg,#08133a 0%,var(--panel) 100%);border:1px solid rgba(255,255,255,.06);box-shadow:0 40px 110px rgba(5,15,46,.45);color:#dbe6ff;padding:clamp(20px,3.4vw,40px);margin-bottom:56px;user-select:none;-webkit-user-select:none;}
 .tl::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;}
@@ -433,13 +446,13 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
       <span class="marker m1"></span><span class="marker m2"></span><span class="marker m3"></span>
       <div class="hero-content">
         <div>
-          <p class="hero-eyebrow"><span class="dot"></span> Video Editor Â· AI Filmmaker Â· Creative Mentor â€” Mumbai</p>
+          <p class="hero-eyebrow"><span class="dot"></span> Video Editor · AI Filmmaker · Creative Mentor — Mumbai</p>
           <h1 class="hero-h1">
             <span class="ln"><i>STORIES</i></span>
             <span class="ln"><i class="lime">THAT HOLD</i></span>
             <span class="ln"><i>ATTENTION.</i></span>
           </h1>
-          <p class="hero-copy">Crafting <b>cinematic stories</b> through editing, travel and AI-powered filmmaking â€” from podcasts and YouTube to travel documentaries and fully AI-generated films.</p>
+          <p class="hero-copy">Crafting <b>cinematic stories</b> through editing, travel and AI-powered filmmaking — from podcasts and YouTube to travel documentaries and fully AI-generated films.</p>
           <div class="hero-cta-row">
             <a href="#work" class="btn btn-fill">View the work</a>
             <a href="#contact" class="btn btn-line">Start a project</a>
@@ -448,7 +461,7 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
         <div class="hero-panel">
           <span class="orbit o1"></span><span class="orbit o2"></span><span class="orbit o3"></span>
           <div class="avatar-card" id="avatarCard">
-            <img class="avatar-img" id="avatarImg" alt="Yash Nachre â€” video editor and AI filmmaker" />
+            <img class="avatar-img" id="avatarImg" alt="Yash Nachre — video editor and AI filmmaker" />
             <div class="avatar-mono" aria-hidden="true">YN</div>
             <span class="yn-chip" aria-hidden="true">YN</span>
           </div>
@@ -469,11 +482,36 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
   </div>
 </section>
 
+
+<!-- SHOWREEL -->
+<section id="showreel">
+  <div class="wrap">
+    <div class="showreel-card reveal">
+      <div class="showreel-head">
+        <div>
+          <div class="showreel-kicker">Featured reel</div>
+          <h2 class="showreel-title">MY SHOWREEL.</h2>
+        </div>
+        <p class="showreel-note">A fast look at my editing, motion graphics, storytelling, sound design and AI-powered filmmaking work.</p>
+      </div>
+      <div class="showreel-frame">
+        <iframe
+          src="https://www.youtube.com/embed/wWs3-yPR7Og?rel=0&modestbranding=1&playsinline=1"
+          title="Yash Nachre Showreel"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- MARQUEE STATEMENT BAND -->
 <div id="band" aria-hidden="true">
   <div class="band-strip">
     <div class="band-track" id="bandTrack">
-      <span>Podcasts <i class="star">âœ¦</i> <i class="hollow">YouTube</i> <i class="star">âœ¦</i> AI Films <i class="star">âœ¦</i> <i class="hollow">Travel Docs</i> <i class="star">âœ¦</i> Reels <i class="star">âœ¦</i> <i class="hollow">Motion Graphics</i> <i class="star">âœ¦</i> AI Ads <i class="star">âœ¦</i> <i class="hollow">Mentorship</i> <i class="star">âœ¦</i> </span>
+      <span>Podcasts <i class="star">✦</i> <i class="hollow">YouTube</i> <i class="star">✦</i> AI Films <i class="star">✦</i> <i class="hollow">Travel Docs</i> <i class="star">✦</i> Reels <i class="star">✦</i> <i class="hollow">Motion Graphics</i> <i class="star">✦</i> AI Ads <i class="star">✦</i> <i class="hollow">Mentorship</i> <i class="star">✦</i> </span>
     </div>
   </div>
 </div>
@@ -483,47 +521,47 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
   <div class="wrap">
     <div class="section-head">
       <div class="reveal"><span class="eyebrow">What I do</span><h2 class="title">Edits, end to end.</h2></div>
-      <p class="lead reveal">From a folder of rushes â€” or a blank AI prompt â€” to a finished, color-graded, sound-designed cut. I handle the full post-production pipeline so you can stay in front of the camera.</p>
+      <p class="lead reveal">From a folder of rushes — or a blank AI prompt — to a finished, color-graded, sound-designed cut. I handle the full post-production pipeline so you can stay in front of the camera.</p>
     </div>
     <div class="svc-grid">
       <div class="svc reveal"><h3>Podcast & YouTube</h3><p>Full episodes, trailers and long-form edits with multicam cutting, structure, b-roll and pacing that hold viewers to the end screen.</p><ul><li>Multicam</li><li>Trailers</li><li>B-roll</li><li>Pacing</li></ul></div>
-      <div class="svc reveal"><h3>Short-form & Reels</h3><p>Punchy vertical edits engineered for retention â€” hooks in the first second, captions, sound design and rhythm.</p><ul><li>Reels</li><li>Shorts</li><li>Hooks</li><li>Captions</li></ul></div>
-      <div class="svc reveal"><h3>AI films & ads</h3><p>Concept-to-screen AI workflows â€” generative visuals, voice and motion blended into polished films and advertisements.</p><ul><li>Higgsfield</li><li>Midjourney</li><li>Gen video</li></ul></div>
-      <div class="svc reveal"><h3>Travel documentaries</h3><p>Cinematic films documenting India's culture, spirituality and hidden stories â€” researched, shot, edited and graded end to end.</p><ul><li>Directing</li><li>Cinematography</li><li>Grading</li></ul></div>
+      <div class="svc reveal"><h3>Short-form & Reels</h3><p>Punchy vertical edits engineered for retention — hooks in the first second, captions, sound design and rhythm.</p><ul><li>Reels</li><li>Shorts</li><li>Hooks</li><li>Captions</li></ul></div>
+      <div class="svc reveal"><h3>AI films & ads</h3><p>Concept-to-screen AI workflows — generative visuals, voice and motion blended into polished films and advertisements.</p><ul><li>Higgsfield</li><li>Midjourney</li><li>Gen video</li></ul></div>
+      <div class="svc reveal"><h3>Travel documentaries</h3><p>Cinematic films documenting India's culture, spirituality and hidden stories — researched, shot, edited and graded end to end.</p><ul><li>Directing</li><li>Cinematography</li><li>Grading</li></ul></div>
       <div class="svc reveal"><h3>Motion graphics</h3><p>Custom typography, animated titles and explainer graphics in After Effects that make information land and hold attention.</p><ul><li>After Effects</li><li>Typography</li><li>Explainers</li></ul></div>
       <div class="svc reveal"><h3>Mentorship & workshops</h3><p>Training aspiring editors in Premiere Pro, DaVinci Resolve and AI-powered workflows through Edit School and Can Yoou Edit.</p><ul><li>Premiere Pro</li><li>Resolve</li><li>AI workflows</li></ul></div>
     </div>
   </div>
 </section>
 
-<!-- WORK â€” CATEGORY SHELVES -->
+<!-- WORK — CATEGORY SHELVES -->
 <section id="work">
   <div class="wrap">
     <div class="section-head">
       <div class="reveal"><span class="eyebrow">Selected work</span><h2 class="title">The work board.</h2></div>
-      <p class="lead reveal">Every format has its own shelf â€” from motion graphics and long-form YouTube to AI films, AI ads, short-form content and podcasts. Jump to a category, scroll the row, tap any tile to play.</p>
+      <p class="lead reveal">Every format has its own shelf — from motion graphics and long-form YouTube to AI films, AI ads, short-form content and podcasts. Jump to a category, scroll the row, tap any tile to play.</p>
     </div>
     <div class="jump reveal" id="jump"></div>
     <div id="shelves"></div>
   </div>
 </section>
 
-<!-- JOURNEY â€” EDITOR TIMELINE + EXPERIENCE -->
+<!-- JOURNEY — EDITOR TIMELINE + EXPERIENCE -->
 <section id="experience">
   <div class="wrap">
     <div class="section-head">
       <div class="reveal"><span class="eyebrow">The journey</span><h2 class="title">Scrub my timeline.</h2></div>
-      <p class="lead reveal">Seven years of edits, laid out the only way an editor knows how â€” on a timeline. Drag the playhead to travel from 2019 to today.</p>
+      <p class="lead reveal">Seven years of edits, laid out the only way an editor knows how — on a timeline. Drag the playhead to travel from 2019 to today.</p>
     </div>
 
     <div class="tl reveal" id="tl">
       <div class="tl-bar">
         <div class="file"><span class="dots"><i></i><i></i><i></i></span> yash_nachre_journey.prproj</div>
-        <div class="hint"><b>â—‚ â–¸</b>&nbsp; drag the playhead</div>
+        <div class="hint"><b>◂ ▸</b>&nbsp; drag the playhead</div>
       </div>
       <div class="tl-cap">
         <div class="yrbig" id="tlYear">2026</div>
-        <div class="msg"><span id="tlMsg">Mentoring at Edit School Â· the AI films era.</span><small id="tlSub">Executive Video Editor Â· BeerBiceps SkillHouse</small></div>
+        <div class="msg"><span id="tlMsg">Mentoring at Edit School · the AI films era.</span><small id="tlSub">Executive Video Editor · BeerBiceps SkillHouse</small></div>
       </div>
       <div class="tl-stage" id="tlStage">
         <div class="tl-ruler" id="tlRuler"></div>
@@ -545,10 +583,10 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
     <div class="about-grid">
       <div class="about-text">
         <div class="reveal"><span class="eyebrow">The story</span><h2 class="title">About me</h2></div>
-        <p class="reveal">I'm Yash Nachre, a <b>Video Editor, Travel Storyteller and AI Filmmaker</b> with 6+ years of experience blending storytelling, technology and creativity. My journey began in 2019 editing videos on a mobile phone â€” and has grown into <em>3,500+ videos</em> across YouTube, podcasts, branded content, short-form and AI-generated films.</p>
+        <p class="reveal">I'm Yash Nachre, a <b>Video Editor, Travel Storyteller and AI Filmmaker</b> with 6+ years of experience blending storytelling, technology and creativity. My journey began in 2019 editing videos on a mobile phone — and has grown into <em>3,500+ videos</em> across YouTube, podcasts, branded content, short-form and AI-generated films.</p>
         <p class="reveal">Today I work as an <b>Executive Video Editor at BeerBiceps SkillHouse</b> while building my travel brand, <em>CAN YOOU TRAVEL</em>, creating cinematic documentaries that showcase India's culture, people and hidden stories. Beyond editing, I mentor aspiring creators through <b>Edit School</b> and experiment constantly with AI filmmaking.</p>
-        <p class="reveal">What makes me different? I combine professional editing, cinematic storytelling, travel filmmaking and <b>AI-powered workflows</b> into one creative process. My goal isn't just to edit videos â€” it's to craft <em>stories that people remember</em>.</p>
-        <div class="badge reveal"><span class="ic">ðŸ†</span><span class="tx">Top 2 Â· Mumbai AI Hackathon</span></div>
+        <p class="reveal">What makes me different? I combine professional editing, cinematic storytelling, travel filmmaking and <b>AI-powered workflows</b> into one creative process. My goal isn't just to edit videos — it's to craft <em>stories that people remember</em>.</p>
+        <div class="badge reveal"><span class="ic">🏆</span><span class="tx">Top 2 · Mumbai AI Hackathon</span></div>
       </div>
     </div>
   </div>
@@ -581,17 +619,17 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
       <div class="contact-in">
         <span class="eyebrow reveal" style="color:white">Let's create together</span>
         <h2 class="contact-h reveal">Got a <em>vision?</em><br/>Let's cut it.</h2>
-        <p class="contact-sub reveal">Tell me about the project â€” footage, deadline and where it's going. I'll take it from there.</p>
+        <p class="contact-sub reveal">Tell me about the project — footage, deadline and where it's going. I'll take it from there.</p>
         <div class="contact-links reveal">
-          <a href="mailto:yashnachre24@gmail.com" class="clink">âœ‰ Email</a>
-          <a href="https://youtube.com/@canyooutravel" target="_blank" rel="noopener" class="clink">â–¶ Can Yoou Travel</a>
-          <a href="https://youtube.com/@canyooutravelshorts" target="_blank" rel="noopener" class="clink">â–¶ Travel Shorts</a>
-          <a href="https://www.instagram.com/canyoou.edit/" target="_blank" rel="noopener" class="clink">â—Ž Can Yoou Edit</a>
-          <a href="https://www.instagram.com/canyoou.travel/" target="_blank" rel="noopener" class="clink">â—Ž Can Yoou Travel</a>
+          <a href="mailto:yashnachre24@gmail.com" class="clink">✉ Email</a>
+          <a href="https://youtube.com/@canyooutravel" target="_blank" rel="noopener" class="clink">▶ Can Yoou Travel</a>
+          <a href="https://youtube.com/@canyooutravelshorts" target="_blank" rel="noopener" class="clink">▶ Travel Shorts</a>
+          <a href="https://www.instagram.com/canyoou.edit/" target="_blank" rel="noopener" class="clink">◎ Can Yoou Edit</a>
+          <a href="https://www.instagram.com/canyoou.travel/" target="_blank" rel="noopener" class="clink">◎ Can Yoou Travel</a>
           <a href="https://www.linkedin.com/in/yash-nachre" target="_blank" rel="noopener" class="clink">in LinkedIn</a>
           <a href="https://www.facebook.com/canyooutravel" target="_blank" rel="noopener" class="clink">f Facebook</a>
         </div>
-        <div class="foot"><span>Â© <span id="currentYear">2026</span> Yash Nachre â€” All rights reserved</span><span class="gold">Frames Â· Stories Â· Impact</span></div>
+        <div class="foot"><span>© <span id="currentYear">2026</span> Yash Nachre — All rights reserved</span><span class="gold">Frames · Stories · Impact</span></div>
       </div>
     </div>
   </div>
@@ -600,7 +638,7 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
 <!-- MODAL -->
 <div id="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Video player">
   <div class="modal-in" id="modalIn" tabindex="-1">
-    <button class="modal-x" id="modalX" type="button" aria-label="Close video">âœ•</button>
+    <button class="modal-x" id="modalX" type="button" aria-label="Close video">✕</button>
     <iframe id="modal-if" title="Video player" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     <div class="modal-cap"><div class="t" id="modalT"></div><div class="r" id="modalR"></div></div>
   </div>
@@ -612,7 +650,7 @@ const HAS_GSAP = typeof window.gsap !== 'undefined';
 const HAS_SCROLL_TRIGGER = typeof window.ScrollTrigger !== 'undefined';
 
 /* ============ PROJECT DATA (from content sheet) ============ */
-/* vert:true â†’ 9:16 card (Shorts/Reels). id = YouTube ID Â· url = external link */
+/* vert:true → 9:16 card (Shorts/Reels). id = YouTube ID · url = external link */
 const SHELVES = [
   {key:'mg', label:'Motion Graphics', blurb:'After Effects'},
   {key:'yt', label:'YouTube Long Form Video', blurb:'Long-form edits'},
@@ -623,115 +661,115 @@ const SHELVES = [
 ];
 const CAT = Object.fromEntries(SHELVES.map(s=>[s.key,s.label]));
 const PROJECTS = [
-  /* 01 â€” Motion Graphics */
+  /* 01 — Motion Graphics */
 { id:'IBwnU-Aky-8', cat:'mg', client:'Motion Graphics', yr:2026,
-  t:'Motion Graphics Project 01', role:'Motion Graphics Designer â€” animation, typography and visual storytelling' },
+  t:'Motion Graphics Project 01', role:'Motion Graphics Designer — animation, typography and visual storytelling' },
 
 { id:'POclo76EtW8', cat:'mg', client:'Motion Graphics', yr:2026,
-  t:'Motion Graphics Project 02', role:'Motion Graphics Designer â€” animation, typography and visual storytelling' },
+  t:'Motion Graphics Project 02', role:'Motion Graphics Designer — animation, typography and visual storytelling' },
 
 { id:'HYO3xttQuH8', cat:'mg', client:'Motion Graphics', yr:2026,
-  t:'Motion Graphics Project 03', role:'Motion Graphics Designer â€” animation, typography and visual storytelling' },
+  t:'Motion Graphics Project 03', role:'Motion Graphics Designer — animation, typography and visual storytelling' },
 
 { id:'JLf0XxPLEMU', cat:'mg', client:'Motion Graphics', yr:2026,
-  t:'Motion Graphics Project 04', role:'Motion Graphics Designer â€” animation, typography and visual storytelling' },
+  t:'Motion Graphics Project 04', role:'Motion Graphics Designer — animation, typography and visual storytelling' },
    
 
    
-  /* 02 â€” YouTube Long Form Video */
+  /* 02 — YouTube Long Form Video */
   {id:'gcJyEPA3ePo', cat:'yt', client:'BeerBiceps SkillHouse', yr:2025,
-   t:"Stop Doing This at Work â€” Why You're Not Getting Promoted", role:'YouTube Video Editor â€” long-form edit, b-roll, subtitles'},
+   t:"Stop Doing This at Work — Why You're Not Getting Promoted", role:'YouTube Video Editor — long-form edit, b-roll, subtitles'},
   {id:'e-4ERiEDBGc', cat:'yt', client:'finforindia', yr:2026,
-   t:'Timeless Guide to Buying a Home in India (2026)', role:'Lead Video Editor â€” motion graphics, b-roll, grading'},
+   t:'Timeless Guide to Buying a Home in India (2026)', role:'Lead Video Editor — motion graphics, b-roll, grading'},
   {id:'o4OieBT_IRU', cat:'yt', client:'BeerBiceps SkillHouse', yr:2025,
-   t:'A Day in the Life of Two Video Editors â€” Corporate vs Freelance', role:'Documentary Video Editor â€” narrative pacing, cinematic transitions'},
+   t:'A Day in the Life of Two Video Editors — Corporate vs Freelance', role:'Documentary Video Editor — narrative pacing, cinematic transitions'},
   {id:'GurRy5hI36s', cat:'yt', client:'BeerBiceps SkillHouse', yr:2025,
-   t:"AI Replaced My Job â€” Here's What I Did Next", role:'YouTube Video Editor â€” storytelling, graphics, sound design'},
+   t:"AI Replaced My Job — Here's What I Did Next", role:'YouTube Video Editor — storytelling, graphics, sound design'},
 
 
-/* 03 â€” AI Films */
+/* 03 — AI Films */
 {id:'DiL6VqF33lo', cat:'aifilm', client:'CAN YOOU TRAVEL', yr:2026,
- t:'The Island Door', role:'AI Filmmaker â€” AI-generated cinematic visuals, storytelling, and final edit'},
+ t:'The Island Door', role:'AI Filmmaker — AI-generated cinematic visuals, storytelling, and final edit'},
 
 {id:'JLEOQ1gKR5A', cat:'aifilm', client:'AI Film', yr:2026,
- t:'AI Film Project 01', role:'AI Filmmaker â€” generative visuals, creative direction and final edit'},
+ t:'AI Film Project 01', role:'AI Filmmaker — generative visuals, creative direction and final edit'},
 
 {id:'Yl8PiKLxH-E', cat:'aifilm', client:'BeerBiceps SkillHouse', yr:2026,
- t:'Ranveer Movie â€” AI Film', role:'AI Filmmaker â€” cinematic sequences with Higgsfield AI'},
+ t:'Ranveer Movie — AI Film', role:'AI Filmmaker — cinematic sequences with Higgsfield AI'},
 
 
-  /* 04 â€” AI Ads */
+  /* 04 — AI Ads */
   {id:'CnsXZeF3X5Q', cat:'aiad', client:'AI Ad', yr:2026, vert:true,
-   t:'AI Ad Project 01', role:'AI Creative Director â€” concept, generative visuals and post-production'},
+   t:'AI Ad Project 01', role:'AI Creative Director — concept, generative visuals and post-production'},
   {id:'o9AFUvbpK3I', cat:'aiad', client:'BeerBiceps SkillHouse', yr:2026, vert:true,
-   t:'AI Ad Project 02', role:'AI Video Creator â€” generative workflows, motion graphics and final edit'},
+   t:'AI Ad Project 02', role:'AI Video Creator — generative workflows, motion graphics and final edit'},
   {id:'CDQCn2xja5U', cat:'aiad', client:'BeerBiceps SkillHouse', yr:2026, vert:true,
-   t:'AI Ad Project 03', role:'AI Video Creator â€” concept, generative visuals and post-production'},
+   t:'AI Ad Project 03', role:'AI Video Creator — concept, generative visuals and post-production'},
 
    
-  /* 05 â€” Short Form Content */
+  /* 05 — Short Form Content */
   {id:'GCNSlrnuBeU', cat:'short', client:'dhaanessh.ai', yr:2026, vert:true,
-   t:'AI Dog Collar', role:'Short-form Editor â€” Premiere Pro + AE + AI-assisted workflow'},
+   t:'AI Dog Collar', role:'Short-form Editor — Premiere Pro + AE + AI-assisted workflow'},
   {id:'zjFSmpTBchg', cat:'short', client:'dhaanessh.ai', yr:2026, vert:true,
-   t:'Levels of ChatGPT', role:'Short-form Editor â€” dynamic editing, AI assets, sound design'},
+   t:'Levels of ChatGPT', role:'Short-form Editor — dynamic editing, AI assets, sound design'},
   {id:'G3OpGwxhNq8', cat:'short', client:'BeerBiceps SkillHouse', yr:2026, vert:true,
-   t:'Better Software â‰  Better Income', role:'Short-form Editor â€” motion graphics, retention pacing'},
+   t:'Better Software ≠ Better Income', role:'Short-form Editor — motion graphics, retention pacing'},
   {id:'P7GCXb8QIU0', cat:'short', client:'BeerBiceps SkillHouse', yr:2026, vert:true,
-   t:'BeerBiceps Edited Over 7000+ Videos', role:'Short-form Editor â€” dynamic pacing, AI-assisted editing'},
+   t:'BeerBiceps Edited Over 7000+ Videos', role:'Short-form Editor — dynamic pacing, AI-assisted editing'},
 
-  /* 06 â€” Podcast */
+  /* 06 — Podcast */
   {id:'dLY502Ls1eo', cat:'pod', client:'Soul Talk with Bhaavin', yr:2026,
-   t:"Dhurandhar Ka Asli Sach â€” Inside India's Secret Intelligence Wars", role:'Lead Video Editor â€” full episode, trailer, sound design, grading'},
+   t:"Dhurandhar Ka Asli Sach — Inside India's Secret Intelligence Wars", role:'Lead Video Editor — full episode, trailer, sound design, grading'},
   {id:'IXshCNguDiQ', cat:'pod', client:'Soul Talk with Bhaavin', yr:2026,
-   t:'Is Bollywood Really About Talent? ft. Souvik Nandi', role:'Lead Video Editor â€” multicam edit, trailer, motion graphics'},
+   t:'Is Bollywood Really About Talent? ft. Souvik Nandi', role:'Lead Video Editor — multicam edit, trailer, motion graphics'},
   {id:'ZBtphyjz4dw', cat:'pod', client:'Soul Talk with Bhaavin', yr:2025,
-   t:'2026 Warning For All Zodiac Signs', role:'Lead Video Editor â€” complete edit, trailer, mastering'},
+   t:'2026 Warning For All Zodiac Signs', role:'Lead Video Editor — complete edit, trailer, mastering'},
   {id:'eSI19Q_KWww', cat:'pod', client:'BeerBiceps SkillHouse', yr:2025,
-   t:'The Fastest Way to Learn AI in 2025', role:'Lead Video Editor â€” episode, trailer, graphics, grading'}
+   t:'The Fastest Way to Learn AI in 2025', role:'Lead Video Editor — episode, trailer, graphics, grading'}
 ];
 
 /* ============ EXPERIENCE DATA ============ */
 const XP = [
-  {role:'Executive Video Editor', co:'BeerBiceps SkillHouse', dates:'Nov 2024 â€” Present', type:'Full-time', now:true,
+  {role:'Executive Video Editor', co:'BeerBiceps SkillHouse', dates:'Nov 2024 — Present', type:'Full-time', now:true,
    d:'Leading post-production for YouTube, podcasts, educational content, social campaigns and AI-assisted projects across the BeerBiceps ecosystem.'},
-  {role:'Video Editing Mentor', co:'Edit School (SkillHouse)', dates:'2026 â€” Present', type:'Part-time', now:true,
+  {role:'Video Editing Mentor', co:'Edit School (SkillHouse)', dates:'2026 — Present', type:'Part-time', now:true,
    d:'Mentoring aspiring editors in Premiere Pro, DaVinci Resolve and AI-powered workflows through workshops and training sessions.'},
-  {role:'Founder Â· Travel Storyteller', co:'Can Yoou Travel', dates:'Dec 2022 â€” Present', type:'Personal brand', now:true,
-   d:"Cinematic documentaries on India's culture, spirituality and hidden destinations â€” from research and scripting to shooting, grading and growth."},
-  {role:'Editing Educator Â· Creator', co:'Can Yoou Edit', dates:'2026 â€” Present', type:'Personal brand', now:true,
+  {role:'Founder · Travel Storyteller', co:'Can Yoou Travel', dates:'Dec 2022 — Present', type:'Personal brand', now:true,
+   d:"Cinematic documentaries on India's culture, spirituality and hidden destinations — from research and scripting to shooting, grading and growth."},
+  {role:'Editing Educator · Creator', co:'Can Yoou Edit', dates:'2026 — Present', type:'Personal brand', now:true,
    d:'Educational content on Premiere Pro, DaVinci Resolve, AI editing workflows, storytelling and career growth for aspiring editors.'},
-  {role:'Short-form Video Editor', co:'Dhanesh.AI', dates:'2026 â€” Present', type:'Part-time', now:true,
-   d:'High-performing Instagram Reels â€” hook creation, retention pacing, captions, motion graphics and sound design.'},
-  {role:'Podcast Video Editor', co:'Soul Talk with Bhaavin', dates:'Oct 2025 â€” Jul 2026', type:'Freelance',
-   d:'Episodes, trailers, Shorts and Reels â€” storytelling, retention, captions, motion graphics and promotional edits.'},
-  {role:'Senior Video Editor', co:'Infiniqe Group', dates:'Oct 2023 â€” Feb 2025', type:'Full-time',
+  {role:'Short-form Video Editor', co:'Dhanesh.AI', dates:'2026 — Present', type:'Part-time', now:true,
+   d:'High-performing Instagram Reels — hook creation, retention pacing, captions, motion graphics and sound design.'},
+  {role:'Podcast Video Editor', co:'Soul Talk with Bhaavin', dates:'Oct 2025 — Jul 2026', type:'Freelance',
+   d:'Episodes, trailers, Shorts and Reels — storytelling, retention, captions, motion graphics and promotional edits.'},
+  {role:'Senior Video Editor', co:'Infiniqe Group', dates:'Oct 2023 — Feb 2025', type:'Full-time',
    d:'Podcast episodes, trailers, teasers, Shorts and Reels focused on audience retention and reach across platforms.'},
-  {role:'Social Media Manager & Editor', co:'Exttenderz Preschool', dates:'Apr 2023 â€” Feb 2025', type:'Full-time',
-   d:'Ran the complete digital presence across YouTube, Instagram and Facebook â€” planning, filming, editing and analytics.'},
-  {role:'Senior Editor & Videographer', co:'PropBook', dates:'Jun 2024 â€” Jan 2025', type:'Part-time',
+  {role:'Social Media Manager & Editor', co:'Exttenderz Preschool', dates:'Apr 2023 — Feb 2025', type:'Full-time',
+   d:'Ran the complete digital presence across YouTube, Instagram and Facebook — planning, filming, editing and analytics.'},
+  {role:'Senior Editor & Videographer', co:'PropBook', dates:'Jun 2024 — Jan 2025', type:'Part-time',
    d:'Cinematic promotional films for luxury apartments, penthouses and premium real estate projects.'},
   {role:'Content Creator', co:'Assembly', dates:'May 2023', type:'Contract',
-   d:'Branded Instagram campaign after winning the AssemblyTravel.com anniversary contest â€” creative product storytelling.'}
+   d:'Branded Instagram campaign after winning the AssemblyTravel.com anniversary contest — creative product storytelling.'}
 ];
 
 /* ============ TIMELINE DATA (career milestones) ============ */
 const TL_START=2019, TL_END=2026.6;
 const MILESTONES = [
-  {from:2019, msg:'Started editing â€” on a mobile phone.', sub:'The first cuts Â· Mumbai'},
-  {from:2020.5, msg:'Learning the craft, one cut at a time.', sub:'YouTube Â· social Â· everything'},
+  {from:2019, msg:'Started editing — on a mobile phone.', sub:'The first cuts · Mumbai'},
+  {from:2020.5, msg:'Learning the craft, one cut at a time.', sub:'YouTube · social · everything'},
   {from:2022.9, msg:'Founded CAN YOOU TRAVEL.', sub:"Cinematic documentaries on India's hidden stories"},
-  {from:2023.3, msg:'First studio years â€” Infiniqe & Exttenderz.', sub:'Podcasts Â· social campaigns Â· production'},
+  {from:2023.3, msg:'First studio years — Infiniqe & Exttenderz.', sub:'Podcasts · social campaigns · production'},
   {from:2024.8, msg:'Executive Video Editor at BeerBiceps SkillHouse.', sub:'Leading post-production at scale'},
-  {from:2025.5, msg:"Top 2 at Mumbai's first AI Hackathon.", sub:'AI films Â· generative advertising'},
-  {from:2026.2, msg:'Mentoring at Edit School Â· the AI films era.', sub:'Edit School Â· Can Yoou Edit Â· Dhanesh.AI'}
+  {from:2025.5, msg:"Top 2 at Mumbai's first AI Hackathon.", sub:'AI films · generative advertising'},
+  {from:2026.2, msg:'Mentoring at Edit School · the AI films era.', sub:'Edit School · Can Yoou Edit · Dhanesh.AI'}
 ];
 const TL_CLIPS = [
   {track:0, from:2024.8, to:TL_END, label:'BeerBiceps SkillHouse', cls:'lm'},
   {track:0, from:2023.75, to:2025.1, label:'Infiniqe Group', cls:'bl'},
-  {track:0, from:2019, to:2022.5, label:'Phone edits Â· freelance', cls:''},
+  {track:0, from:2019, to:2022.5, label:'Phone edits · freelance', cls:''},
   {track:1, from:2022.9, to:TL_END, label:'Can Yoou Travel', cls:'bl'},
   {track:1, from:2025.75, to:2026.5, label:'Soul Talk', cls:''},
-  {track:2, from:2026.3, to:TL_END, label:'Edit School Â· Mentor', cls:'lm'},
+  {track:2, from:2026.3, to:TL_END, label:'Edit School · Mentor', cls:'lm'},
   {track:2, from:2023.25, to:2025.1, label:'Exttenderz', cls:''},
   {track:2, from:2024.4, to:2025.05, label:'PropBook', cls:'bl'}
 ];
@@ -807,7 +845,7 @@ const jumpEl=document.getElementById('jump');
 const shelvesEl=document.getElementById('shelves');
 function thumbSrc(p){
   if(!p.id){
-    return{src:'data:image/svg+xml,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 560"><rect width="360" height="560" fill="#0b66ff"/><text x="50%" y="48%" fill="#9cff00" font-family="monospace" font-size="26" text-anchor="middle">â—Ž INSTAGRAM</text><text x="50%" y="56%" fill="#ffffff" font-family="monospace" font-size="15" text-anchor="middle" opacity=".7">tap to open reel</text></svg>`),fb:''};
+    return{src:'data:image/svg+xml,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 560"><rect width="360" height="560" fill="#0b66ff"/><text x="50%" y="48%" fill="#9cff00" font-family="monospace" font-size="26" text-anchor="middle">◎ INSTAGRAM</text><text x="50%" y="56%" fill="#ffffff" font-family="monospace" font-size="15" text-anchor="middle" opacity=".7">tap to open reel</text></svg>`),fb:''};
   }
   /* vertical Shorts get the vertical thumbnail; fall back to hqdefault */
   if(p.vert)return{src:`https://i.ytimg.com/vi/${p.id}/oar2.jpg`,fb:`https://i.ytimg.com/vi/${p.id}/hqdefault.jpg`};
@@ -825,7 +863,7 @@ function makeCard(p){
     <img class="thumb" src="${th.src}" ${th.fb?`data-fallback="${th.fb}"`:''} alt="Thumbnail for ${p.t.replace(/"/g,'&quot;')}" loading="lazy"/>
     <div class="clip-grad"></div>
     <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></span>
-    <div class="clip-foot"><div class="ti">${p.t}</div><div class="me"><b>${p.client}</b> Â· ${p.id?'Click to play':'Opens on Instagram'}</div></div>`;
+    <div class="clip-foot"><div class="ti">${p.t}</div><div class="me"><b>${p.client}</b> · ${p.id?'Click to play':'Opens on Instagram'}</div></div>`;
   const thumb=card.querySelector('.thumb');
   thumb.addEventListener('error',()=>{const fallback=thumb.dataset.fallback;if(fallback&&thumb.src!==fallback)thumb.src=fallback;});
   const activate=()=>{ if(p.id){openModal(p);} else if(p.url){window.open(p.url,'_blank','noopener');} };
@@ -854,8 +892,8 @@ SHELVES.forEach((s,i)=>{
         <span class="cnt">${items.length} ${items.length===1?'project':'projects'}</span>
       </div>
       <div class="shelf-arrows">
-        <button class="sarr" type="button" data-dir="-1" aria-label="Scroll ${s.label} left">â†</button>
-        <button class="sarr" type="button" data-dir="1" aria-label="Scroll ${s.label} right">â†’</button>
+        <button class="sarr" type="button" data-dir="-1" aria-label="Scroll ${s.label} left">←</button>
+        <button class="sarr" type="button" data-dir="1" aria-label="Scroll ${s.label} right">→</button>
       </div>
     </div>
     <div class="rail" aria-label="${s.label} projects"></div>`;
@@ -875,7 +913,7 @@ XP.forEach(x=>{
   el.innerHTML=`
     <div class="xp-head">
       <div><h3>${x.role}</h3><div class="co">${x.co}</div></div>
-      <span class="type${x.now?' now':''}">${x.now?'â— ':''}${x.type}</span>
+      <span class="type${x.now?' now':''}">${x.now?'● ':''}${x.type}</span>
     </div>
     <div class="dates">${x.dates}</div>
     <p>${x.d}</p>`;
@@ -912,7 +950,7 @@ XP.forEach(x=>{
   }
 
   /* Tracks + clips */
-  const trackMeta=[['V1','ðŸ”’','ðŸ‘'],['V2','ðŸ”’','ðŸ‘'],['V3','ðŸ”’','ðŸ‘']];
+  const trackMeta=[['V1','🔒','👁'],['V2','🔒','👁'],['V3','🔒','👁']];
   const lanes=[];
   trackMeta.forEach((m,ti)=>{
     const row=document.createElement('div');
@@ -978,7 +1016,7 @@ XP.forEach(x=>{
   });
   addEventListener('resize',()=>setPct(pct,false));
 
-  /* Intro scrub: play the career from 2019 â†’ today when the timeline scrolls in */
+  /* Intro scrub: play the career from 2019 → today when the timeline scrolls in */
   const START_AT=96;
   if(REDUCE||!HAS_GSAP||!HAS_SCROLL_TRIGGER){setPct(START_AT);}
   else{
@@ -1003,7 +1041,7 @@ function openModal(p){
   modalIn.classList.toggle('vert',!!p.vert);
   mif.src=`https://www.youtube.com/embed/${encodeURIComponent(p.id)}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
   modalT.textContent=p.t;
-  modalR.textContent=`${p.client} Â· ${p.yr} Â· ${p.role}`;
+  modalR.textContent=`${p.client} · ${p.yr} · ${p.role}`;
   modal.classList.add('open');
   modal.setAttribute('aria-hidden','false');
   document.body.style.overflow='hidden';
