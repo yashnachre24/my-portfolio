@@ -895,4 +895,155 @@ SHELVES.forEach((s,i)=>{
       </div>
       <div class="shelf-arrows">
         <button class="sarr" type="button" data-dir="-1" aria-label="Scroll ${s.label} left">←</button>
-        <button class="sarr" type="button" data-dir="1" aria-label="Scroll ${s.label} right">→</butt
+        <button class="sarr" type="button" data-dir="1" aria-label="Scroll ${s.label} right">→</button>
+      </div>
+    </div>
+    <div class="rail"></div>`;
+  const rail=shelf.querySelector('.rail');
+  items.forEach(p=>rail.appendChild(makeCard(p)));
+  shelf.querySelectorAll('.sarr').forEach(b=>b.addEventListener('click',()=>{
+    rail.scrollBy({left:Number(b.dataset.dir)*rail.clientWidth*0.8,behavior:REDUCE?'auto':'smooth'});
+  }));
+  shelvesEl.appendChild(shelf);
+});
+
+/* ============ MODAL ============ */
+const modal=document.getElementById('modal');
+const modalIn=document.getElementById('modalIn');
+const modalIf=document.getElementById('modal-if');
+let lastFocus=null;
+function openModal(p){
+  lastFocus=document.activeElement;
+  modalIn.classList.toggle('vert',!!p.vert);
+  modalIf.src=`https://www.youtube.com/embed/${p.id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+  document.getElementById('modalT').textContent=p.t;
+  document.getElementById('modalR').textContent=`${p.client} · ${p.role}`;
+  modal.classList.add('open');modal.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+  document.getElementById('modalX').focus();
+}
+function closeModal(){
+  modal.classList.remove('open');modal.setAttribute('aria-hidden','true');
+  modalIf.src='';document.body.style.overflow='';
+  if(lastFocus)lastFocus.focus();
+}
+document.getElementById('modalX').addEventListener('click',closeModal);
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeModal();});
+
+/* ============ EXPERIENCE CARDS ============ */
+const xpGrid=document.getElementById('xpGrid');
+XP.forEach(x=>{
+  const el=document.createElement('div');
+  el.className='xp reveal';
+  el.innerHTML=`<div class="xp-head"><div><h3>${x.role}</h3><div class="co">${x.co}</div></div><span class="type${x.now?' now':''}">${x.type}</span></div><div class="dates">${x.dates}</div><p>${x.d}</p>`;
+  xpGrid.appendChild(el);
+});
+
+/* ============ TIMELINE ============ */
+(function(){
+  const ruler=document.getElementById('tlRuler');
+  const tracks=document.getElementById('tlTracks');
+  const head=document.getElementById('tlHead');
+  const grab=document.getElementById('tlGrab');
+  const stage=document.getElementById('tlStage');
+  const yearEl=document.getElementById('tlYear'),msgEl=document.getElementById('tlMsg'),subEl=document.getElementById('tlSub');
+  const SPAN=TL_END-TL_START;
+  const pct=v=>((v-TL_START)/SPAN)*100;
+  const progress=document.createElement('div');progress.className='tl-progress';ruler.appendChild(progress);
+  for(let y=TL_START;y<=Math.floor(TL_END);y++){
+    for(let q=0;q<4;q++){
+      const v=y+q*.25;if(v>TL_END)break;
+      const t=document.createElement('div');
+      t.className='tl-tick'+(q===0?' major':'');
+      t.style.left=pct(v)+'%';
+      if(q===0)t.innerHTML=`<span class="yl">${y}</span>`;
+      ruler.appendChild(t);
+    }
+  }
+  const TRACK_NAMES=['V1','V2','V3'];
+  const lanes=[];
+  TRACK_NAMES.forEach((n,i)=>{
+    const row=document.createElement('div');row.className='tl-row';
+    row.innerHTML=`<div class="tl-meta"><span class="k on">${n}</span><span class="lbl2">${['Studio','Brand','Craft'][i]}</span></div><div class="tl-lane"></div>`;
+    tracks.appendChild(row);lanes.push(row.querySelector('.tl-lane'));
+  });
+  const blocks=TL_CLIPS.map(c=>{
+    const b=document.createElement('div');
+    b.className='tl-clipblk '+c.cls;
+    b.style.left=pct(c.from)+'%';b.style.width=(pct(c.to)-pct(c.from))+'%';
+    b.textContent=c.label;lanes[c.track].appendChild(b);
+    return {b,c};
+  });
+  /* playhead is positioned over the lane area (after the meta column) */
+  function laneBox(){const l=lanes[0].getBoundingClientRect(),s=stage.getBoundingClientRect();return{x:l.left-s.left,w:l.width,abs:l.left};}
+  let val=2026.3;
+  function set(v){
+    val=Math.max(TL_START,Math.min(TL_END,v));
+    const lb=laneBox();
+    head.style.left=(lb.x+lb.w*(val-TL_START)/SPAN)+'px';
+    progress.style.width=pct(val)+'%';
+    const yr=Math.min(2026,Math.floor(val));
+    yearEl.textContent=yr;
+    let m=MILESTONES[0];MILESTONES.forEach(x=>{if(val>=x.from)m=x;});
+    msgEl.textContent=m.msg;subEl.textContent=m.sub;
+    blocks.forEach(({b,c})=>b.classList.toggle('live',val>=c.from&&val<=c.to));
+    grab.setAttribute('aria-valuenow',yr);grab.setAttribute('aria-valuetext',`${yr}: ${m.msg}`);
+  }
+  /* ruler sits full-width; align it with lanes */
+  function alignRuler(){const lb=laneBox();ruler.style.marginLeft=lb.x+'px';ruler.style.width=lb.w+'px';}
+  let drag=false;
+  const fromX=x=>{const lb=laneBox();set(TL_START+((x-lb.abs)/lb.w)*SPAN);};
+  stage.addEventListener('pointerdown',e=>{drag=true;stage.setPointerCapture(e.pointerId);fromX(e.clientX);});
+  stage.addEventListener('pointermove',e=>{if(drag)fromX(e.clientX);});
+  stage.addEventListener('pointerup',()=>drag=false);
+  stage.addEventListener('pointercancel',()=>drag=false);
+  grab.addEventListener('keydown',e=>{
+    if(e.key==='ArrowLeft'){e.preventDefault();set(val-.25);}
+    if(e.key==='ArrowRight'){e.preventDefault();set(val+.25);}
+    if(e.key==='Home'){e.preventDefault();set(TL_START);}
+    if(e.key==='End'){e.preventDefault();set(TL_END);}
+  });
+  addEventListener('resize',()=>{alignRuler();set(val);});
+  alignRuler();set(val);
+  window.__tlSet=set;
+})();
+
+/* ============ ANIMATIONS ============ */
+function runCounters(){
+  document.querySelectorAll('.counter').forEach(c=>{
+    const target=+c.dataset.target;
+    if(REDUCE){c.textContent=target;return;}
+    const t0=performance.now(),dur=1600;
+    const step=now=>{const k=Math.min((now-t0)/dur,1);c.textContent=Math.round(target*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(step);};
+    requestAnimationFrame(step);
+  });
+}
+function initAnim(){
+  const heroBits=['.hero-eyebrow','.hero-copy','.hero-cta-row','.hero-panel','.scroll-hint'];
+  if(HAS_GSAP&&!REDUCE){
+    const tl=gsap.timeline();
+    tl.to('.hero-h1 .ln i',{y:0,duration:1,ease:'power4.out',stagger:.12})
+      .to('.hero-eyebrow',{opacity:1,duration:.5},'-=.7')
+      .to('.hero-copy',{opacity:1,duration:.6},'-=.4')
+      .to('.hero-cta-row',{opacity:1,duration:.6},'-=.4')
+      .fromTo('.hero-panel',{opacity:0,scale:.94},{opacity:1,scale:1,duration:.9,ease:'power3.out'},'-=.9')
+      .to('.scroll-hint',{opacity:1,duration:.5},'-=.3');
+  }else{
+    document.querySelectorAll('.hero-h1 .ln i').forEach(el=>{el.style.transition='transform .9s cubic-bezier(.2,.8,.2,1)';el.style.transform='none';});
+    heroBits.forEach(s=>{const el=document.querySelector(s);if(el){el.style.transition='opacity .8s';el.style.opacity=1;}});
+  }
+  runCounters();
+  const reveals=document.querySelectorAll('.reveal');
+  if(REDUCE||!('IntersectionObserver' in window)){reveals.forEach(r=>{r.style.opacity=1;r.style.transform='none';});return;}
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target;el.style.transition='opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1)';
+    el.style.opacity=1;el.style.transform='none';io.unobserve(el);
+  }),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  reveals.forEach(r=>io.observe(r));
+}
+</script>
+</body>
+</html>
+
