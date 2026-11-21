@@ -622,14 +622,14 @@ section{position:relative;z-index:2;padding:clamp(80px,11vw,145px) var(--pad);}
         <p class="contact-sub reveal">Tell me about the project — footage, deadline and where it's going. I'll take it from there.</p>
         <div class="contact-links reveal">
           <a href="mailto:yashnachre24@gmail.com" class="clink">✉ Email</a>
-          <a href="https://youtube.com/@canyooutravel" target="_blank" rel="noopener" class="clink">▶ Can Yoou Travel</a>
-          <a href="https://youtube.com/@canyooutravelshorts" target="_blank" rel="noopener" class="clink">▶ Travel Shorts</a>
+          <a href="https://youtube.com/@canyooutravel" target="_blank" rel="noopener" class="clink">▶️ Can Yoou Travel</a>
+          <a href="https://youtube.com/@canyooutravelshorts" target="_blank" rel="noopener" class="clink">▶️ Travel Shorts</a>
           <a href="https://www.instagram.com/canyoou.edit/" target="_blank" rel="noopener" class="clink">◎ Can Yoou Edit</a>
           <a href="https://www.instagram.com/canyoou.travel/" target="_blank" rel="noopener" class="clink">◎ Can Yoou Travel</a>
           <a href="https://www.linkedin.com/in/yash-nachre" target="_blank" rel="noopener" class="clink">in LinkedIn</a>
           <a href="https://www.facebook.com/canyooutravel" target="_blank" rel="noopener" class="clink">f Facebook</a>
         </div>
-        <div class="foot"><span>© <span id="currentYear">2026</span> Yash Nachre — All rights reserved</span><span class="gold">Frames · Stories · Impact</span></div>
+        <div class="foot"><span>©️ <span id="currentYear">2026</span> Yash Nachre — All rights reserved</span><span class="gold">Frames · Stories · Impact</span></div>
       </div>
     </div>
   </div>
@@ -677,6 +677,8 @@ const PROJECTS = [
 
    
   /* 02 — YouTube Long Form Video */
+  {id:'Wpc0q2HnsjI', cat:'yt', client:'Yash Nachre', yr:2026,
+   t:'Portfolio Trailer — Yash Nachre', role:'Portfolio trailer — editing, storytelling, motion graphics and AI filmmaking'},
   {id:'gcJyEPA3ePo', cat:'yt', client:'BeerBiceps SkillHouse', yr:2025,
    t:"Stop Doing This at Work — Why You're Not Getting Promoted", role:'YouTube Video Editor — long-form edit, b-roll, subtitles'},
   {id:'e-4ERiEDBGc', cat:'yt', client:'finforindia', yr:2026,
@@ -893,201 +895,4 @@ SHELVES.forEach((s,i)=>{
       </div>
       <div class="shelf-arrows">
         <button class="sarr" type="button" data-dir="-1" aria-label="Scroll ${s.label} left">←</button>
-        <button class="sarr" type="button" data-dir="1" aria-label="Scroll ${s.label} right">→</button>
-      </div>
-    </div>
-    <div class="rail" aria-label="${s.label} projects"></div>`;
-  const rail=shelf.querySelector('.rail');
-  items.forEach(p=>rail.appendChild(makeCard(p)));
-  shelf.querySelectorAll('.sarr').forEach(b=>b.addEventListener('click',()=>{
-    rail.scrollBy({left:(+b.dataset.dir)*(rail.clientWidth*.8),behavior:REDUCE?'auto':'smooth'});
-  }));
-  shelvesEl.appendChild(shelf);
-});
-
-/* ============ EXPERIENCE CARDS ============ */
-const xpGrid=document.getElementById('xpGrid');
-XP.forEach(x=>{
-  const el=document.createElement('div');
-  el.className='xp reveal';
-  el.innerHTML=`
-    <div class="xp-head">
-      <div><h3>${x.role}</h3><div class="co">${x.co}</div></div>
-      <span class="type${x.now?' now':''}">${x.now?'● ':''}${x.type}</span>
-    </div>
-    <div class="dates">${x.dates}</div>
-    <p>${x.d}</p>`;
-  xpGrid.appendChild(el);
-});
-
-/* ============ EDITOR TIMELINE ============ */
-(function(){
-  const stage=document.getElementById('tlStage');
-  const ruler=document.getElementById('tlRuler');
-  const tracks=document.getElementById('tlTracks');
-  const head=document.getElementById('tlHead');
-  const grab=document.getElementById('tlGrab');
-  const progress=document.createElement('div');
-  progress.className='tl-progress';
-  ruler.appendChild(progress);
-  const yearEl=document.getElementById('tlYear');
-  const msgEl=document.getElementById('tlMsg');
-  const subEl=document.getElementById('tlSub');
-  const SPAN=TL_END-TL_START;
-  const LANE_OFFSET=108; /* matches .tl-meta width; recalculated on layout */
-
-  /* Ruler ticks: major per year, minor per quarter */
-  for(let y=TL_START;y<=Math.floor(TL_END);y++){
-    for(let q=0;q<4;q++){
-      const v=y+q*0.25;
-      if(v>TL_END)break;
-      const t=document.createElement('div');
-      t.className='tl-tick'+(q===0?' major':'');
-      t.style.left=((v-TL_START)/SPAN*100)+'%';
-      if(q===0)t.innerHTML=`<span class="yl">${y}</span>`;
-      ruler.appendChild(t);
-    }
-  }
-
-  /* Tracks + clips */
-  const trackMeta=[['V1','🔒','👁'],['V2','🔒','👁'],['V3','🔒','👁']];
-  const lanes=[];
-  trackMeta.forEach((m,ti)=>{
-    const row=document.createElement('div');
-    row.className='tl-row';
-    row.innerHTML=`<div class="tl-meta"><span class="k on">${m[0]}</span><span class="k">M</span><span class="k lbl2">S</span></div><div class="tl-lane"></div>`;
-    tracks.appendChild(row);
-    lanes.push(row.querySelector('.tl-lane'));
-  });
-  const blocks=[];
-  TL_CLIPS.forEach(c=>{
-    const b=document.createElement('div');
-    b.className='tl-clipblk '+c.cls;
-    b.style.left=((c.from-TL_START)/SPAN*100)+'%';
-    b.style.width=((c.to-c.from)/SPAN*100)+'%';
-    b.textContent=c.label;
-    b.title=c.label;
-    lanes[c.track].appendChild(b);
-    blocks.push({el:b,from:c.from,to:c.to});
-  });
-
-  let pct=0, target=null;
-  function laneLeft(){ return lanes[0].getBoundingClientRect().left - stage.getBoundingClientRect().left; }
-  function laneWidth(){ return lanes[0].getBoundingClientRect().width; }
-  function setPct(v,announce=true){
-    pct=Math.max(0,Math.min(100,v));
-    const yearVal=TL_START+(pct/100)*SPAN;
-    const x=laneLeft()+ (pct/100)*laneWidth();
-    head.style.transform=`translateX(${x}px)`;
-    progress.style.left=laneLeft()+'px';
-    progress.style.width=((pct/100)*laneWidth())+'px';
-    const yr=Math.min(2026,Math.floor(yearVal));
-    yearEl.textContent=yr;
-    let mi=MILESTONES[0];
-    MILESTONES.forEach(m=>{if(yearVal>=m.from)mi=m;});
-    if(msgEl.textContent!==mi.msg){
-      msgEl.textContent=mi.msg;
-      subEl.textContent=mi.sub;
-      if(HAS_GSAP&&!REDUCE)gsap.fromTo('.tl-cap .msg',{opacity:.35,y:6},{opacity:1,y:0,duration:.35,ease:'power2.out'});
-    }
-    blocks.forEach(b=>b.el.classList.toggle('live',yearVal>=b.from&&yearVal<=b.to));
-    if(announce){
-      grab.setAttribute('aria-valuenow',String(yr));
-      grab.setAttribute('aria-valuetext',String(yr));
-    }
-  }
-  function pctFromEvent(e){
-    const r=lanes[0].getBoundingClientRect();
-    return ((e.clientX-r.left)/r.width)*100;
-  }
-  let dragging=false;
-  stage.addEventListener('pointerdown',e=>{
-    dragging=true;
-    stage.setPointerCapture(e.pointerId);
-    setPct(pctFromEvent(e));
-  });
-  stage.addEventListener('pointermove',e=>{if(dragging)setPct(pctFromEvent(e));});
-  addEventListener('pointerup',()=>dragging=false);
-  grab.addEventListener('keydown',e=>{
-    if(e.key==='ArrowRight'||e.key==='ArrowUp'){e.preventDefault();setPct(pct+3);}
-    if(e.key==='ArrowLeft'||e.key==='ArrowDown'){e.preventDefault();setPct(pct-3);}
-    if(e.key==='Home'){e.preventDefault();setPct(0);}
-    if(e.key==='End'){e.preventDefault();setPct(100);}
-  });
-  addEventListener('resize',()=>setPct(pct,false));
-
-  /* Intro scrub: play the career from 2019 → today when the timeline scrolls in */
-  const START_AT=96;
-  if(REDUCE||!HAS_GSAP||!HAS_SCROLL_TRIGGER){setPct(START_AT);}
-  else{
-    setPct(0,false);
-    const scrubIn=()=>{ gsap.to({v:0},{v:START_AT,duration:2.6,ease:'power2.inOut',onUpdate:function(){setPct(this.targets()[0].v,false);},onComplete:()=>setPct(START_AT)}); };
-    /* ScrollTrigger registered in initAnim; create after load */
-    window.__tlScrubIn=scrubIn;
-  }
-  window.__tlSetPct=setPct;
-})();
-
-/* ============ Modal ============ */
-const modal=document.getElementById('modal');
-const modalIn=document.getElementById('modalIn');
-const mif=document.getElementById('modal-if');
-const modalT=document.getElementById('modalT');
-const modalR=document.getElementById('modalR');
-let lastFocused=null;
-function openModal(p){
-  if(!p||!p.id)return;
-  lastFocused=document.activeElement;
-  modalIn.classList.toggle('vert',!!p.vert);
-  mif.src=`https://www.youtube.com/embed/${encodeURIComponent(p.id)}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
-  modalT.textContent=p.t;
-  modalR.textContent=`${p.client} · ${p.yr} · ${p.role}`;
-  modal.classList.add('open');
-  modal.setAttribute('aria-hidden','false');
-  document.body.style.overflow='hidden';
-  requestAnimationFrame(()=>modalIn.focus());
-}
-function closeModal(){
-  modal.classList.remove('open');
-  modal.setAttribute('aria-hidden','true');
-  mif.src='';
-  document.body.style.overflow='';
-  if(lastFocused&&typeof lastFocused.focus==='function')lastFocused.focus();
-}
-document.getElementById('modalX').addEventListener('click',closeModal);
-modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
-addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeModal();});
-
-/* ============ Animations ============ */
-function initAnim(){
-  if(REDUCE||!HAS_GSAP||!HAS_SCROLL_TRIGGER){document.querySelectorAll('.reveal,.hero-eyebrow,.hero-copy,.hero-cta-row,.hero-panel,.scroll-hint').forEach(el=>{el.style.opacity=1;el.style.transform='none';});document.querySelectorAll('.hero-h1 .ln i').forEach(el=>el.style.transform='none');document.querySelectorAll('.counter').forEach(el=>el.textContent=el.dataset.target);return;}
-  gsap.registerPlugin(ScrollTrigger);
-  const tl=gsap.timeline();
-  tl.to('.hero-eyebrow',{opacity:1,y:0,duration:.55,ease:'power3.out'})
-    .to('.hero-h1 .ln i',{y:'0%',duration:1,stagger:.1,ease:'power4.out'},'-=.2')
-    .to('.hero-copy',{opacity:1,y:0,duration:.65,ease:'power3.out'},'-=.45')
-    .to('.hero-cta-row',{opacity:1,y:0,duration:.65,ease:'power3.out'},'-=.45')
-    .to('.hero-panel',{opacity:1,y:0,duration:.8,ease:'power3.out'},'-=.65')
-    .from('.float-pill',{y:20,opacity:0,rotate:0,duration:.7,stagger:.08,ease:'back.out(1.5)'},'-=.55')
-    .to('.scroll-hint',{opacity:1,duration:.45},'-=.25');
-
-  gsap.utils.toArray('.reveal').forEach(el=>{gsap.to(el,{scrollTrigger:{trigger:el,start:'top 88%'},opacity:1,y:0,duration:.75,ease:'power3.out'});});
-  document.querySelectorAll('.counter').forEach(el=>{const t=+el.dataset.target;ScrollTrigger.create({trigger:el,start:'top 92%',once:true,onEnter:()=>{gsap.to({v:0},{v:t,duration:1.8,ease:'power2.out',onUpdate:function(){el.textContent=Math.round(this.targets()[0].v);}});}});});
-  if(window.__tlScrubIn){ScrollTrigger.create({trigger:'#tl',start:'top 75%',once:true,onEnter:window.__tlScrubIn});}
-  gsap.to('.avatar-card',{y:-16,rotation:4,duration:3.2,repeat:-1,yoyo:true,ease:'sine.inOut'});
-  gsap.to('.fp1',{y:-10,rotation:-3,duration:2.8,repeat:-1,yoyo:true,ease:'sine.inOut'});
-  gsap.to('.fp2',{y:12,rotation:10,duration:3.4,repeat:-1,yoyo:true,ease:'sine.inOut'});
-  gsap.to('.fp3',{y:-12,rotation:1,duration:3.1,repeat:-1,yoyo:true,ease:'sine.inOut'});
-  gsap.to('.fp4',{y:10,rotation:-12,duration:2.7,repeat:-1,yoyo:true,ease:'sine.inOut'});
-}
-
-/* ============ Smooth anchors ============ */
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:REDUCE?'auto':'smooth'});}});});
-document.getElementById('jump').addEventListener('click',e=>{
-  const a=e.target.closest('a');if(!a)return;
-  const t=document.querySelector(a.getAttribute('href'));
-  if(t){e.preventDefault();t.scrollIntoView({behavior:REDUCE?'auto':'smooth'});}
-});
-</script>
-</body>
-</html>
+        <button class="sarr" type="button" data-dir="1" aria-label="Scroll ${s.label} right">→</butt
